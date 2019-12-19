@@ -1,0 +1,2182 @@
+{
+    "id": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+    "name": "Heroku",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "8bc67c807a06f901bf38ede96637e26e",
+            "name": "Parameters Addons",
+            "url": "httpsapi.heroku.com\/\/addons",
+            "description": "Parameters addons.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "1f855dad9f84941e9b9d502921593ce1",
+            "name": "Get Addons",
+            "url": "httpsapi.heroku.com\/\/addons",
+            "description": "List all available addons.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "afac59845b93a41106d62c8b86d39e8f",
+            "name": "Parameter Application Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons",
+            "description": "Parameter application addons.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "8f8843a5d228aae1b68adc3f2b0024c5",
+            "name": "Get Application Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons",
+            "description": "List addons installed on an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "063983c6f243dd25f2535deb5079310d",
+            "name": "Parameters Applications Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
+            "description": "Parameters applications addons.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "0ffc515c5de064101aed6eb708c594e0",
+            "name": "Add Application Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
+            "description": "Install an addon to an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "the addon name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "684bce5020e718d98e0b670c9a07f043",
+            "name": "Put Application Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
+            "description": "Upgrade an addon to an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "the addon name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "472b0fc74960d8f769e4de4be8c92aaf",
+            "name": "Delete Applications Addons",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
+            "description": "Uninstall an addon from an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "the addon name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "addon",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "0dd0665681969fca6b024aa4edea21c5",
+            "name": "Parameters Applications",
+            "url": "httpsapi.heroku.com\/\/apps",
+            "description": "Parameters applications.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "98760e7ca4509926857bfb1f7cda13ce",
+            "name": "Get Applications",
+            "url": "httpsapi.heroku.com\/\/apps",
+            "description": "Get applications.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "d7334b7bbda3fc297252d2256350cd02",
+            "name": "Add Applications",
+            "url": "httpsapi.heroku.com\/\/apps",
+            "description": "Add applications.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "61d19f174a2ee7d603e0d31dae4dab93",
+            "name": "Parameters Applications Name",
+            "url": "httpsapi.heroku.com\/\/apps\/{name}",
+            "description": "Parameters applications name.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "d9b739a921ef17d3f5c4d6620af058ab",
+            "name": "Get Applications Name",
+            "url": "httpsapi.heroku.com\/\/apps\/{name}",
+            "description": "Get applications name.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "a6f01986dff4f31f1d708fa81e290435",
+            "name": "Delete Applications Name",
+            "url": "httpsapi.heroku.com\/\/apps\/{name}",
+            "description": "Delete applications name.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "2a895f60153eccdf450e56379c790c1f",
+            "name": "Parameters Application Collaborators",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators",
+            "description": "Parameters application collaborators.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "e609bd2d8fd9b12d070ab366fe69ae84",
+            "name": "Get Application Collaborators",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators",
+            "description": "List collaborators for an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "8e8521e167c72870875e6e563847fc5b",
+            "name": "Parameters Application Collaborators Email",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators\/{email}",
+            "description": "Parameters application collaborators email.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "a13bba299d48cd0742d04c71242383c5",
+            "name": "Delete Application Collaborators Email",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators\/{email}",
+            "description": "Delete application collaborators email.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "description": "The email of the user to remove as a collaborator.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "email",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "ddabf2396fe5003afa4d86989ba2f5ae",
+            "name": "Parameters Application Config Variables",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
+            "description": "Parameters application config variables.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "4f1be3e39b0adec38302bd51be601970",
+            "name": "Get Application Config Variables",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
+            "description": "Get application config variables.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "307375740d77348d22b44a2ae306fb70",
+            "name": "Put Application Config Variables",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
+            "description": "Put application config variables.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "2f49a42b788ca1730f8a5edebdb44427",
+            "name": "Parameters Application Config Variables Key",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars\/{key}",
+            "description": "Parameters application config variables key.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "44e079dca5fec3fa462f0031cbfa6731",
+            "name": "Delete Application Config Variables Key",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars\/{key}",
+            "description": "Delete application config variables key.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The config var to remove.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "c96619454993139e243c480928d8665e",
+            "name": "Parameters Application Domains",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains",
+            "description": "Parameters application domains.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "f824479147b689e4e85637ff34e36899",
+            "name": "Get Application Domains",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains",
+            "description": "List domains for an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "8151f4c66c08148f4e85ce0f86013623",
+            "name": "Parameters Application Domain Name",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains\/{domain_name}",
+            "description": "Parameters application domain name.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "2d2bbe1e0942546c873e1cc2cd7962f8",
+            "name": "Delete Application Domain Name",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains\/{domain_name}",
+            "description": "Delete application domain name.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain_name",
+                    "description": "The domain to remove.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "domain_name",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "7fb751c0a1fed87cf37308a95a0c13f8",
+            "name": "Parameters User Keys",
+            "url": "httpsapi.heroku.com\/\/user\/keys",
+            "description": "Parameters user keys.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "b5fe894931985bdb9ee5a5b5c712c8ee",
+            "name": "Get User Keys",
+            "url": "httpsapi.heroku.com\/\/user\/keys",
+            "description": "List SSH keys.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "137cb2406cb686212b5b089d93556954",
+            "name": "Add User Keys",
+            "url": "httpsapi.heroku.com\/\/user\/keys",
+            "description": "Associate an SSH key with this account.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "b3e48e3cf6e78f03f85253c6978c5952",
+            "name": "Parameters User Keys Key",
+            "url": "httpsapi.heroku.com\/\/user\/keys\/{key}",
+            "description": "Parameters user keys key.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "f6aad587a4ce49408e32fb2ff8a907d0",
+            "name": "Delete User Keys Key",
+            "url": "httpsapi.heroku.com\/\/user\/keys\/{key}",
+            "description": "Remove an SSH key from this account.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "The config var to remove.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "key",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "3e60e060665545125ea1dc3dee17da05",
+            "name": "Parameters Application Logs",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/logs",
+            "description": "Parameters application logs.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "d83e3689ccb14ad37a822d41d92fa692",
+            "name": "Get Application Logs",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/logs",
+            "description": "Get application logs.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "logplex",
+                    "description": "Use logplex to stream logs (always true).",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "num",
+                    "description": "The number of lines to display.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ps",
+                    "description": "Only display logs from a given process.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "source",
+                    "description": "Only display logs from a given source.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "tail",
+                    "description": "1: continually stream logs - : display only num logs",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "408d67d7313f9dfda75378b68d624223",
+            "name": "Parameters Application PS",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
+            "description": "Parameters application ps.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "b42a72399b24f329ed30335b1d1c59e6",
+            "name": "Get Application PS",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
+            "description": "List processes for an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "20b5c69e5c8bebe3203308a3551221e8",
+            "name": "Add Application PS",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
+            "description": "Run a one-off process.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "command",
+                    "description": "The command to run.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "attach",
+                    "description": "true: use rendezvous to access stdin\/stdout - <blank>: stream process output to the application log",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "6f73962a8857050f2556bfa4d18941cd",
+            "name": "Parameters Application PS Restart",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/restart",
+            "description": "Parameters application ps restart.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "6631a93cfb35e8d3abca76c872d0c66b",
+            "name": "Add Application PS Restart",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/restart",
+            "description": "Restart processes of an app. Specify either ps or type to restart only the specified processes. Leave both blank to restart the entire app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ps",
+                    "description": "Only display logs from a given process.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "The type of process to restart.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "036e8122f03c94c194a7e399ad7a8a28",
+            "name": "Parameters Application PS Stop",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/stop",
+            "description": "Parameters application ps stop.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "79924462055257627473677537a7d07f",
+            "name": "Add Application PS Stop",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/stop",
+            "description": "Stop processes of an app. Specify either ps or type to stop the specified processes.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "ps",
+                    "description": "Only display logs from a given process.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "The type of process to restart.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "739fecbcfb1a1a03659792911b08c466",
+            "name": "Parameters Application PS Scale",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/scale",
+            "description": "Parameters application ps scale.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "934e10ef598d33cc0ed419e4d5442cb9",
+            "name": "Add Application PS Scale",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/scale",
+            "description": "Scale processes of an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "qty",
+                    "description": "The desired number of processes of this type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "type",
+                    "description": "The type of process to restart.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "c3a020a46719fa08a411a7600abe761b",
+            "name": "Parameters Application Releases",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
+            "description": "Parameters application releases.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "99644b844e04ba127927d6ae3ac12fb1",
+            "name": "Get Application Releases",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
+            "description": "List releases for an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "c5601f15b5ff458f5f350aad7ce2762f",
+            "name": "Add Application Releases",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
+            "description": "Add application releases.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "rollback",
+                    "description": "The release to which to roll back.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "60f65f404123e0e55f938c097320833a",
+            "name": "Parameters Application Releases",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases\/{release}",
+            "description": "Parameters application releases.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "4a0a8809e696caf42e11bffe94bd75af",
+            "name": "Get Application Releases",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases\/{release}",
+            "description": "Get application releases.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "release",
+                    "description": "The release name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "release",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "fd287cd95348d092b5c4e4fb94e9072c",
+            "name": "Parameters Application Stack",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
+            "description": "Parameters application stack.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "parameters",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "c9445adf24346dd83879ba1a8fe11fb0",
+            "name": "Get Application Stack",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
+            "description": "List available stacks for an app.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        },
+        {
+            "id": "cefff9cd40b9c73214b12040382f009c",
+            "name": "Put Application Stack",
+            "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
+            "description": "Migrate an app to a new stack.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "Accept",
+                    "description": "Content type.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "The app name.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "app",
+                    "description": "",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "rawModeData": ""
+        }
+    ]
+}
