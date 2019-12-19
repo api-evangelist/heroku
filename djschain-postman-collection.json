@@ -1,0 +1,59 @@
+{
+    "id": "f291c217e60eebf9b61570042a0f75b3",
+    "name": "djs-chain",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "5396470337d6c23512e716396ca34936",
+            "name": "",
+            "url": "http:\/\/djs-chain.heroku.com\/\/Persons",
+            "description": "Return all known persons",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f291c217e60eebf9b61570042a0f75b3",
+            "rawModeData": ""
+        },
+        {
+            "id": "9677de4d1faad636976bb86abe19c446",
+            "name": "",
+            "url": "http:\/\/djs-chain.heroku.com\/\/Persons",
+            "description": "Create a person",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "f291c217e60eebf9b61570042a0f75b3",
+            "rawModeData": ""
+        }
+    ]
+}
