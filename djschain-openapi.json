@@ -1,0 +1,104 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "djs-chain",
+        "description": "This code is part of the [https:\/\/plus.google.com\/communities\/108273924382799882716](Diffuse Javascript) MOOC. It illustrates a chain of objects starting in the browser, linked to server objects, backed up in an SQL database. When an object is modified in a browser, an HTTP REST API allows to propagate the modification towards the server which persists that new state in a database, the modification is then pushed towards the various clients of the server via WebSocket.",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "http:\/\/djs-chain.heroku.com\/"
+    ],
+    "paths": {
+        "\/Persons": {
+            "get": {
+                "summary": "",
+                "description": "Return all known persons",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "an array of persons",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/arrayOfpersons"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "",
+                "description": "Create a person",
+                "operationId": "",
+                "deprecated": 0,
+                "parameters": []
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "person": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "nickname": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "age": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "arrayOfpersons": {
+                "type": "object"
+            },
+            "personCharacteristics": {
+                "type": "object",
+                "properties": {
+                    "nickname": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "age": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "patch": {
+                "type": "object",
+                "properties": {
+                    "kind": {
+                        "description": "the type of the message",
+                        "type": "string"
+                    },
+                    "table": {
+                        "description": "the name of the table",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "field": {
+                        "description": "the name of the property to modify",
+                        "type": "string"
+                    },
+                    "value": {
+                        "description": "the value to set in the property",
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
