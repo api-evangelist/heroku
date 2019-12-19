@@ -1,0 +1,213 @@
+{
+    "name": "Heroku",
+    "description": "Heroku is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/211-heroku.jpg",
+    "tags": [
+        "api lifeycle",
+        "api provider",
+        "api service provider",
+        "code",
+        "command line interface",
+        "compute",
+        "databases",
+        "developers",
+        "getting started example",
+        "have api",
+        "have swagger",
+        "issues",
+        "issues example",
+        "paas",
+        "relative data",
+        "service api",
+        "webhook implementations"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/heroku\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [
+        {
+            "name": "Heroku",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/211-heroku.jpg",
+            "humanURL": "http:\/\/heroku.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/heroku.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/heroku-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/heroku-postman-collection.json"
+                }
+            ]
+        },
+        {
+            "name": "djs-chain",
+            "description": null,
+            "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/211-heroku.jpg",
+            "humanURL": "http:\/\/heroku.com",
+            "baseURL": "",
+            "tags": [],
+            "properties": [
+                {
+                    "type": "x-openapi",
+                    "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-evangelist-site\/company\/openapis\/djschain.json"
+                },
+                {
+                    "type": "x-openapi",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/djschain-openapi.json"
+                },
+                {
+                    "type": "x-postman-collecction",
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/djschain-postman-collection.json"
+                }
+            ]
+        }
+    ],
+    "include": [],
+    "x-common": [
+        {
+            "type": "Base",
+            "url": "https:\/\/api.heroku.com"
+        },
+        {
+            "type": "Blog",
+            "url": "https:\/\/blog.heroku.com\/"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/feeds2.feedburner.com\/heroku"
+        },
+        {
+            "type": "Command Line Interface",
+            "url": "https:\/\/devcenter.heroku.com\/articles\/heroku-command"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/heroku"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/heroku"
+        },
+        {
+            "type": "Developers",
+            "url": "https:\/\/devcenter.heroku.com\/"
+        },
+        {
+            "type": "Email",
+            "url": "pr@heroku.com"
+        },
+        {
+            "type": "Email",
+            "url": "abuse@heroku.com"
+        },
+        {
+            "type": "Email",
+            "url": "feedback@heroku.com"
+        },
+        {
+            "type": "Getting Started",
+            "url": "https:\/\/devcenter.heroku.com\/start"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/heroku"
+        },
+        {
+            "type": "Issues",
+            "url": "https:\/\/status.heroku.com\/incidents"
+        },
+        {
+            "type": "Java Library",
+            "url": "https:\/\/devcenter.heroku.com\/categories\/java"
+        },
+        {
+            "type": "Node.js",
+            "url": "https:\/\/devcenter.heroku.com\/categories\/nodejs"
+        },
+        {
+            "type": "Swagger",
+            "url": "http:\/\/kinlane-productions.s3.amazonaws.com\/api-definitions\/swagger\/211-2019-09-03-18-03-13.json"
+        },
+        {
+            "type": "PHP LIbrary",
+            "url": "https:\/\/devcenter.heroku.com\/categories\/php"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.heroku.com\/pricing"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.heroku.com\/pricing"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.heroku.com\/pricing"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.heroku.com\/pricing"
+        },
+        {
+            "type": "Pricing",
+            "url": "https:\/\/www.heroku.com\/pricing"
+        },
+        {
+            "type": "Privacy",
+            "url": "https:\/\/www.heroku.com\/policy\/privacy"
+        },
+        {
+            "type": "Python Library",
+            "url": "https:\/\/devcenter.heroku.com\/categories\/python"
+        },
+        {
+            "type": "Ruby Library",
+            "url": "https:\/\/devcenter.heroku.com\/categories\/ruby"
+        },
+        {
+            "type": "Security",
+            "url": "https:\/\/www.heroku.com\/policy\/security"
+        },
+        {
+            "type": "Registration",
+            "url": "https:\/\/signup.heroku.com\/dc"
+        },
+        {
+            "type": "Support",
+            "url": "https:\/\/www.heroku.com\/support"
+        },
+        {
+            "type": "Terms Of Service",
+            "url": "https:\/\/www.heroku.com\/policy\/tos"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/heroku"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/HerokuDevCenter"
+        },
+        {
+            "type": "Webhooks",
+            "url": "https:\/\/devcenter.heroku.com\/articles\/app-webhooks"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/heroku.com"
+        },
+        {
+            "type": "Website",
+            "url": "https:\/\/www.heroku.com\/"
+        }
+    ]
+}
