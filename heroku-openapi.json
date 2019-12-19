@@ -1,0 +1,1136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1",
+        "title": "Heroku",
+        "description": "Manage your Heroku apps, configs, collaborators & resources",
+        "termsOfService": ""
+    },
+    "servers": [
+        "httpsapi.heroku.com\/"
+    ],
+    "paths": {
+        "\/addons": {
+            "parameters": {
+                "summary": "Parameters Addons",
+                "description": "Parameters addons.",
+                "operationId": "ParametersAddons",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Addons",
+                "description": "List all available addons.",
+                "operationId": "GetAddons",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/addons": {
+            "parameters": {
+                "summary": "Parameter Application Addons",
+                "description": "Parameter application addons.",
+                "operationId": "ParametersAppsAppAddons",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Addons",
+                "description": "List addons installed on an app.",
+                "operationId": "GetAppsAppAddons",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/addons\/{addon}": {
+            "parameters": {
+                "summary": "Parameters Applications Addons",
+                "description": "Parameters applications addons.",
+                "operationId": "ParametersAppsAppAddonsAddon",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Add Application Addons",
+                "description": "Install an addon to an app.",
+                "operationId": "PostAppsAppAddonsAddon",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "query",
+                        "description": "the addon name."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Put Application Addons",
+                "description": "Upgrade an addon to an app.",
+                "operationId": "PutAppsAppAddonsAddon",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "query",
+                        "description": "the addon name."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Applications Addons",
+                "description": "Uninstall an addon from an app.",
+                "operationId": "DeleteAppsAppAddonsAddon",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "query",
+                        "description": "the addon name."
+                    },
+                    {
+                        "name": "addon",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps": {
+            "parameters": {
+                "summary": "Parameters Applications",
+                "description": "Parameters applications.",
+                "operationId": "ParametersApps",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Applications",
+                "description": "Get applications.",
+                "operationId": "GetApps",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add Applications",
+                "description": "Add applications.",
+                "operationId": "PostApps",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    }
+                ]
+            }
+        },
+        "\/apps\/{name}": {
+            "parameters": {
+                "summary": "Parameters Applications Name",
+                "description": "Parameters applications name.",
+                "operationId": "ParametersAppsName",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Applications Name",
+                "description": "Get applications name.",
+                "operationId": "GetAppsName",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "delete": {
+                "summary": "Delete Applications Name",
+                "description": "Delete applications name.",
+                "operationId": "DeleteAppsName",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/collaborators": {
+            "parameters": {
+                "summary": "Parameters Application Collaborators",
+                "description": "Parameters application collaborators.",
+                "operationId": "ParametersAppsAppCollaborators",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Collaborators",
+                "description": "List collaborators for an app.",
+                "operationId": "GetAppsAppCollaborators",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/collaborators\/{email}": {
+            "parameters": {
+                "summary": "Parameters Application Collaborators Email",
+                "description": "Parameters application collaborators email.",
+                "operationId": "ParametersAppsAppCollaboratorsEmail",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "delete": {
+                "summary": "Delete Application Collaborators Email",
+                "description": "Delete application collaborators email.",
+                "operationId": "DeleteAppsAppCollaboratorsEmail",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "email",
+                        "in": "query",
+                        "description": "The email of the user to remove as a collaborator."
+                    },
+                    {
+                        "name": "email",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/config_vars": {
+            "parameters": {
+                "summary": "Parameters Application Config Variables",
+                "description": "Parameters application config variables.",
+                "operationId": "ParametersAppsAppConfigVars",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Config Variables",
+                "description": "Get application config variables.",
+                "operationId": "GetAppsAppConfigVars",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Put Application Config Variables",
+                "description": "Put application config variables.",
+                "operationId": "PutAppsAppConfigVars",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/config_vars\/{key}": {
+            "parameters": {
+                "summary": "Parameters Application Config Variables Key",
+                "description": "Parameters application config variables key.",
+                "operationId": "ParametersAppsAppConfigVarsKey",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "delete": {
+                "summary": "Delete Application Config Variables Key",
+                "description": "Delete application config variables key.",
+                "operationId": "DeleteAppsAppConfigVarsKey",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The config var to remove."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/domains": {
+            "parameters": {
+                "summary": "Parameters Application Domains",
+                "description": "Parameters application domains.",
+                "operationId": "ParametersAppsAppDomains",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Domains",
+                "description": "List domains for an app.",
+                "operationId": "GetAppsAppDomains",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/domains\/{domain_name}": {
+            "parameters": {
+                "summary": "Parameters Application Domain Name",
+                "description": "Parameters application domain name.",
+                "operationId": "ParametersAppsAppDomainsDomainName",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "delete": {
+                "summary": "Delete Application Domain Name",
+                "description": "Delete application domain name.",
+                "operationId": "DeleteAppsAppDomainsDomainName",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "domain_name",
+                        "in": "query",
+                        "description": "The domain to remove."
+                    },
+                    {
+                        "name": "domain_name",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/user\/keys": {
+            "parameters": {
+                "summary": "Parameters User Keys",
+                "description": "Parameters user keys.",
+                "operationId": "ParametersUserKeys",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get User Keys",
+                "description": "List SSH keys.",
+                "operationId": "GetUserKeys",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add User Keys",
+                "description": "Associate an SSH key with this account.",
+                "operationId": "PostUserKeys",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    }
+                ]
+            }
+        },
+        "\/user\/keys\/{key}": {
+            "parameters": {
+                "summary": "Parameters User Keys Key",
+                "description": "Parameters user keys key.",
+                "operationId": "ParametersUserKeysKey",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "delete": {
+                "summary": "Delete User Keys Key",
+                "description": "Remove an SSH key from this account.",
+                "operationId": "DeleteUserKeysKey",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "key",
+                        "in": "query",
+                        "description": "The config var to remove."
+                    },
+                    {
+                        "name": "key",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/logs": {
+            "parameters": {
+                "summary": "Parameters Application Logs",
+                "description": "Parameters application logs.",
+                "operationId": "ParametersAppsAppLogs",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Logs",
+                "description": "Get application logs.",
+                "operationId": "GetAppsAppLogs",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "logplex",
+                        "in": "query",
+                        "description": "Use logplex to stream logs (always true)."
+                    },
+                    {
+                        "name": "num",
+                        "in": "query",
+                        "description": "The number of lines to display."
+                    },
+                    {
+                        "name": "ps",
+                        "in": "query",
+                        "description": "Only display logs from a given process."
+                    },
+                    {
+                        "name": "source",
+                        "in": "query",
+                        "description": "Only display logs from a given source."
+                    },
+                    {
+                        "name": "tail",
+                        "in": "query",
+                        "description": "1: continually stream logs - : display only num logs"
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/ps": {
+            "parameters": {
+                "summary": "Parameters Application PS",
+                "description": "Parameters application ps.",
+                "operationId": "ParametersAppsAppPs",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application PS",
+                "description": "List processes for an app.",
+                "operationId": "GetAppsAppPs",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add Application PS",
+                "description": "Run a one-off process.",
+                "operationId": "PostAppsAppPs",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "command",
+                        "in": "query",
+                        "description": "The command to run."
+                    },
+                    {
+                        "name": "attach",
+                        "in": "query",
+                        "description": "true: use rendezvous to access stdin\/stdout - <blank>: stream process output to the application log"
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/ps\/restart": {
+            "parameters": {
+                "summary": "Parameters Application PS Restart",
+                "description": "Parameters application ps restart.",
+                "operationId": "ParametersAppsAppPsRestart",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Add Application PS Restart",
+                "description": "Restart processes of an app. Specify either ps or type to restart only the specified processes. Leave both blank to restart the entire app.",
+                "operationId": "PostAppsAppPsRestart",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "ps",
+                        "in": "query",
+                        "description": "Only display logs from a given process."
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of process to restart."
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/ps\/stop": {
+            "parameters": {
+                "summary": "Parameters Application PS Stop",
+                "description": "Parameters application ps stop.",
+                "operationId": "ParametersAppsAppPsStop",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Add Application PS Stop",
+                "description": "Stop processes of an app. Specify either ps or type to stop the specified processes.",
+                "operationId": "PostAppsAppPsStop",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "ps",
+                        "in": "query",
+                        "description": "Only display logs from a given process."
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of process to restart."
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/ps\/scale": {
+            "parameters": {
+                "summary": "Parameters Application PS Scale",
+                "description": "Parameters application ps scale.",
+                "operationId": "ParametersAppsAppPsScale",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "post": {
+                "summary": "Add Application PS Scale",
+                "description": "Scale processes of an app.",
+                "operationId": "PostAppsAppPsScale",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "qty",
+                        "in": "query",
+                        "description": "The desired number of processes of this type."
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "The type of process to restart."
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/releases": {
+            "parameters": {
+                "summary": "Parameters Application Releases",
+                "description": "Parameters application releases.",
+                "operationId": "ParametersAppsAppReleases",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Releases",
+                "description": "List releases for an app.",
+                "operationId": "GetAppsAppReleases",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "post": {
+                "summary": "Add Application Releases",
+                "description": "Add application releases.",
+                "operationId": "PostAppsAppReleases",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "rollback",
+                        "in": "query",
+                        "description": "The release to which to roll back."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/releases\/{release}": {
+            "parameters": {
+                "summary": "Parameters Application Releases",
+                "description": "Parameters application releases.",
+                "operationId": "ParametersAppsAppReleasesRelease",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Releases",
+                "description": "Get application releases.",
+                "operationId": "GetAppsAppReleasesRelease",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    },
+                    {
+                        "name": "release",
+                        "in": "query",
+                        "description": "The release name."
+                    },
+                    {
+                        "name": "release",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        },
+        "\/apps\/{app}\/stack": {
+            "parameters": {
+                "summary": "Parameters Application Stack",
+                "description": "Parameters application stack.",
+                "operationId": "ParametersAppsAppStack",
+                "deprecated": 0,
+                "parameters": []
+            },
+            "get": {
+                "summary": "Get Application Stack",
+                "description": "List available stacks for an app.",
+                "operationId": "GetAppsAppStack",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            },
+            "put": {
+                "summary": "Put Application Stack",
+                "description": "Migrate an app to a new stack.",
+                "operationId": "PutAppsAppStack",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "Accept",
+                        "in": "header",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "Accept",
+                        "in": "query",
+                        "description": "Content type."
+                    },
+                    {
+                        "name": "app",
+                        "in": "query",
+                        "description": "The app name."
+                    },
+                    {
+                        "name": "app",
+                        "in": "path",
+                        "description": ""
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": []
+    }
+}
