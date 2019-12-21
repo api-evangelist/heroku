@@ -1,5 +1,5 @@
 {
-    "id": "f291c217e60eebf9b61570042a0f75b3",
+    "id": "402d0acea16d5036667a766ae00e6d75",
     "name": "djs-chain",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "5396470337d6c23512e716396ca34936",
+            "id": "f83827031fa55dfe7e78ac79a60c8003",
             "name": "",
             "url": "http:\/\/djs-chain.heroku.com\/\/Persons",
             "description": "Return all known persons",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f291c217e60eebf9b61570042a0f75b3",
+            "collectionId": "402d0acea16d5036667a766ae00e6d75",
             "rawModeData": ""
         },
         {
-            "id": "9677de4d1faad636976bb86abe19c446",
+            "id": "39b29e41dba4ae2d86f4dbc2a7dbc199",
             "name": "",
             "url": "http:\/\/djs-chain.heroku.com\/\/Persons",
             "description": "Create a person",
@@ -52,7 +52,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f291c217e60eebf9b61570042a0f75b3",
+            "collectionId": "402d0acea16d5036667a766ae00e6d75",
             "rawModeData": ""
         }
     ]
