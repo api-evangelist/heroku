@@ -1,5 +1,5 @@
 {
-    "id": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+    "id": "31651f336377d11d76b7a1ef5e7b457e",
     "name": "Heroku",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "8bc67c807a06f901bf38ede96637e26e",
+            "id": "a96b0ad4a5761fe380f63212b4c5f5b9",
             "name": "Parameters Addons",
             "url": "httpsapi.heroku.com\/\/addons",
             "description": "Parameters addons.",
@@ -29,11 +29,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "1f855dad9f84941e9b9d502921593ce1",
+            "id": "6a3bd79a493c1b311e495dbf1648dceb",
             "name": "Get Addons",
             "url": "httpsapi.heroku.com\/\/addons",
             "description": "List all available addons.",
@@ -67,11 +67,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "afac59845b93a41106d62c8b86d39e8f",
+            "id": "acc6a9efaa7f1b2ca1e24bbb0643d889",
             "name": "Parameter Application Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons",
             "description": "Parameter application addons.",
@@ -90,11 +90,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "8f8843a5d228aae1b68adc3f2b0024c5",
+            "id": "a1875b0322e646bf5b881987e8932da3",
             "name": "Get Application Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons",
             "description": "List addons installed on an app.",
@@ -142,11 +142,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "063983c6f243dd25f2535deb5079310d",
+            "id": "4705e1c4f8c08a37d686354fbb1ed500",
             "name": "Parameters Applications Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
             "description": "Parameters applications addons.",
@@ -165,11 +165,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "0ffc515c5de064101aed6eb708c594e0",
+            "id": "fb8a01d69276aedfaa072197723e0cdc",
             "name": "Add Application Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
             "description": "Install an addon to an app.",
@@ -231,11 +231,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "684bce5020e718d98e0b670c9a07f043",
+            "id": "e3b590dde872986bc72c5fd95fb0699e",
             "name": "Put Application Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
             "description": "Upgrade an addon to an app.",
@@ -297,11 +297,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "472b0fc74960d8f769e4de4be8c92aaf",
+            "id": "675cff4ad8529112b9ba805208d60924",
             "name": "Delete Applications Addons",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/addons\/{addon}",
             "description": "Uninstall an addon from an app.",
@@ -363,11 +363,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "0dd0665681969fca6b024aa4edea21c5",
+            "id": "48e14b5a5e7026c06178a8f6f9c0568e",
             "name": "Parameters Applications",
             "url": "httpsapi.heroku.com\/\/apps",
             "description": "Parameters applications.",
@@ -386,11 +386,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "98760e7ca4509926857bfb1f7cda13ce",
+            "id": "5449e8200468994e54dad3662628dfdd",
             "name": "Get Applications",
             "url": "httpsapi.heroku.com\/\/apps",
             "description": "Get applications.",
@@ -424,11 +424,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "d7334b7bbda3fc297252d2256350cd02",
+            "id": "ae767271aa399e02e801dcb99e420ae1",
             "name": "Add Applications",
             "url": "httpsapi.heroku.com\/\/apps",
             "description": "Add applications.",
@@ -462,11 +462,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "61d19f174a2ee7d603e0d31dae4dab93",
+            "id": "eb6c09b65371e7989c437ca8c5f0bb90",
             "name": "Parameters Applications Name",
             "url": "httpsapi.heroku.com\/\/apps\/{name}",
             "description": "Parameters applications name.",
@@ -485,11 +485,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "d9b739a921ef17d3f5c4d6620af058ab",
+            "id": "daa1571bd09b43286e688b000144f7fd",
             "name": "Get Applications Name",
             "url": "httpsapi.heroku.com\/\/apps\/{name}",
             "description": "Get applications name.",
@@ -537,11 +537,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "a6f01986dff4f31f1d708fa81e290435",
+            "id": "d8added2f893ec3f72488459f2a51bf8",
             "name": "Delete Applications Name",
             "url": "httpsapi.heroku.com\/\/apps\/{name}",
             "description": "Delete applications name.",
@@ -589,11 +589,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "2a895f60153eccdf450e56379c790c1f",
+            "id": "379eb749206a0a1abe57412ec6c54143",
             "name": "Parameters Application Collaborators",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators",
             "description": "Parameters application collaborators.",
@@ -612,11 +612,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "e609bd2d8fd9b12d070ab366fe69ae84",
+            "id": "653fba6c351e39203f6e8958ac1a3976",
             "name": "Get Application Collaborators",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators",
             "description": "List collaborators for an app.",
@@ -664,11 +664,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "8e8521e167c72870875e6e563847fc5b",
+            "id": "5d3019e642ef2a596e103ddf9e147c92",
             "name": "Parameters Application Collaborators Email",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators\/{email}",
             "description": "Parameters application collaborators email.",
@@ -687,11 +687,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "a13bba299d48cd0742d04c71242383c5",
+            "id": "e432dae3788227a6fbe7b3f0d78e7b55",
             "name": "Delete Application Collaborators Email",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/collaborators\/{email}",
             "description": "Delete application collaborators email.",
@@ -753,11 +753,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "ddabf2396fe5003afa4d86989ba2f5ae",
+            "id": "4be44c145af5372cab71bdeae5cc0cfb",
             "name": "Parameters Application Config Variables",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
             "description": "Parameters application config variables.",
@@ -776,11 +776,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "4f1be3e39b0adec38302bd51be601970",
+            "id": "53b0ecbd364626046d93583718b02461",
             "name": "Get Application Config Variables",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
             "description": "Get application config variables.",
@@ -828,11 +828,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "307375740d77348d22b44a2ae306fb70",
+            "id": "76b84455001c27d40f76e427c639bc9c",
             "name": "Put Application Config Variables",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars",
             "description": "Put application config variables.",
@@ -880,11 +880,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "2f49a42b788ca1730f8a5edebdb44427",
+            "id": "fbdbee9b8056517aa793979760f38081",
             "name": "Parameters Application Config Variables Key",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars\/{key}",
             "description": "Parameters application config variables key.",
@@ -903,11 +903,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "44e079dca5fec3fa462f0031cbfa6731",
+            "id": "7cf9281b0aec54b09d9e3d2159dcf0dc",
             "name": "Delete Application Config Variables Key",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/config_vars\/{key}",
             "description": "Delete application config variables key.",
@@ -969,11 +969,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "c96619454993139e243c480928d8665e",
+            "id": "74f8df5eb6c3cdab773130eac4eaac20",
             "name": "Parameters Application Domains",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains",
             "description": "Parameters application domains.",
@@ -992,11 +992,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "f824479147b689e4e85637ff34e36899",
+            "id": "ebab1a0e35b59d34b805625d47c4380c",
             "name": "Get Application Domains",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains",
             "description": "List domains for an app.",
@@ -1044,11 +1044,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "8151f4c66c08148f4e85ce0f86013623",
+            "id": "3b95678744baa22f182f0c52462ad8eb",
             "name": "Parameters Application Domain Name",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains\/{domain_name}",
             "description": "Parameters application domain name.",
@@ -1067,11 +1067,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "2d2bbe1e0942546c873e1cc2cd7962f8",
+            "id": "a4f013342e2331946f876c40c15e4e9d",
             "name": "Delete Application Domain Name",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/domains\/{domain_name}",
             "description": "Delete application domain name.",
@@ -1133,11 +1133,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "7fb751c0a1fed87cf37308a95a0c13f8",
+            "id": "529b577f9ae2665c85adf492f76ffa50",
             "name": "Parameters User Keys",
             "url": "httpsapi.heroku.com\/\/user\/keys",
             "description": "Parameters user keys.",
@@ -1156,11 +1156,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "b5fe894931985bdb9ee5a5b5c712c8ee",
+            "id": "896d21bf82235df7aa1811d851fdaf75",
             "name": "Get User Keys",
             "url": "httpsapi.heroku.com\/\/user\/keys",
             "description": "List SSH keys.",
@@ -1194,11 +1194,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "137cb2406cb686212b5b089d93556954",
+            "id": "9825cc7b6e2ae4dbf518c2c272ef945d",
             "name": "Add User Keys",
             "url": "httpsapi.heroku.com\/\/user\/keys",
             "description": "Associate an SSH key with this account.",
@@ -1232,11 +1232,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "b3e48e3cf6e78f03f85253c6978c5952",
+            "id": "1f80887d2336c9362d40f36b7ed6c1c7",
             "name": "Parameters User Keys Key",
             "url": "httpsapi.heroku.com\/\/user\/keys\/{key}",
             "description": "Parameters user keys key.",
@@ -1255,11 +1255,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "f6aad587a4ce49408e32fb2ff8a907d0",
+            "id": "db9a8713fd00045713eb2952f53d82c1",
             "name": "Delete User Keys Key",
             "url": "httpsapi.heroku.com\/\/user\/keys\/{key}",
             "description": "Remove an SSH key from this account.",
@@ -1307,11 +1307,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "3e60e060665545125ea1dc3dee17da05",
+            "id": "c008ad25cd5c7498ef573b4b832de1c2",
             "name": "Parameters Application Logs",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/logs",
             "description": "Parameters application logs.",
@@ -1330,11 +1330,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "d83e3689ccb14ad37a822d41d92fa692",
+            "id": "b3f07a9227734bdf93fa2da265f9a8ac",
             "name": "Get Application Logs",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/logs",
             "description": "Get application logs.",
@@ -1417,11 +1417,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "408d67d7313f9dfda75378b68d624223",
+            "id": "88cee769830ba7020eb4a101f7d02e10",
             "name": "Parameters Application PS",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
             "description": "Parameters application ps.",
@@ -1440,11 +1440,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "b42a72399b24f329ed30335b1d1c59e6",
+            "id": "ca29ec310211d0dc40931b34395bac7c",
             "name": "Get Application PS",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
             "description": "List processes for an app.",
@@ -1492,11 +1492,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "20b5c69e5c8bebe3203308a3551221e8",
+            "id": "d26bbb51b7a6a40aa8357b8571e818c2",
             "name": "Add Application PS",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps",
             "description": "Run a one-off process.",
@@ -1558,11 +1558,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "6f73962a8857050f2556bfa4d18941cd",
+            "id": "6438565ae57656b10912e6da39684a90",
             "name": "Parameters Application PS Restart",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/restart",
             "description": "Parameters application ps restart.",
@@ -1581,11 +1581,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "6631a93cfb35e8d3abca76c872d0c66b",
+            "id": "72a538dbf41311e27013dd558673b114",
             "name": "Add Application PS Restart",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/restart",
             "description": "Restart processes of an app. Specify either ps or type to restart only the specified processes. Leave both blank to restart the entire app.",
@@ -1647,11 +1647,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "036e8122f03c94c194a7e399ad7a8a28",
+            "id": "134386b05ab3a48b403eeb4dafd61f60",
             "name": "Parameters Application PS Stop",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/stop",
             "description": "Parameters application ps stop.",
@@ -1670,11 +1670,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "79924462055257627473677537a7d07f",
+            "id": "92fc568fb4ce2f4eae48bfa60d9de2a8",
             "name": "Add Application PS Stop",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/stop",
             "description": "Stop processes of an app. Specify either ps or type to stop the specified processes.",
@@ -1736,11 +1736,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "739fecbcfb1a1a03659792911b08c466",
+            "id": "76df724acbdc471377fdda2359ec5eff",
             "name": "Parameters Application PS Scale",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/scale",
             "description": "Parameters application ps scale.",
@@ -1759,11 +1759,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "934e10ef598d33cc0ed419e4d5442cb9",
+            "id": "138ee2f94a851f9b66cf8cc2ac4454b7",
             "name": "Add Application PS Scale",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/ps\/scale",
             "description": "Scale processes of an app.",
@@ -1825,11 +1825,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "c3a020a46719fa08a411a7600abe761b",
+            "id": "fe4c12850f922a47acd5837484c0f6a1",
             "name": "Parameters Application Releases",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
             "description": "Parameters application releases.",
@@ -1848,11 +1848,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "99644b844e04ba127927d6ae3ac12fb1",
+            "id": "d84746938d499a2807058b3bb7522dc6",
             "name": "Get Application Releases",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
             "description": "List releases for an app.",
@@ -1900,11 +1900,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "c5601f15b5ff458f5f350aad7ce2762f",
+            "id": "b9de1a6f7925c806b9dd26d770aad682",
             "name": "Add Application Releases",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases",
             "description": "Add application releases.",
@@ -1959,11 +1959,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "60f65f404123e0e55f938c097320833a",
+            "id": "ce8b38531737ed22e9bfb4f99f16574d",
             "name": "Parameters Application Releases",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases\/{release}",
             "description": "Parameters application releases.",
@@ -1982,11 +1982,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "4a0a8809e696caf42e11bffe94bd75af",
+            "id": "98fe7fac3bfa1105c62c5323639a8e3e",
             "name": "Get Application Releases",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/releases\/{release}",
             "description": "Get application releases.",
@@ -2048,11 +2048,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "fd287cd95348d092b5c4e4fb94e9072c",
+            "id": "6984843f1c35f041de076d5b56ee87f6",
             "name": "Parameters Application Stack",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
             "description": "Parameters application stack.",
@@ -2071,11 +2071,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "c9445adf24346dd83879ba1a8fe11fb0",
+            "id": "f787967235c7b73e80768685a6c1f869",
             "name": "Get Application Stack",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
             "description": "List available stacks for an app.",
@@ -2123,11 +2123,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         },
         {
-            "id": "cefff9cd40b9c73214b12040382f009c",
+            "id": "a3a8d0d354b89c12f506bcb4a752f699",
             "name": "Put Application Stack",
             "url": "httpsapi.heroku.com\/\/apps\/{app}\/stack",
             "description": "Migrate an app to a new stack.",
@@ -2175,7 +2175,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "f3ebcbc80aae9a291fcbede3eca8d0b0",
+            "collectionId": "31651f336377d11d76b7a1ef5e7b457e",
             "rawModeData": ""
         }
     ]
