@@ -33,6 +33,9 @@ apis:
     properties:
       - type: Documentation
         url: https://devcenter.heroku.com/articles/platform-api-reference
+      - type: OpenAPI
+        url: >-
+          https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-platform-api.yml
       - type: Getting Started
         url: https://devcenter.heroku.com/articles/platform-api-quickstart
       - type: Authentication
