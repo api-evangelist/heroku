@@ -8,10 +8,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - PaaS
-  - Cloud Platform
   - Application Deployment
+  - Cloud Platform
   - DevOps
+  - PaaS
 url: >-
   https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml
 created: '2025-02-08'
@@ -27,8 +27,8 @@ apis:
     humanURL: https://devcenter.heroku.com/articles/platform-api-reference
     baseURL: https://api.heroku.com
     tags:
-      - PaaS
       - Deployment
+      - PaaS
       - REST
     properties:
       - type: Documentation
