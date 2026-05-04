@@ -1,0 +1,191 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Heroku
+providerId: heroku
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Hosting
+  - PaaS
+  - Postgres
+description: Heroku Cedar dyno + add-on pricing.
+sources:
+  - https://www.heroku.com/pricing
+plans:
+  - id: heroku-eco-dyno
+    name: Eco Dynos (Hobby)
+    type: subscription
+    description: $5/month flat for unlimited Eco dynos (1,000 dyno-hours pool).
+    entries:
+      - label: Monthly base
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.00'
+        userMultiplied: false
+    elements:
+      - name: Sleeps after 30min idle
+      - name: 1,000 dyno-hours/mo pool
+  - id: heroku-basic-dyno
+    name: Basic Dyno
+    type: subscription
+    description: $7/month per dyno; never sleeps.
+    entries:
+      - label: Per dyno-month
+        name: dyno
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '7.00'
+        userMultiplied: false
+    elements:
+      - name: Never sleeps
+      - name: 512 MB RAM
+      - name: Custom domains
+  - id: heroku-standard-1x
+    name: Standard-1X Dyno
+    type: subscription
+    description: $25/month per dyno.
+    entries:
+      - label: Per dyno-month
+        name: dyno
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '25.00'
+        userMultiplied: false
+    elements:
+      - name: 512 MB RAM
+      - name: Horizontal scaling
+  - id: heroku-standard-2x
+    name: Standard-2X Dyno
+    type: subscription
+    description: $50/month per dyno.
+    entries:
+      - label: Per dyno-month
+        name: dyno
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '50.00'
+        userMultiplied: false
+    elements:
+      - name: 1 GB RAM
+  - id: heroku-performance-m
+    name: Performance-M Dyno
+    type: subscription
+    description: $250/month per dyno.
+    entries:
+      - label: Per dyno-month
+        name: dyno
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '250.00'
+        userMultiplied: false
+    elements:
+      - name: 2.5 GB RAM
+      - name: Dedicated infrastructure
+  - id: heroku-postgres-essential
+    name: Heroku Postgres Essential
+    type: subscription
+    description: $5-$9/month tiers.
+    entries:
+      - label: Essential-0
+        name: pg_e0
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '5.00'
+        userMultiplied: false
+      - label: Essential-1
+        name: pg_e1
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '9.00'
+        userMultiplied: false
+    elements:
+      - name: 10K-10M rows
+      - name: Hobby/dev databases
+  - id: heroku-postgres-standard
+    name: Heroku Postgres Standard
+    type: subscription
+    description: $50-$200/month tiers.
+    entries:
+      - label: Standard-0
+        name: pg_s0
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '50.00'
+        userMultiplied: false
+      - label: Standard-2
+        name: pg_s2
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '200.00'
+        userMultiplied: false
+    elements:
+      - name: Production-ready
+      - name: HA available
+      - name: Continuous protection
+  - id: heroku-key-value-store
+    name: Heroku Key-Value Store (Redis)
+    type: subscription
+    description: $3-$120/month tiers.
+    entries:
+      - label: Mini
+        name: kv_mini
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '3.00'
+        userMultiplied: false
+      - label: Premium 2
+        name: kv_p2
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '60.00'
+        userMultiplied: false
+    elements:
+      - name: Redis-compatible
+      - name: HA tiers available

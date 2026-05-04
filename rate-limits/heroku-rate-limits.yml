@@ -1,0 +1,34 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Heroku
+providerId: heroku
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Hosting
+description: Heroku Platform API rate limits per token.
+sources:
+  - https://www.heroku.com/pricing
+  - https://devcenter.heroku.com/articles/platform-api-reference#rate-limits
+headers:
+  remaining: RateLimit-Remaining
+responseCodes:
+  throttled: 429
+limits:
+  - name: Platform API
+    scope: token
+    metric: requests_per_hour
+    limit: 4500
+    timeFrame: hour
+  - name: OAuth client credentials
+    scope: client
+    metric: requests_per_hour
+    limit: 4500
+    timeFrame: hour
+  - name: Build creation
+    scope: app
+    metric: concurrent_builds
+    limit: 1
