@@ -30,7 +30,7 @@ apis:
         url: https://devcenter.heroku.com/articles/platform-api-reference
       - type: OpenAPI
         url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-platform-api.yml
-      - type: Getting Started
+      - type: GettingStarted
         url: https://devcenter.heroku.com/articles/platform-api-quickstart
       - type: Authentication
         url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
@@ -39,15 +39,15 @@ common:
     url: https://devcenter.heroku.com/
   - type: Website
     url: https://www.heroku.com/
-  - type: Getting Started
+  - type: GettingStarted
     url: https://devcenter.heroku.com/start
   - type: Documentation
     url: https://devcenter.heroku.com/
-  - type: Sign Up
+  - type: SignUp
     url: https://signup.heroku.com/
   - type: Login
     url: https://id.heroku.com/login
-  - type: Status
+  - type: StatusPage
     url: https://status.heroku.com/
   - type: Blog
     url: https://blog.heroku.com/
@@ -55,11 +55,11 @@ common:
     url: https://help.heroku.com/
   - type: Pricing
     url: https://www.heroku.com/pricing
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/heroku
-  - type: Terms of Service
+  - type: TermsOfService
     url: https://www.heroku.com/policy/tos
-  - type: Privacy Policy
+  - type: PrivacyPolicy
     url: https://www.heroku.com/policy/privacy
   - type: Features
     data:
