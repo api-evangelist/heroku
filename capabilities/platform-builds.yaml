@@ -1,0 +1,146 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Heroku Platform API — Builds
+  description: 'Heroku Platform API — Builds. 3 operations. Lead operation: List builds. Self-contained Naftiko capability
+    covering one Heroku business surface.'
+  tags:
+  - Heroku
+  - Builds
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HEROKU_API_KEY: HEROKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-builds
+    baseUri: https://api.heroku.com
+    description: Heroku Platform API — Builds business capability. Self-contained, no shared references.
+    resources:
+    - name: apps-app_id_or_name-builds
+      path: /apps/{app_id_or_name}/builds
+      operations:
+      - name: listbuilds
+        method: GET
+        description: List builds
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createbuild
+        method: POST
+        description: Create a build
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: apps-app_id_or_name-builds-build_id
+      path: /apps/{app_id_or_name}/builds/{build_id}
+      operations:
+      - name: getbuild
+        method: GET
+        description: Get build info
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: build_id
+          in: path
+          type: string
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.HEROKU_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-builds-rest
+    port: 8080
+    description: REST adapter for Heroku Platform API — Builds. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/apps/{app-id-or-name}/builds
+      name: apps-app-id-or-name-builds
+      description: REST surface for apps-app_id_or_name-builds.
+      operations:
+      - method: GET
+        name: listbuilds
+        description: List builds
+        call: platform-builds.listbuilds
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createbuild
+        description: Create a build
+        call: platform-builds.createbuild
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/apps/{app-id-or-name}/builds/{build-id}
+      name: apps-app-id-or-name-builds-build-id
+      description: REST surface for apps-app_id_or_name-builds-build_id.
+      operations:
+      - method: GET
+        name: getbuild
+        description: Get build info
+        call: platform-builds.getbuild
+        with:
+          build_id: rest.build_id
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-builds-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Heroku Platform API — Builds. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-builds
+      description: List builds
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-builds.listbuilds
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: create-build
+      description: Create a build
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: platform-builds.createbuild
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: get-build-info
+      description: Get build info
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-builds.getbuild
+      with:
+        build_id: tools.build_id
+      outputParameters:
+      - type: object
+        mapping: $.

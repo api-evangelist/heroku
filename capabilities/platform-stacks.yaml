@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Heroku Platform API — Stacks
+  description: 'Heroku Platform API — Stacks. 1 operations. Lead operation: List stacks. Self-contained Naftiko capability
+    covering one Heroku business surface.'
+  tags:
+  - Heroku
+  - Stacks
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HEROKU_API_KEY: HEROKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-stacks
+    baseUri: https://api.heroku.com
+    description: Heroku Platform API — Stacks business capability. Self-contained, no shared references.
+    resources:
+    - name: stacks
+      path: /stacks
+      operations:
+      - name: liststacks
+        method: GET
+        description: List stacks
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.HEROKU_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-stacks-rest
+    port: 8080
+    description: REST adapter for Heroku Platform API — Stacks. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/stacks
+      name: stacks
+      description: REST surface for stacks.
+      operations:
+      - method: GET
+        name: liststacks
+        description: List stacks
+        call: platform-stacks.liststacks
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-stacks-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Heroku Platform API — Stacks. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-stacks
+      description: List stacks
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-stacks.liststacks
+      outputParameters:
+      - type: object
+        mapping: $.

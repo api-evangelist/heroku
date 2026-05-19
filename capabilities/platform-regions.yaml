@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Heroku Platform API — Regions
+  description: 'Heroku Platform API — Regions. 1 operations. Lead operation: List regions. Self-contained Naftiko capability
+    covering one Heroku business surface.'
+  tags:
+  - Heroku
+  - Regions
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HEROKU_API_KEY: HEROKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-regions
+    baseUri: https://api.heroku.com
+    description: Heroku Platform API — Regions business capability. Self-contained, no shared references.
+    resources:
+    - name: regions
+      path: /regions
+      operations:
+      - name: listregions
+        method: GET
+        description: List regions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.HEROKU_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-regions-rest
+    port: 8080
+    description: REST adapter for Heroku Platform API — Regions. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/regions
+      name: regions
+      description: REST surface for regions.
+      operations:
+      - method: GET
+        name: listregions
+        description: List regions
+        call: platform-regions.listregions
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-regions-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Heroku Platform API — Regions. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: list-regions
+      description: List regions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-regions.listregions
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,105 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Heroku Platform API — Config Vars
+  description: 'Heroku Platform API — Config Vars. 2 operations. Lead operation: Get config vars. Self-contained Naftiko capability
+    covering one Heroku business surface.'
+  tags:
+  - Heroku
+  - Config Vars
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    HEROKU_API_KEY: HEROKU_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: platform-config-vars
+    baseUri: https://api.heroku.com
+    description: Heroku Platform API — Config Vars business capability. Self-contained, no shared references.
+    resources:
+    - name: apps-app_id_or_name-config-vars
+      path: /apps/{app_id_or_name}/config-vars
+      operations:
+      - name: getconfigvars
+        method: GET
+        description: Get config vars
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updateconfigvars
+        method: PATCH
+        description: Update config vars
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.HEROKU_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: platform-config-vars-rest
+    port: 8080
+    description: REST adapter for Heroku Platform API — Config Vars. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/apps/{app-id-or-name}/config-vars
+      name: apps-app-id-or-name-config-vars
+      description: REST surface for apps-app_id_or_name-config-vars.
+      operations:
+      - method: GET
+        name: getconfigvars
+        description: Get config vars
+        call: platform-config-vars.getconfigvars
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updateconfigvars
+        description: Update config vars
+        call: platform-config-vars.updateconfigvars
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: platform-config-vars-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Heroku Platform API — Config Vars. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: get-config-vars
+      description: Get config vars
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: platform-config-vars.getconfigvars
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: update-config-vars
+      description: Update config vars
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: platform-config-vars.updateconfigvars
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
