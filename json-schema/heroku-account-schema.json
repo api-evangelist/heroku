@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Account",
+  "title": "Account",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "allow_tracking": {
+      "type": "boolean"
+    },
+    "beta": {
+      "type": "boolean"
+    },
+    "country_of_residence": {
+      "type": "string",
+      "nullable": true
+    },
+    "default_organization": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "delinquent_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "identity_provider": {
+      "type": "object",
+      "nullable": true
+    },
+    "last_login": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "sms_number": {
+      "type": "string",
+      "nullable": true
+    },
+    "suspended_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "two_factor_authentication": {
+      "type": "boolean"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

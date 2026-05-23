@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Addon",
+  "title": "Addon",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "addon_service": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "provider_id": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "provisioning",
+        "provisioned",
+        "deprovisioned"
+      ]
+    },
+    "config_vars": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "billed_price": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "cents": {
+          "type": "integer"
+        },
+        "contract": {
+          "type": "boolean"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "web_url": {
+      "type": "string",
+      "format": "uri",
+      "nullable": true
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

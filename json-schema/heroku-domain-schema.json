@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/Domain",
+  "title": "Domain",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "hostname": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "heroku",
+        "custom"
+      ]
+    },
+    "acm_status": {
+      "type": "string",
+      "nullable": true
+    },
+    "acm_status_reason": {
+      "type": "string",
+      "nullable": true
+    },
+    "cname": {
+      "type": "string",
+      "nullable": true
+    },
+    "sni_endpoint": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "status": {
+      "type": "string"
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

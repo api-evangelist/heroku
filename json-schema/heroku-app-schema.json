@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/App",
+  "title": "App",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "type": "string"
+    },
+    "acm": {
+      "type": "boolean"
+    },
+    "archived_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "buildpack_provided_description": {
+      "type": "string",
+      "nullable": true
+    },
+    "build_stack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "git_url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "internal_routing": {
+      "type": "boolean",
+      "nullable": true
+    },
+    "maintenance": {
+      "type": "boolean"
+    },
+    "owner": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "region": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "released_at": {
+      "type": "string",
+      "format": "date-time",
+      "nullable": true
+    },
+    "repo_size": {
+      "type": "integer",
+      "nullable": true
+    },
+    "slug_size": {
+      "type": "integer",
+      "nullable": true
+    },
+    "space": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "stack": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "team": {
+      "type": "object",
+      "nullable": true,
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "web_url": {
+      "type": "string",
+      "format": "uri"
+    }
+  }
+}

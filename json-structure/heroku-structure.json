@@ -1,0 +1,474 @@
+{
+  "provider": "Heroku",
+  "providerId": "heroku",
+  "kind": "json-structure",
+  "description": "Structural overview of the Heroku API surface; extracted from openapi/.",
+  "schemaCount": 11,
+  "operationCount": 44,
+  "schemas": [
+    {
+      "name": "App",
+      "type": "object",
+      "propertyCount": 20,
+      "required": []
+    },
+    {
+      "name": "Dyno",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "Addon",
+      "type": "object",
+      "propertyCount": 12,
+      "required": []
+    },
+    {
+      "name": "Domain",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "Formation",
+      "type": "object",
+      "propertyCount": 8,
+      "required": []
+    },
+    {
+      "name": "Release",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "Build",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "Pipeline",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "PipelineCoupling",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "Collaborator",
+      "type": "object",
+      "propertyCount": 7,
+      "required": []
+    },
+    {
+      "name": "Account",
+      "type": "object",
+      "propertyCount": 16,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/apps",
+      "operationId": "listApps",
+      "summary": "List apps",
+      "tags": [
+        "Apps"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps",
+      "operationId": "createApp",
+      "summary": "Create an app",
+      "tags": [
+        "Apps"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}",
+      "operationId": "getApp",
+      "summary": "Get app info",
+      "tags": [
+        "Apps"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/apps/{app_id_or_name}",
+      "operationId": "deleteApp",
+      "summary": "Delete an app",
+      "tags": [
+        "Apps"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/apps/{app_id_or_name}",
+      "operationId": "updateApp",
+      "summary": "Update an app",
+      "tags": [
+        "Apps"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/dynos",
+      "operationId": "listDynos",
+      "summary": "List dynos",
+      "tags": [
+        "Dynos"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/dynos",
+      "operationId": "createDyno",
+      "summary": "Create a dyno",
+      "tags": [
+        "Dynos"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/dynos/{dyno_id_or_name}",
+      "operationId": "getDyno",
+      "summary": "Get dyno info",
+      "tags": [
+        "Dynos"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/dynos/{dyno_id_or_name}/actions/stop",
+      "operationId": "stopDyno",
+      "summary": "Stop a dyno",
+      "tags": [
+        "Dynos"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/dynos/actions/restart-all",
+      "operationId": "restartAllDynos",
+      "summary": "Restart all dynos",
+      "tags": [
+        "Dynos"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/config-vars",
+      "operationId": "getConfigVars",
+      "summary": "Get config vars",
+      "tags": [
+        "Config Vars"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/apps/{app_id_or_name}/config-vars",
+      "operationId": "updateConfigVars",
+      "summary": "Update config vars",
+      "tags": [
+        "Config Vars"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/addons",
+      "operationId": "listAddons",
+      "summary": "List add-ons for an app",
+      "tags": [
+        "Add-ons"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/addons",
+      "operationId": "createAddon",
+      "summary": "Create an add-on",
+      "tags": [
+        "Add-ons"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/addons/{addon_id_or_name}",
+      "operationId": "getAddon",
+      "summary": "Get add-on info",
+      "tags": [
+        "Add-ons"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/apps/{app_id_or_name}/addons/{addon_id_or_name}",
+      "operationId": "deleteAddon",
+      "summary": "Delete an add-on",
+      "tags": [
+        "Add-ons"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/domains",
+      "operationId": "listDomains",
+      "summary": "List domains",
+      "tags": [
+        "Domains"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/domains",
+      "operationId": "createDomain",
+      "summary": "Create a domain",
+      "tags": [
+        "Domains"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/domains/{domain_id_or_hostname}",
+      "operationId": "getDomain",
+      "summary": "Get domain info",
+      "tags": [
+        "Domains"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/apps/{app_id_or_name}/domains/{domain_id_or_hostname}",
+      "operationId": "deleteDomain",
+      "summary": "Delete a domain",
+      "tags": [
+        "Domains"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/formation",
+      "operationId": "listFormation",
+      "summary": "List formation",
+      "tags": [
+        "Formation"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/apps/{app_id_or_name}/formation",
+      "operationId": "batchUpdateFormation",
+      "summary": "Batch update formation",
+      "tags": [
+        "Formation"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/apps/{app_id_or_name}/formation/{formation_id_or_type}",
+      "operationId": "updateFormation",
+      "summary": "Update a process type",
+      "tags": [
+        "Formation"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/releases",
+      "operationId": "listReleases",
+      "summary": "List releases",
+      "tags": [
+        "Releases"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/releases",
+      "operationId": "createRelease",
+      "summary": "Create a release (rollback)",
+      "tags": [
+        "Releases"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/releases/{release_id_or_version}",
+      "operationId": "getRelease",
+      "summary": "Get release info",
+      "tags": [
+        "Releases"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/builds",
+      "operationId": "listBuilds",
+      "summary": "List builds",
+      "tags": [
+        "Builds"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/builds",
+      "operationId": "createBuild",
+      "summary": "Create a build",
+      "tags": [
+        "Builds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/builds/{build_id}",
+      "operationId": "getBuild",
+      "summary": "Get build info",
+      "tags": [
+        "Builds"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/log-sessions",
+      "operationId": "createLogSession",
+      "summary": "Create a log session",
+      "tags": [
+        "Log Sessions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pipelines",
+      "operationId": "listPipelines",
+      "summary": "List pipelines",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pipelines",
+      "operationId": "createPipeline",
+      "summary": "Create a pipeline",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pipelines/{pipeline_id}",
+      "operationId": "getPipeline",
+      "summary": "Get pipeline info",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/pipelines/{pipeline_id}",
+      "operationId": "deletePipeline",
+      "summary": "Delete a pipeline",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/pipelines/{pipeline_id}",
+      "operationId": "updatePipeline",
+      "summary": "Update a pipeline",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/pipelines/{pipeline_id}/pipeline-couplings",
+      "operationId": "listPipelineCouplings",
+      "summary": "List pipeline couplings",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/pipeline-couplings",
+      "operationId": "createPipelineCoupling",
+      "summary": "Create a pipeline coupling",
+      "tags": [
+        "Pipelines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/account",
+      "operationId": "getAccount",
+      "summary": "Get account info",
+      "tags": [
+        "Account"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/account",
+      "operationId": "updateAccount",
+      "summary": "Update account",
+      "tags": [
+        "Account"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/regions",
+      "operationId": "listRegions",
+      "summary": "List regions",
+      "tags": [
+        "Regions"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/stacks",
+      "operationId": "listStacks",
+      "summary": "List stacks",
+      "tags": [
+        "Stacks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/apps/{app_id_or_name}/collaborators",
+      "operationId": "listCollaborators",
+      "summary": "List collaborators",
+      "tags": [
+        "Collaborators"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/apps/{app_id_or_name}/collaborators",
+      "operationId": "createCollaborator",
+      "summary": "Create a collaborator",
+      "tags": [
+        "Collaborators"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/apps/{app_id_or_name}/collaborators/{collaborator_email_or_id}",
+      "operationId": "deleteCollaborator",
+      "summary": "Delete a collaborator",
+      "tags": [
+        "Collaborators"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+name: Heroku Domain Vocabulary
+provider: Heroku
+providerId: heroku
+description: Tag-derived vocabulary for the Heroku API surface; sourced from openapi/ tags.
+terms:
+- term: Apps
+  description: Application management
+- term: Dynos
+  description: Process (dyno) management
+- term: Config Vars
+  description: Environment configuration variables
+- term: Add-ons
+  description: Add-on service management
+- term: Domains
+  description: Custom domain management
+- term: Formation
+  description: Process type scaling
+- term: Releases
+  description: Release management
+- term: Builds
+  description: Build management
+- term: Log Sessions
+  description: Application logging
+- term: Pipelines
+  description: Deployment pipeline management
+- term: Account
+  description: Account management
+- term: Regions
+  description: Available regions
+- term: Stacks
+  description: Available stacks
+- term: Collaborators
+  description: App collaborator management
