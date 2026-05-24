@@ -112,6 +112,8 @@ common:
   sources:
   - https://www.heroku.com/pricing
   updated: '2026-05-04'
+- type: LLMsTxt
+  url: https://heroku.com/llms.txt
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
