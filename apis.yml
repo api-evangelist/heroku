@@ -12,7 +12,7 @@ tags:
 - PaaS
 url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml
 created: '2025-02-08'
-modified: '2026-05-19'
+modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
 - aid: heroku:heroku-platform-api
@@ -30,6 +30,8 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: OpenAPI
     url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-platform-api.yml
+  - type: AsyncAPI
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication

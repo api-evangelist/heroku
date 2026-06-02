@@ -1,0 +1,1047 @@
+asyncapi: 2.6.0
+info:
+  title: Heroku App Webhooks
+  version: '1.0.0'
+  description: |
+    AsyncAPI definition for Heroku App Webhooks. Heroku App Webhooks notify
+    subscribers about changes to apps, add-ons, builds, collaborators, domains,
+    dynos, formations, releases, SNI endpoints, and dyno state transitions.
+
+    Subscribers register an HTTPS endpoint and receive POST requests carrying
+    a JSON payload describing the event. Each request is signed with HMAC-SHA256
+    using a shared secret and the raw request body. The signature is delivered
+    in the `Heroku-Webhook-Hmac-SHA256` request header. An optional
+    `Authorization` header value may also be configured at subscription time
+    and is passed through unmodified for additional validation.
+
+    Source: https://devcenter.heroku.com/articles/app-webhooks
+    Source: https://devcenter.heroku.com/articles/webhook-events
+  contact:
+    name: Heroku Dev Center
+    url: https://devcenter.heroku.com/articles/app-webhooks
+  license:
+    name: Heroku Terms of Service
+    url: https://www.heroku.com/policy/tos
+  termsOfService: https://www.heroku.com/policy/tos
+
+defaultContentType: application/json
+
+servers:
+  subscriber:
+    url: '{subscriber_url}'
+    protocol: https
+    description: |
+      The subscriber-provided HTTPS endpoint that receives webhook deliveries.
+      Configured via `heroku webhooks:add -u https://example.com/hooks`.
+    variables:
+      subscriber_url:
+        default: https://example.com/hooks
+        description: The full URL of the subscriber's webhook receiver.
+
+channels:
+  api:addon-attachment:
+    description: |
+      An add-on attachment was created or destroyed on the app.
+      Subscribe with `-i api:addon-attachment`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveAddonAttachmentEvent
+      summary: Add-on attachment lifecycle event.
+      message:
+        $ref: '#/components/messages/AddonAttachmentEvent'
+
+  api:addon:
+    description: |
+      An add-on was provisioned, modified, or deprovisioned for the app.
+      Subscribe with `-i api:addon`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveAddonEvent
+      summary: Add-on lifecycle event.
+      message:
+        $ref: '#/components/messages/AddonEvent'
+
+  api:app:
+    description: |
+      The app was provisioned, modified, or destroyed.
+      Subscribe with `-i api:app`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveAppEvent
+      summary: App lifecycle event.
+      message:
+        $ref: '#/components/messages/AppEvent'
+
+  api:build:
+    description: |
+      A new build was initiated, or an existing build's status changed.
+      Subscribe with `-i api:build`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveBuildEvent
+      summary: Build lifecycle event.
+      message:
+        $ref: '#/components/messages/BuildEvent'
+
+  api:collaborator:
+    description: |
+      A collaborator was added, modified, or removed from the app.
+      Subscribe with `-i api:collaborator`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveCollaboratorEvent
+      summary: Collaborator lifecycle event.
+      message:
+        $ref: '#/components/messages/CollaboratorEvent'
+
+  api:domain:
+    description: |
+      A custom domain was added to or removed from the app.
+      Subscribe with `-i api:domain`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveDomainEvent
+      summary: Domain lifecycle event.
+      message:
+        $ref: '#/components/messages/DomainEvent'
+
+  api:dyno:
+    description: |
+      A new dyno has begun running for the app.
+      Subscribe with `-i api:dyno`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveDynoEvent
+      summary: Dyno provisioning event.
+      message:
+        $ref: '#/components/messages/DynoEvent'
+
+  api:formation:
+    description: |
+      The dyno formation for a process type was modified or destroyed.
+      Subscribe with `-i api:formation`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveFormationEvent
+      summary: Formation lifecycle event.
+      message:
+        $ref: '#/components/messages/FormationEvent'
+
+  api:release:
+    description: |
+      A new release was initiated, or an existing release's status changed.
+      Apps using release phase receive three events per release (create,
+      pending update, terminal update).
+      Subscribe with `-i api:release`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveReleaseEvent
+      summary: Release lifecycle event.
+      message:
+        $ref: '#/components/messages/ReleaseEvent'
+
+  api:sni-endpoint:
+    description: |
+      An SNI endpoint was added, modified, or removed from the app.
+      Subscribe with `-i api:sni-endpoint`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveSniEndpointEvent
+      summary: SNI endpoint lifecycle event.
+      message:
+        $ref: '#/components/messages/SniEndpointEvent'
+
+  dyno:
+    description: |
+      A dyno state changed (e.g. starting, up, stopping, down, crashed).
+      Subscribe with `-i dyno`.
+    bindings:
+      http:
+        type: request
+        method: POST
+        bindingVersion: '0.3.0'
+    publish:
+      operationId: receiveDynoStateEvent
+      summary: Dyno state transition event.
+      message:
+        $ref: '#/components/messages/DynoStateEvent'
+
+components:
+  securitySchemes:
+    HmacSignature:
+      type: httpApiKey
+      in: header
+      name: Heroku-Webhook-Hmac-SHA256
+      description: |
+        Base64-encoded HMAC-SHA256 signature of the raw request body, computed
+        using the shared secret established when the webhook subscription was
+        created. Subscribers must recompute the HMAC and use a constant-time
+        comparison to verify the request originated from Heroku.
+
+        Example header:
+          Heroku-Webhook-Hmac-SHA256: cLM15U5x+jHEkANnVasRwBw2yEHu94pXdjcT9Hajc1M=
+    AuthorizationHeader:
+      type: httpApiKey
+      in: header
+      name: Authorization
+      description: |
+        Optional Authorization header value supplied at subscription time via
+        the `-t` / `--authorization` flag. Heroku passes the value through
+        unmodified for the subscriber to validate.
+
+  messageTraits:
+    HerokuWebhookHeaders:
+      headers:
+        type: object
+        required:
+          - Heroku-Webhook-Hmac-SHA256
+        properties:
+          Heroku-Webhook-Hmac-SHA256:
+            type: string
+            description: Base64-encoded HMAC-SHA256 signature of the raw request body.
+            example: cLM15U5x+jHEkANnVasRwBw2yEHu94pXdjcT9Hajc1M=
+          Authorization:
+            type: string
+            description: |
+              Optional Authorization header value as configured on the webhook
+              subscription. Passed through unmodified.
+            example: Bearer 01234567-89ab-cdef-0123-456789abcdef
+          Content-Type:
+            type: string
+            enum:
+              - application/json
+            example: application/json
+
+  messages:
+    AddonAttachmentEvent:
+      name: AddonAttachmentEvent
+      title: Add-on Attachment Event
+      summary: Fired when an add-on is attached to or removed from the app.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, destroy]
+              resource:
+                type: string
+                enum: [addon-attachment]
+              data:
+                $ref: '#/components/schemas/AddonAttachment'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/AddonAttachment'
+
+    AddonEvent:
+      name: AddonEvent
+      title: Add-on Event
+      summary: Fired when an add-on is created, updated, or destroyed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update, destroy]
+              resource:
+                type: string
+                enum: [addon]
+              data:
+                $ref: '#/components/schemas/Addon'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Addon'
+
+    AppEvent:
+      name: AppEvent
+      title: App Event
+      summary: Fired when the app is created, updated, or destroyed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update, destroy]
+              resource:
+                type: string
+                enum: [app]
+              data:
+                $ref: '#/components/schemas/App'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/App'
+
+    BuildEvent:
+      name: BuildEvent
+      title: Build Event
+      summary: Fired when a build is initiated or its status changes.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update]
+              resource:
+                type: string
+                enum: [build]
+              data:
+                $ref: '#/components/schemas/Build'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Build'
+
+    CollaboratorEvent:
+      name: CollaboratorEvent
+      title: Collaborator Event
+      summary: Fired when a collaborator is added, modified, or removed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update, destroy]
+              resource:
+                type: string
+                enum: [collaborator]
+              data:
+                $ref: '#/components/schemas/Collaborator'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Collaborator'
+
+    DomainEvent:
+      name: DomainEvent
+      title: Domain Event
+      summary: Fired when a custom domain is added or removed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, destroy]
+              resource:
+                type: string
+                enum: [domain]
+              data:
+                $ref: '#/components/schemas/Domain'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Domain'
+
+    DynoEvent:
+      name: DynoEvent
+      title: Dyno Event
+      summary: Fired when a new dyno has begun running for the app.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create]
+              resource:
+                type: string
+                enum: [dyno]
+              data:
+                $ref: '#/components/schemas/Dyno'
+
+    FormationEvent:
+      name: FormationEvent
+      title: Formation Event
+      summary: Fired when the dyno formation for a process type is modified or destroyed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [update, destroy]
+              resource:
+                type: string
+                enum: [formation]
+              data:
+                $ref: '#/components/schemas/Formation'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Formation'
+
+    ReleaseEvent:
+      name: ReleaseEvent
+      title: Release Event
+      summary: |
+        Fired when a release is initiated or its status changes. Apps using
+        release phase receive at least three events per release.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update]
+              resource:
+                type: string
+                enum: [release]
+              data:
+                $ref: '#/components/schemas/Release'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/Release'
+
+    SniEndpointEvent:
+      name: SniEndpointEvent
+      title: SNI Endpoint Event
+      summary: Fired when an SNI endpoint is created, updated, or destroyed.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [create, update, destroy]
+              resource:
+                type: string
+                enum: [sni-endpoint]
+              data:
+                $ref: '#/components/schemas/SniEndpoint'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/SniEndpoint'
+
+    DynoStateEvent:
+      name: DynoStateEvent
+      title: Dyno State Event
+      summary: |
+        Fired on dyno state transitions. The `update` action covers starting,
+        stopping, and up states. The `destroy` action covers crashed and down
+        states.
+      contentType: application/json
+      traits:
+        - $ref: '#/components/messageTraits/HerokuWebhookHeaders'
+      payload:
+        allOf:
+          - $ref: '#/components/schemas/WebhookEnvelope'
+          - type: object
+            properties:
+              action:
+                type: string
+                enum: [update, destroy]
+              resource:
+                type: string
+                enum: [dyno]
+              data:
+                $ref: '#/components/schemas/DynoState'
+              previous_data:
+                oneOf:
+                  - type: object
+                  - $ref: '#/components/schemas/DynoState'
+
+  schemas:
+    WebhookEnvelope:
+      type: object
+      description: |
+        Common envelope wrapping every Heroku App Webhook delivery. Concrete
+        event messages refine `action`, `resource`, `data`, and `previous_data`.
+      required:
+        - action
+        - actor
+        - created_at
+        - id
+        - data
+        - resource
+        - version
+        - webhook_metadata
+      properties:
+        action:
+          type: string
+          description: The action that occurred on the resource.
+          enum: [create, update, destroy]
+        actor:
+          $ref: '#/components/schemas/Actor'
+        created_at:
+          type: string
+          format: date-time
+          description: When the event was created.
+          example: '2016-10-26T22:50:14Z'
+        id:
+          type: string
+          format: uuid
+          description: Unique event identifier.
+          example: d472a8bb-1a3c-4f78-aad1-995e6d0022ec
+        data:
+          type: object
+          description: |
+            Full entity details at the time of the event. The shape varies by
+            event type.
+        previous_data:
+          type: object
+          description: |
+            Previous state of changed fields, populated on update events.
+        published_at:
+          type: [string, 'null']
+          format: date-time
+          description: When the event was published, if applicable.
+        resource:
+          type: string
+          description: |
+            The resource type the event applies to, such as `app`, `addon`,
+            `addon-attachment`, `build`, `collaborator`, `domain`, `dyno`,
+            `formation`, `release`, or `sni-endpoint`.
+          example: app
+        sequence:
+          type: [string, 'null']
+          description: Optional ordering hint for the event stream.
+        updated_at:
+          type: string
+          format: date-time
+          description: When the event was last updated.
+          example: '2016-10-26T22:50:14Z'
+        version:
+          type: string
+          description: The Heroku API version that produced the payload.
+          example: application/vnd.heroku+json; version=3
+        webhook_metadata:
+          $ref: '#/components/schemas/WebhookMetadata'
+
+    Actor:
+      type: object
+      description: The user who triggered the event.
+      properties:
+        email:
+          type: string
+          format: email
+          example: user-0436@example.com
+        id:
+          type: string
+          format: uuid
+          example: 096370c8-f3ad-4e20-a309-fb4f06ec0a89
+
+    WebhookMetadata:
+      type: object
+      description: Delivery, attempt, event, and subscription identifiers.
+      required:
+        - attempt
+        - delivery
+        - event
+        - webhook
+      properties:
+        attempt:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 8a44f820-2354-489d-9a11-a793cbf49979
+        delivery:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: d244009a-670f-4340-88e9-789a4f9002d5
+        event:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: d472a8bb-1a3c-4f78-aad1-995e6d0022ec
+            include:
+              type: string
+              description: The event entity name (e.g. `api:app`).
+              example: api:app
+        webhook:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+              example: 01234567-89ab-cdef-0123-456789abcdef
+
+    AppRef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+
+    NamedRef:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+
+    UserRef:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+        id:
+          type: string
+          format: uuid
+        federated:
+          type: boolean
+
+    AddonAttachment:
+      type: object
+      description: Snapshot fields for an add-on attachment event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        addon:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+            app:
+              $ref: '#/components/schemas/AppRef'
+        app:
+          $ref: '#/components/schemas/AppRef'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        web_url:
+          type: string
+          format: uri
+
+    Addon:
+      type: object
+      description: Snapshot fields for an add-on event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        actions:
+          type: array
+          items:
+            type: object
+        config_vars:
+          type: array
+          items:
+            type: string
+        addon_service:
+          $ref: '#/components/schemas/NamedRef'
+        plan:
+          $ref: '#/components/schemas/NamedRef'
+        app:
+          $ref: '#/components/schemas/AppRef'
+        provider_id:
+          type: string
+        state:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+        web_url:
+          type: string
+          format: uri
+
+    App:
+      type: object
+      description: Snapshot fields for an app event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        archived_at:
+          type: [string, 'null']
+          format: date-time
+        buildpack_provided_description:
+          type: [string, 'null']
+        build_stack:
+          $ref: '#/components/schemas/NamedRef'
+        created_at:
+          type: string
+          format: date-time
+        git_url:
+          type: string
+        maintenance:
+          type: boolean
+        owner:
+          $ref: '#/components/schemas/UserRef'
+        region:
+          $ref: '#/components/schemas/NamedRef'
+        organization:
+          $ref: '#/components/schemas/NamedRef'
+        space:
+          type: [object, 'null']
+        released_at:
+          type: [string, 'null']
+          format: date-time
+        repo_size:
+          type: [integer, 'null']
+        slug_size:
+          type: [integer, 'null']
+        stack:
+          $ref: '#/components/schemas/NamedRef'
+        updated_at:
+          type: string
+          format: date-time
+        web_url:
+          type: string
+          format: uri
+
+    Build:
+      type: object
+      description: Snapshot fields for a build event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        app:
+          $ref: '#/components/schemas/AppRef'
+        buildpacks:
+          type: array
+          items:
+            type: object
+        output_stream_url:
+          type: string
+          format: uri
+        release:
+          type: [object, 'null']
+          properties:
+            id:
+              type: string
+              format: uuid
+        slug:
+          type: [object, 'null']
+          properties:
+            id:
+              type: string
+              format: uuid
+        source_blob:
+          type: object
+          properties:
+            checksum:
+              type: [string, 'null']
+            url:
+              type: string
+              format: uri
+            version:
+              type: [string, 'null']
+        stack:
+          type: string
+        status:
+          type: string
+          enum: [pending, succeeded, failed]
+        user:
+          $ref: '#/components/schemas/UserRef'
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Collaborator:
+      type: object
+      description: Snapshot fields for a collaborator event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        user:
+          $ref: '#/components/schemas/UserRef'
+        app:
+          $ref: '#/components/schemas/AppRef'
+        role:
+          type: [string, 'null']
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Domain:
+      type: object
+      description: Snapshot fields for a domain event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        app:
+          $ref: '#/components/schemas/AppRef'
+        cname:
+          type: [string, 'null']
+        hostname:
+          type: string
+        kind:
+          type: string
+        status:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Dyno:
+      type: object
+      description: Snapshot fields for a dyno creation event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        attach_url:
+          type: [string, 'null']
+        command:
+          type: string
+        app:
+          $ref: '#/components/schemas/AppRef'
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            version:
+              type: integer
+        size:
+          type: string
+        state:
+          type: string
+        type:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    DynoState:
+      type: object
+      description: |
+        Snapshot fields for a dyno state transition event published on the
+        `dyno` channel.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          $ref: '#/components/schemas/AppRef'
+        command:
+          type: string
+        exit_status:
+          type: [integer, 'null']
+        management:
+          type: [string, 'null']
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            version:
+              type: integer
+        size:
+          type: string
+        state:
+          type: string
+          enum: [up, down, crashed, starting, stopping]
+        type:
+          type: string
+
+    Formation:
+      type: object
+      description: Snapshot fields for a formation event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        app:
+          $ref: '#/components/schemas/AppRef'
+        command:
+          type: string
+        type:
+          type: string
+        quantity:
+          type: integer
+        size:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Release:
+      type: object
+      description: Snapshot fields for a release event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        addon_plan_names:
+          type: array
+          items:
+            type: string
+        app:
+          $ref: '#/components/schemas/AppRef'
+        description:
+          type: string
+        status:
+          type: string
+          enum: [pending, succeeded, failed]
+        slug:
+          type: [object, 'null']
+          properties:
+            id:
+              type: string
+              format: uuid
+        user:
+          $ref: '#/components/schemas/UserRef'
+        version:
+          type: integer
+        current:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    SniEndpoint:
+      type: object
+      description: Snapshot fields for an SNI endpoint event.
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          $ref: '#/components/schemas/AppRef'
+        certificate_chain:
+          type: string
+        cname:
+          type: [string, 'null']
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
