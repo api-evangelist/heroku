@@ -1,7 +1,8 @@
 aid: heroku
 name: Heroku
-description: Heroku is a cloud platform as a service (PaaS) that enables developers to build, run, and operate applications
-  entirely in the cloud. The Heroku Platform API enables programmatic access to Heroku's features for app deployment, scaling,
+description: Heroku is a cloud platform as a service (PaaS) that enables developers
+  to build, run, and operate applications entirely in the cloud. The Heroku Platform
+  API enables programmatic access to Heroku's features for app deployment, scaling,
   and management.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
@@ -17,8 +18,8 @@ specificationVersion: '0.19'
 apis:
 - aid: heroku:heroku-platform-api
   name: Heroku Platform API
-  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform, including apps, dynos,
-    add-ons, pipelines, and other platform resources.
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment
+    platform, including apps, dynos, add-ons, pipelines, and other platform resources.
   humanURL: https://devcenter.heroku.com/articles/platform-api-reference
   baseURL: https://api.heroku.com
   tags:
@@ -36,34 +37,8 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: NaftikoCapability
-    url: capabilities/platform-account.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-add-ons.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-apps.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-builds.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-collaborators.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-config-vars.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-domains.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-dynos.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-formation.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-log-sessions.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-pipelines.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-regions.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-releases.yaml
-  - type: NaftikoCapability
-    url: capabilities/platform-stacks.yaml
+  - url: graphql/heroku-graphql.md
+    type: GraphQL
 common:
 - type: LinkedIn
   url: https://www.linkedin.com/company/heroku

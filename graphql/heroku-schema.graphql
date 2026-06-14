@@ -1,0 +1,1426 @@
+"""
+Heroku Platform API - Conceptual GraphQL Schema
+Source: https://devcenter.heroku.com/articles/platform-api-reference
+Provider: Heroku (Salesforce)
+"""
+
+# ---------------------------------------------------------------------------
+# Scalars
+# ---------------------------------------------------------------------------
+
+scalar DateTime
+scalar JSON
+scalar UUID
+
+# ---------------------------------------------------------------------------
+# Enums
+# ---------------------------------------------------------------------------
+
+enum AppState {
+  ENABLED
+  ERRORED
+}
+
+enum BuildStatus {
+  PENDING
+  BUILDING
+  SUCCEEDED
+  FAILED
+}
+
+enum CollaboratorPermission {
+  VIEW
+  DEPLOY
+  MANAGE
+  OPERATE
+}
+
+enum DynoState {
+  CRASHED
+  DOWN
+  IDLE
+  KILLED
+  RESTARTING
+  STARTING
+  UP
+}
+
+enum FormationSizeUnit {
+  ECO
+  BASIC
+  STANDARD_1X
+  STANDARD_2X
+  PERFORMANCE_M
+  PERFORMANCE_L
+  PERFORMANCE_XL
+  PERFORMANCE_2XL
+  PRIVATE_S
+  PRIVATE_M
+  PRIVATE_L
+}
+
+enum LogLevel {
+  DEBUG
+  INFO
+  WARNING
+  ERROR
+  CRITICAL
+}
+
+enum OAuthTokenType {
+  BEARER
+  DIRECT
+}
+
+enum PipelineStage {
+  REVIEW
+  DEVELOPMENT
+  STAGING
+  PRODUCTION
+}
+
+enum ReleaseStatus {
+  PENDING
+  SUCCEEDED
+  FAILED
+}
+
+enum ReviewAppState {
+  PENDING
+  CREATING
+  CREATED
+  ERRORED
+  DELETING
+  DELETED
+  TESTING
+}
+
+enum SpaceState {
+  ALLOCATING
+  ALLOCATED
+  DELETING
+}
+
+enum StackState {
+  BETA
+  DEPRECATED
+  PUBLIC
+}
+
+enum TeamRole {
+  ADMIN
+  COLLABORATOR
+  MEMBER
+  OWNER
+  VIEWER
+}
+
+enum WebhookEvent {
+  API_ADDON_ATTACHMENT_CREATE
+  API_ADDON_ATTACHMENT_DESTROY
+  API_ADDON_CREATE
+  API_ADDON_DESTROY
+  API_ADDON_UPDATE
+  API_APP_CREATE
+  API_APP_DESTROY
+  API_APP_UPDATE
+  API_COLLABORATOR_CREATE
+  API_COLLABORATOR_DESTROY
+  API_COLLABORATOR_UPDATE
+  API_DOMAIN_CREATE
+  API_DOMAIN_DESTROY
+  API_DYNO_CREATE
+  API_FORMATION_UPDATE
+  API_RELEASE_CREATE
+  API_SLUG_CREATE
+  BUILD_CREATE
+}
+
+enum WebhookLevel {
+  NOTIFY
+  SYNC
+}
+
+# ---------------------------------------------------------------------------
+# Interfaces
+# ---------------------------------------------------------------------------
+
+interface Node {
+  id: UUID!
+}
+
+interface Timestamps {
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Common Types
+# ---------------------------------------------------------------------------
+
+type Price {
+  cents: Int!
+  unit: String!
+}
+
+type Identity {
+  id: UUID!
+  email: String
+  name: String
+}
+
+type AppIdentity {
+  id: UUID!
+  name: String!
+}
+
+type PipelineIdentity {
+  id: UUID!
+  name: String!
+}
+
+type TeamIdentity {
+  id: UUID!
+  name: String!
+}
+
+type SpaceIdentity {
+  id: UUID!
+  name: String!
+}
+
+type RegionIdentity {
+  id: UUID!
+  name: String!
+}
+
+type StackIdentity {
+  id: UUID!
+  name: String!
+}
+
+# ---------------------------------------------------------------------------
+# Account
+# ---------------------------------------------------------------------------
+
+"""A Heroku user account."""
+type Account implements Node & Timestamps {
+  id: UUID!
+  email: String!
+  name: String
+  verified: Boolean!
+  delinquent_at: DateTime
+  suspended_at: DateTime
+  lastLogin: DateTime
+  twoFactorAuthentication: Boolean!
+  smsNumber: String
+  country: String
+  allowTracking: Boolean!
+  betaFlag: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  features: [AccountFeature!]!
+  keys: [Key!]!
+  apps: [App!]!
+  teams: [Team!]!
+  oauthAuthorizations: [OAuthAuthorization!]!
+  invoices: [Invoice!]!
+  creditCard: CreditCard
+}
+
+"""An optional feature flag that can be toggled on a Heroku account."""
+type AccountFeature implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  description: String!
+  enabled: Boolean!
+  state: String!
+  feedback_email: String
+  displayName: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# App
+# ---------------------------------------------------------------------------
+
+"""A Heroku application — the core deployable unit."""
+type App implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  webUrl: String
+  gitUrl: String
+  repoSize: Int
+  slugSize: Int
+  buildpackProvidedDescription: String
+  archived_at: DateTime
+  released_at: DateTime
+  maintenance: Boolean!
+  acm: Boolean!
+  internal_routing: Boolean
+  state: AppState!
+  region: Region!
+  stack: Stack!
+  owner: Identity!
+  team: TeamIdentity
+  space: SpaceIdentity
+  organization: TeamIdentity
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  # relations
+  config: [ConfigVar!]!
+  formation: [Formation!]!
+  dynos: [Dyno!]!
+  builds: [Build!]!
+  releases(limit: Int): [Release!]!
+  slugs: [Slug!]!
+  addons: [Addon!]!
+  collaborators: [Collaborator!]!
+  domains: [Domain!]!
+  logDrains: [LogDrain!]!
+  webhooks: [Webhook!]!
+  features: [AppFeature!]!
+  sniEndpoints: [SNI!]!
+  sslEndpoints: [SSLEndpoint!]!
+  buildpackInstallations: [BuildpackInstallation!]!
+  pipelineCouplings: [PipelineCoupling!]!
+  reviewApp: ReviewApp
+  maintenanceConfig: MaintenanceConfig
+  outboundRuleset: OutboundRuleset
+}
+
+"""A feature flag that can be enabled or disabled on an app."""
+type AppFeature implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  description: String!
+  enabled: Boolean!
+  state: String!
+  displayName: String
+  feedback_email: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Automated app creation driven by an app.json manifest."""
+type AppSetup implements Node & Timestamps {
+  id: UUID!
+  status: String!
+  failure_message: String
+  app: AppIdentity!
+  build: Build
+  manifest_errors: [String!]!
+  postdeploy: AppSetupPostdeploy
+  resolved_success_url: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AppSetupPostdeploy {
+  exit_code: Int
+  output: String
+}
+
+"""Aggregate of all process type formations on an app."""
+type AppFormation {
+  app: AppIdentity!
+  formations: [Formation!]!
+}
+
+# ---------------------------------------------------------------------------
+# Build & Buildpack
+# ---------------------------------------------------------------------------
+
+"""A compiled build artifact created from source code."""
+type Build implements Node & Timestamps {
+  id: UUID!
+  status: BuildStatus!
+  output_stream_url: String
+  source_blob: SourceBlob!
+  slug: SlugRef
+  stack: String
+  buildpacks: [Buildpack!]
+  user: Identity!
+  app: AppIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SourceBlob {
+  checksum: String
+  url: String!
+  version: String
+  version_description: String
+}
+
+type SlugRef {
+  id: UUID!
+}
+
+"""A buildpack used to compile source code into a slug."""
+type Buildpack {
+  url: String!
+  name: String
+}
+
+"""An ordered buildpack installed on an app."""
+type BuildpackInstallation {
+  ordinal: Int!
+  buildpack: Buildpack!
+}
+
+# ---------------------------------------------------------------------------
+# Config & ConfigVar
+# ---------------------------------------------------------------------------
+
+"""A single environment variable key/value pair on an app."""
+type ConfigVar {
+  key: String!
+  value: String
+}
+
+# ---------------------------------------------------------------------------
+# Collaborator
+# ---------------------------------------------------------------------------
+
+"""A user with access to an app who is not the owner."""
+type Collaborator implements Node & Timestamps {
+  id: UUID!
+  app: AppIdentity!
+  user: Identity!
+  role: String
+  permissions: [CollaboratorPermission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Domain
+# ---------------------------------------------------------------------------
+
+"""A custom hostname bound to a Heroku app."""
+type Domain implements Node & Timestamps {
+  id: UUID!
+  hostname: String!
+  kind: String!
+  status: String!
+  cname: String
+  sni_endpoint: SNI
+  acm_status: String
+  acm_status_reason: String
+  app: AppIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Dyno & DynoSize & Formation
+# ---------------------------------------------------------------------------
+
+"""A running process instance within an app."""
+type Dyno implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  type: String!
+  state: DynoState!
+  command: String!
+  size: String!
+  app: AppIdentity!
+  release: ReleaseRef!
+  attach_url: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type ReleaseRef {
+  id: UUID!
+  version: Int!
+}
+
+"""Available compute size tier for dynos."""
+type DynoSize implements Node {
+  id: UUID!
+  name: String!
+  compute: Int!
+  memory: Float!
+  dedicated: Boolean!
+  eco: Boolean!
+  cost: Price
+  dyno_units: Float!
+  private_space_only: Boolean!
+}
+
+"""Process type definition and desired scale for an app."""
+type Formation implements Node & Timestamps {
+  id: UUID!
+  app: AppIdentity!
+  command: String!
+  process: String!
+  quantity: Int!
+  size: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Log & LogDrain
+# ---------------------------------------------------------------------------
+
+"""A single log line from the Heroku Logplex stream."""
+type Log {
+  timestamp: DateTime!
+  level: LogLevel!
+  source: String!
+  dyno: String
+  message: String!
+}
+
+"""A destination for log forwarding from an app."""
+type LogDrain implements Node & Timestamps {
+  id: UUID!
+  addon: AddonRef
+  app: AppIdentity!
+  token: String!
+  url: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AddonRef {
+  id: UUID!
+  name: String!
+}
+
+# ---------------------------------------------------------------------------
+# Maintenance
+# ---------------------------------------------------------------------------
+
+"""Maintenance window configuration for an app."""
+type MaintenanceConfig {
+  window: String
+}
+
+# ---------------------------------------------------------------------------
+# Add-on, AddonService, AddonPlan, AddonAttachment
+# ---------------------------------------------------------------------------
+
+"""An add-on service available in the Heroku marketplace."""
+type AddonService implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  human_name: String!
+  state: String!
+  cli_plugin_name: String
+  supports_multiple_installations: Boolean!
+  supports_sharing: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  plans: [AddonPlan!]!
+}
+
+"""A pricing plan for an add-on service."""
+type AddonPlan implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  human_name: String!
+  description: String
+  price: Price!
+  default: Boolean!
+  state: String!
+  unit: String
+  compliance: [String!]
+  ada: AddonPlanADA
+  addon_service: AddonServiceRef!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type AddonPlanADA {
+  compliant: Boolean
+}
+
+type AddonServiceRef {
+  id: UUID!
+  name: String!
+}
+
+"""A provisioned add-on instance on an app."""
+type Addon implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  state: String!
+  billing_entity: BillingEntity!
+  app: AppIdentity!
+  addon_service: AddonServiceRef!
+  plan: AddonPlanRef!
+  config_vars: [String!]!
+  web_url: String
+  billed_price: Price
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  attachments: [AddonAttachment!]!
+  config: [AddonConfig!]!
+}
+
+type AddonPlanRef {
+  id: UUID!
+  name: String!
+}
+
+type BillingEntity {
+  id: UUID!
+  name: String!
+  type: String!
+}
+
+"""A link between a provisioned add-on and an app."""
+type AddonAttachment implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  namespace: String
+  app: AppIdentity!
+  addon: AddonRef!
+  web_url: String
+  log_input_url: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A configuration key/value pair for an add-on."""
+type AddonConfig {
+  name: String!
+  value: String!
+}
+
+# ---------------------------------------------------------------------------
+# OAuth
+# ---------------------------------------------------------------------------
+
+"""A registered OAuth client application."""
+type OAuthClient implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  redirect_uri: String!
+  secret: String
+  ignores_delinquent: Boolean
+  trusted: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""An authorization granted by a user to an OAuth client."""
+type OAuthAuthorization implements Node & Timestamps {
+  id: UUID!
+  scope: [String!]!
+  description: String
+  expires_in: Int
+  client: OAuthClient
+  grant: OAuthGrant
+  access_token: OAuthToken
+  refresh_token: OAuthToken
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A short-lived authorization code within an OAuth flow."""
+type OAuthGrant implements Node {
+  id: UUID!
+  code: String!
+  expires_in: Int!
+  type: String!
+}
+
+"""An access or refresh token obtained via OAuth."""
+type OAuthToken implements Node & Timestamps {
+  id: UUID!
+  token: String!
+  expires_in: Int
+  type: OAuthTokenType!
+  user: Identity!
+  client: OAuthClient
+  authorization: OAuthAuthorizationRef!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OAuthAuthorizationRef {
+  id: UUID!
+}
+
+# ---------------------------------------------------------------------------
+# Password Reset
+# ---------------------------------------------------------------------------
+
+"""A password reset request for a user account."""
+type PasswordReset {
+  user: Identity!
+  created_at: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Pipeline, PipelineCoupling, PipelinePromotion, PipelineTransfer
+# ---------------------------------------------------------------------------
+
+"""A named grouping of apps representing a deployment pipeline."""
+type Pipeline implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  generation: PipelineGeneration!
+  owner: PipelineOwner!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  couplings: [PipelineCoupling!]!
+  builds: [Build!]!
+}
+
+type PipelineGeneration {
+  id: UUID!
+  name: String!
+}
+
+type PipelineOwner {
+  id: UUID!
+  type: String!
+}
+
+"""The coupling between a pipeline and an app at a given stage."""
+type PipelineCoupling implements Node & Timestamps {
+  id: UUID!
+  stage: PipelineStage!
+  app: AppIdentity!
+  pipeline: PipelineIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A promotion of a compiled slug from one pipeline stage to another."""
+type PipelinePromotion implements Node & Timestamps {
+  id: UUID!
+  status: String!
+  pipeline: PipelineIdentity!
+  source: PipelinePromotionSource!
+  targets: [PipelinePromotionTarget!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type PipelinePromotionSource {
+  app: AppIdentity!
+  release: ReleaseRef!
+}
+
+"""A target app for a pipeline promotion."""
+type PipelinePromotionTarget implements Node {
+  id: UUID!
+  app: AppIdentity!
+  release: ReleaseRef
+  status: String!
+  error_message: String
+}
+
+"""Transfer of pipeline ownership between accounts or teams."""
+type PipelineTransfer {
+  pipeline: PipelineIdentity!
+  previous_owner: PipelineOwner!
+  new_owner: PipelineOwner!
+}
+
+# ---------------------------------------------------------------------------
+# Region & Stack
+# ---------------------------------------------------------------------------
+
+"""A Heroku infrastructure region where apps can be deployed."""
+type Region implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  description: String!
+  locale: String!
+  private_capable: Boolean!
+  provider: RegionProvider!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type RegionProvider {
+  name: String!
+  region: String!
+}
+
+"""A Heroku runtime stack (e.g., heroku-24, container)."""
+type Stack implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  state: StackState!
+  default: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Release & Slug
+# ---------------------------------------------------------------------------
+
+"""A versioned deployment of an app."""
+type Release implements Node & Timestamps {
+  id: UUID!
+  version: Int!
+  description: String
+  status: ReleaseStatus!
+  current: Boolean!
+  output_stream_url: String
+  slug: SlugRef
+  user: Identity!
+  app: AppIdentity!
+  addon_plan_names: [String!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A compiled, executable artifact produced by a build."""
+type Slug implements Node & Timestamps {
+  id: UUID!
+  blob: SlugBlob!
+  buildpack_provided_description: String
+  checksum: String
+  commit: String
+  commit_description: String
+  size: Int
+  stack: StackIdentity!
+  app: AppIdentity!
+  process_types: JSON!
+  buildpacks: [Buildpack!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SlugBlob {
+  method: String!
+  url: String!
+}
+
+# ---------------------------------------------------------------------------
+# Review App & ReviewAppConfig
+# ---------------------------------------------------------------------------
+
+"""A temporary app automatically created for a pull request."""
+type ReviewApp implements Node & Timestamps {
+  id: UUID!
+  status: ReviewAppState!
+  app: AppIdentity
+  app_setup: AppSetup
+  branch: String!
+  pipeline: PipelineIdentity!
+  pr_number: Int
+  error_status: String
+  message: String
+  fork_repo_id: Int
+  creator: Identity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Configuration governing how review apps are created in a pipeline."""
+type ReviewAppConfig {
+  pipeline: PipelineIdentity!
+  repo: ReviewAppRepo!
+  automatic_review_apps: Boolean!
+  destroy_stale_apps: Boolean!
+  stale_days: Int
+  deploy_target: ReviewAppDeployTarget
+  base_name: String
+  wait_for_ci: Boolean!
+}
+
+type ReviewAppRepo {
+  id: Int!
+  type: String!
+}
+
+type ReviewAppDeployTarget {
+  id: String!
+  type: String!
+}
+
+# ---------------------------------------------------------------------------
+# Space, SpaceAppAccess, SpaceNAT, SpaceTopology, SpaceTransfer
+# ---------------------------------------------------------------------------
+
+"""A Heroku Private Space providing network-isolated runtime."""
+type Space implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  state: SpaceState!
+  shield: Boolean!
+  cidr: String!
+  data_cidr: String!
+  region: RegionIdentity!
+  team: TeamIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  appAccess: [SpaceAppAccess!]!
+  nat: SpaceNAT!
+  topology: SpaceTopology!
+  outboundRuleset: OutboundRuleset
+}
+
+"""Grants an app access to a Private Space."""
+type SpaceAppAccess implements Timestamps {
+  space: SpaceIdentity!
+  app: AppIdentity!
+  permissions: [SpaceAppAccessPermission!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SpaceAppAccessPermission {
+  name: String!
+  description: String!
+}
+
+"""NAT configuration providing stable outbound IPs for a Space."""
+type SpaceNAT implements Timestamps {
+  sources: [String!]!
+  state: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""Network topology of a Private Space."""
+type SpaceTopology {
+  version: Int!
+  services: [SpaceTopologyService!]!
+}
+
+type SpaceTopologyService {
+  id: UUID!
+  domains: [String!]!
+  dynos: [SpaceTopologyDyno!]!
+}
+
+type SpaceTopologyDyno {
+  id: UUID!
+  number: Int!
+  private_ip: String!
+}
+
+"""Transfer of Private Space ownership."""
+type SpaceTransfer {
+  space: SpaceIdentity!
+  new_owner: TeamIdentity!
+  prev_owner: TeamIdentity!
+}
+
+# ---------------------------------------------------------------------------
+# SSL / SNI
+# ---------------------------------------------------------------------------
+
+"""An SNI SSL certificate endpoint on an app."""
+type SNI implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  displayName: String
+  certificate_chain: String!
+  domains: [String!]!
+  expires_at: DateTime
+  ssl_cert: SSLCert!
+  app: AppIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A legacy SSL endpoint on an app (pre-SNI)."""
+type SSLEndpoint implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  displayName: String
+  certificate_chain: String!
+  cname: String!
+  ssl_cert: SSLCert!
+  app: AppIdentity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type SSLCert {
+  id: UUID
+  ca_signed: Boolean!
+  cert_domains: [String!]!
+  expires_at: DateTime!
+  issuer: String!
+  starts_at: DateTime!
+  subject: String!
+  self_signed: Boolean!
+}
+
+# ---------------------------------------------------------------------------
+# Outbound Ruleset
+# ---------------------------------------------------------------------------
+
+"""Firewall outbound rules for a Private Space."""
+type OutboundRuleset implements Node & Timestamps {
+  id: UUID!
+  space: SpaceIdentity
+  created_by: Identity!
+  rules: [OutboundRule!]!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type OutboundRule {
+  target: String!
+  from_port: Int!
+  to_port: Int!
+  protocol: String!
+}
+
+# ---------------------------------------------------------------------------
+# Team, TeamApp, TeamMember, TeamFeature, TeamInvitation, TeamAppPermission
+# ---------------------------------------------------------------------------
+
+"""A Heroku Team (formerly Organization) grouping apps and members."""
+type Team implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  type: String!
+  role: TeamRole
+  default: Boolean!
+  credit_card_collections: Boolean!
+  membership_limit: Int
+  provisioned_licenses: Boolean!
+  enterprise_account: EnterpriseAccountRef
+  identity_provider: IdentityProvider
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  apps: [TeamApp!]!
+  members: [TeamMember!]!
+  spaces: [Space!]!
+  features: [TeamFeature!]!
+  invitations: [TeamInvitation!]!
+  invoices: [Invoice!]!
+}
+
+type EnterpriseAccountRef {
+  id: UUID!
+  name: String!
+}
+
+"""An app owned by a Heroku Team."""
+type TeamApp implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  team: TeamIdentity!
+  locked: Boolean!
+  joined: Boolean!
+  personal: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A team member's permission level on a specific team app."""
+type TeamAppPermission {
+  name: String!
+  description: String!
+}
+
+"""A feature flag scoped to a Heroku Team."""
+type TeamFeature implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  description: String!
+  enabled: Boolean!
+  state: String!
+  displayName: String
+  feedback_email: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A pending invitation to join a Heroku Team."""
+type TeamInvitation implements Node & Timestamps {
+  id: UUID!
+  invited_by: Identity!
+  role: TeamRole!
+  team: TeamIdentity!
+  user: Identity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""A member of a Heroku Team with a specific role."""
+type TeamMember implements Timestamps {
+  email: String!
+  role: TeamRole!
+  federated: Boolean!
+  identity_provider: IdentityProvider
+  two_factor_authentication: Boolean
+  team: TeamIdentity!
+  user: Identity!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Identity Provider
+# ---------------------------------------------------------------------------
+
+"""A SAML 2.0 identity provider for SSO."""
+type IdentityProvider implements Node & Timestamps {
+  id: UUID!
+  name: String
+  slo_target_url: String
+  sso_target_url: String!
+  certificate: String!
+  entity_id: String!
+  owner: IdentityProviderOwner!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type IdentityProviderOwner {
+  id: UUID!
+  name: String!
+  type: String!
+}
+
+# ---------------------------------------------------------------------------
+# Billing
+# ---------------------------------------------------------------------------
+
+"""A billing invoice for an account or team."""
+type Invoice implements Node {
+  id: UUID!
+  number: Int!
+  period_start: DateTime!
+  period_end: DateTime!
+  total: Float!
+  charges_total: Float!
+  credits_total: Float!
+  state: Int!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""A credit card on file for billing."""
+type CreditCard {
+  last_four: String!
+  type: String!
+  expiration_month: Int!
+  expiration_year: Int!
+}
+
+"""A payment method associated with an account."""
+type PaymentMethod {
+  card_last4: String!
+  card_type: String!
+  expiration_month: String!
+  expiration_year: String!
+  first_name: String
+  last_name: String
+  other_email_address: String
+}
+
+# ---------------------------------------------------------------------------
+# SSH Key
+# ---------------------------------------------------------------------------
+
+"""An SSH public key registered on a Heroku account."""
+type Key implements Node & Timestamps {
+  id: UUID!
+  email: String!
+  fingerprint: String!
+  public_key: String!
+  comment: String
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ---------------------------------------------------------------------------
+# Webhook
+# ---------------------------------------------------------------------------
+
+"""An outbound HTTP notification subscription on an app or pipeline."""
+type Webhook implements Node & Timestamps {
+  id: UUID!
+  name: String!
+  url: String!
+  level: WebhookLevel!
+  include: [String!]!
+  authorization: String
+  secret: String
+  app: AppIdentity
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""An individual delivery attempt for a webhook event."""
+type WebhookDelivery implements Node & Timestamps {
+  id: UUID!
+  status: String!
+  num_attempts: Int!
+  next_attempt_at: DateTime
+  webhook: WebhookRef!
+  event: WebhookEventPayload!
+  last_attempt: WebhookAttempt
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WebhookRef {
+  id: UUID!
+}
+
+"""The event payload delivered via a webhook."""
+type WebhookEventPayload implements Node & Timestamps {
+  id: UUID!
+  include: String!
+  payload: JSON!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type WebhookAttempt {
+  code: Int
+  error_class: String
+  status: String!
+  request: WebhookAttemptRequest!
+  response: WebhookAttemptResponse
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type WebhookAttemptRequest {
+  headers: JSON!
+}
+
+type WebhookAttemptResponse {
+  code: Int
+  headers: JSON
+}
+
+# ---------------------------------------------------------------------------
+# Root Types
+# ---------------------------------------------------------------------------
+
+type Query {
+  # Account
+  account: Account
+  accountFeature(accountId: UUID!, featureName: String!): AccountFeature
+
+  # App
+  app(id: String!): App
+  apps: [App!]!
+  appSetup(id: UUID!): AppSetup
+  appFormation(appId: String!): AppFormation
+
+  # Build
+  build(appId: String!, buildId: UUID!): Build
+  builds(appId: String!): [Build!]!
+
+  # Dyno
+  dyno(appId: String!, dynoId: String!): Dyno
+  dynos(appId: String!): [Dyno!]!
+  dynoSizes: [DynoSize!]!
+
+  # Formation
+  formation(appId: String!, processType: String!): Formation
+  formations(appId: String!): [Formation!]!
+
+  # Config
+  configVars(appId: String!): [ConfigVar!]!
+
+  # Domain
+  domain(appId: String!, domainId: UUID!): Domain
+  domains(appId: String!): [Domain!]!
+
+  # Collaborator
+  collaborator(appId: String!, collaboratorId: UUID!): Collaborator
+  collaborators(appId: String!): [Collaborator!]!
+
+  # Release
+  release(appId: String!, releaseId: UUID!): Release
+  releases(appId: String!): [Release!]!
+
+  # Slug
+  slug(appId: String!, slugId: UUID!): Slug
+
+  # Add-on
+  addonService(name: String!): AddonService
+  addonServices: [AddonService!]!
+  addonPlan(serviceName: String!, planName: String!): AddonPlan
+  addonPlans(serviceName: String!): [AddonPlan!]!
+  addon(appId: String!, addonId: String!): Addon
+  addons(appId: String!): [Addon!]!
+  addonAttachment(addonAttachmentId: UUID!): AddonAttachment
+  addonAttachments(appId: String!): [AddonAttachment!]!
+
+  # Log Drain
+  logDrain(appId: String!, logDrainId: UUID!): LogDrain
+  logDrains(appId: String!): [LogDrain!]!
+
+  # Webhook
+  webhook(appId: String!, webhookId: UUID!): Webhook
+  webhooks(appId: String!): [Webhook!]!
+  webhookDelivery(appId: String!, deliveryId: UUID!): WebhookDelivery
+  webhookDeliveries(appId: String!): [WebhookDelivery!]!
+
+  # Pipeline
+  pipeline(id: UUID!): Pipeline
+  pipelines: [Pipeline!]!
+  pipelineCoupling(id: UUID!): PipelineCoupling
+  pipelineCouplings(pipelineId: UUID!): [PipelineCoupling!]!
+  pipelinePromotion(id: UUID!): PipelinePromotion
+  reviewApp(id: UUID!): ReviewApp
+  reviewApps(pipelineId: UUID!): [ReviewApp!]!
+  reviewAppConfig(pipelineId: UUID!): ReviewAppConfig
+
+  # Space
+  space(id: String!): Space
+  spaces: [Space!]!
+  spaceAppAccess(spaceId: String!, appId: String!): SpaceAppAccess
+
+  # Team
+  team(id: String!): Team
+  teams: [Team!]!
+  teamApp(teamId: String!, appId: String!): TeamApp
+  teamMember(teamId: String!, email: String!): TeamMember
+
+  # Region & Stack
+  region(id: UUID!): Region
+  regions: [Region!]!
+  stack(id: UUID!): Stack
+  stacks: [Stack!]!
+
+  # OAuth
+  oauthClient(id: UUID!): OAuthClient
+  oauthClients: [OAuthClient!]!
+  oauthAuthorization(id: UUID!): OAuthAuthorization
+  oauthAuthorizations: [OAuthAuthorization!]!
+  oauthToken(id: UUID!): OAuthToken
+
+  # SNI / SSL
+  sniEndpoint(appId: String!, sniId: UUID!): SNI
+  sniEndpoints(appId: String!): [SNI!]!
+  sslEndpoint(appId: String!, sslId: UUID!): SSLEndpoint
+  sslEndpoints(appId: String!): [SSLEndpoint!]!
+
+  # Identity Provider
+  identityProvider(id: UUID!): IdentityProvider
+
+  # Billing
+  invoice(number: Int!): Invoice
+  invoices: [Invoice!]!
+
+  # Keys
+  key(id: UUID!): Key
+  keys: [Key!]!
+
+  # Outbound Ruleset
+  outboundRuleset(spaceId: String!): OutboundRuleset
+}
+
+type Mutation {
+  # App
+  createApp(name: String, region: String, stack: String, team: String): App!
+  updateApp(id: String!, name: String, maintenance: Boolean, build_stack: String): App!
+  deleteApp(id: String!): App!
+  enableAppMaintenance(id: String!): App!
+  disableAppMaintenance(id: String!): App!
+
+  # Build
+  createBuild(appId: String!, sourceUrl: String!, checksum: String, buildpacks: [String!]): Build!
+
+  # Dyno
+  createDyno(appId: String!, command: String!, size: String, attach: Boolean): Dyno!
+  restartDyno(appId: String!, dynoId: String!): Boolean!
+  restartAllDynos(appId: String!): Boolean!
+  stopDyno(appId: String!, dynoId: String!): Boolean!
+
+  # Formation
+  updateFormation(appId: String!, process: String!, quantity: Int, size: String): Formation!
+
+  # Config
+  updateConfigVars(appId: String!, vars: JSON!): [ConfigVar!]!
+  deleteConfigVar(appId: String!, key: String!): [ConfigVar!]!
+
+  # Release
+  createRelease(appId: String!, slug: UUID!, description: String): Release!
+  rollbackRelease(appId: String!, releaseId: UUID!): Release!
+
+  # Domain
+  addDomain(appId: String!, hostname: String!): Domain!
+  deleteDomain(appId: String!, domainId: UUID!): Domain!
+
+  # Collaborator
+  addCollaborator(appId: String!, email: String!, silent: Boolean): Collaborator!
+  removeCollaborator(appId: String!, collaboratorId: UUID!): Collaborator!
+
+  # Log Drain
+  createLogDrain(appId: String!, url: String!): LogDrain!
+  deleteLogDrain(appId: String!, logDrainId: UUID!): LogDrain!
+
+  # Addon
+  provisionAddon(appId: String!, plan: String!, name: String, config: JSON): Addon!
+  updateAddon(appId: String!, addonId: String!, plan: String!): Addon!
+  deprovisionAddon(appId: String!, addonId: String!): Addon!
+
+  # Pipeline
+  createPipeline(name: String!): Pipeline!
+  deletePipeline(id: UUID!): Pipeline!
+  coupleAppToPipeline(pipelineId: UUID!, appId: String!, stage: PipelineStage!): PipelineCoupling!
+  uncoupleAppFromPipeline(id: UUID!): PipelineCoupling!
+  promotePipeline(pipelineId: UUID!, sourceAppId: String!, targetAppIds: [String!]!): PipelinePromotion!
+
+  # Space
+  createSpace(name: String!, team: String!, region: String, shield: Boolean): Space!
+  deleteSpace(id: String!): Space!
+
+  # Team
+  createTeam(name: String!, credit_card_collections: Boolean): Team!
+  deleteTeam(id: String!): Team!
+  addTeamMember(teamId: String!, email: String!, role: TeamRole!): TeamMember!
+  removeTeamMember(teamId: String!, email: String!): TeamMember!
+
+  # Webhook
+  createWebhook(appId: String!, url: String!, include: [String!]!, level: WebhookLevel!, secret: String, authorization: String): Webhook!
+  updateWebhook(appId: String!, webhookId: UUID!, url: String, include: [String!], level: WebhookLevel, secret: String, authorization: String): Webhook!
+  deleteWebhook(appId: String!, webhookId: UUID!): Webhook!
+
+  # OAuth
+  createOAuthClient(name: String!, redirect_uri: String!): OAuthClient!
+  updateOAuthClient(id: UUID!, name: String, redirect_uri: String): OAuthClient!
+  deleteOAuthClient(id: UUID!): OAuthClient!
+  rotateOAuthClientSecret(id: UUID!): OAuthClient!
+
+  # SNI
+  createSniEndpoint(appId: String!, certificate_chain: String!, private_key: String!): SNI!
+  updateSniEndpoint(appId: String!, sniId: UUID!, certificate_chain: String!, private_key: String!): SNI!
+  deleteSniEndpoint(appId: String!, sniId: UUID!): SNI!
+
+  # Key
+  addKey(public_key: String!): Key!
+  deleteKey(id: UUID!): Key!
+
+  # Buildpack
+  updateBuildpackInstallations(appId: String!, updates: [BuildpackUpdate!]!): [BuildpackInstallation!]!
+
+  # Review App
+  createReviewApp(pipelineId: UUID!, branch: String!, pr_number: Int, source_blob: JSON!): ReviewApp!
+  deleteReviewApp(id: UUID!): ReviewApp!
+  updateReviewAppConfig(pipelineId: UUID!, automatic_review_apps: Boolean, destroy_stale_apps: Boolean, stale_days: Int, wait_for_ci: Boolean): ReviewAppConfig!
+
+  # OutboundRuleset
+  updateOutboundRuleset(spaceId: String!, rules: [OutboundRuleInput!]!): OutboundRuleset!
+}
+
+input BuildpackUpdate {
+  buildpack: String!
+  ordinal: Int
+}
+
+input OutboundRuleInput {
+  target: String!
+  from_port: Int!
+  to_port: Int!
+  protocol: String!
+}
