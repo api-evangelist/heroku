@@ -50,7 +50,7 @@ common:
   url: https://devcenter.heroku.com/start
 - type: Documentation
   url: https://devcenter.heroku.com/
-- type: SignUp
+- type: Signup
   url: https://signup.heroku.com/
 - type: Login
   url: https://id.heroku.com/login
@@ -89,7 +89,7 @@ common:
   sources:
   - https://www.heroku.com/pricing
   updated: '2026-05-04'
-- type: LLMsTxt
+- type: LlmsText
   url: https://heroku.com/llms.txt
 maintainers:
 - FN: Kin Lane
