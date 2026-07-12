@@ -40,6 +40,10 @@ apis:
   - url: graphql/heroku-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/heroku-domain-security.yml
+- type: Authentication
+  url: authentication/heroku-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/heroku
 - type: Portal

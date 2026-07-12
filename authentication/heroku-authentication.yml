@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/heroku-platform-api.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  description: Heroku API key or OAuth token
+  sources:
+  - openapi/heroku-platform-api.yml
