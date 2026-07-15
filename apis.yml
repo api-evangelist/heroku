@@ -40,6 +40,8 @@ apis:
   - url: graphql/heroku-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/heroku-agentic-access.yml
 - type: DomainSecurity
   url: security/heroku-domain-security.yml
 - type: Authentication
