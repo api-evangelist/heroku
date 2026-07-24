@@ -1,0 +1,117 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Account
+  description: Account management
+paths:
+  /account:
+    get:
+      operationId: getAccount
+      summary: Get account info
+      tags:
+      - Account
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    patch:
+      operationId: updateAccount
+      summary: Update account
+      tags:
+      - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                allow_tracking:
+                  type: boolean
+      responses:
+        '200':
+          description: Account updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+components:
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        allow_tracking:
+          type: boolean
+        beta:
+          type: boolean
+        country_of_residence:
+          type: string
+          nullable: true
+        default_organization:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        delinquent_at:
+          type: string
+          format: date-time
+          nullable: true
+        identity_provider:
+          type: object
+          nullable: true
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+        sms_number:
+          type: string
+          nullable: true
+        suspended_at:
+          type: string
+          format: date-time
+          nullable: true
+        two_factor_authentication:
+          type: boolean
+        verified:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

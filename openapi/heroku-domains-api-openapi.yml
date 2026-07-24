@@ -1,0 +1,161 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Domains API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Domains
+  description: Custom domain management
+paths:
+  /apps/{app_id_or_name}/domains:
+    get:
+      operationId: listDomains
+      summary: List domains
+      tags:
+      - Domains
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of domains
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Domain'
+    post:
+      operationId: createDomain
+      summary: Create a domain
+      tags:
+      - Domains
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - hostname
+              properties:
+                hostname:
+                  type: string
+                sni_endpoint:
+                  type: string
+      responses:
+        '201':
+          description: Domain created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+  /apps/{app_id_or_name}/domains/{domain_id_or_hostname}:
+    get:
+      operationId: getDomain
+      summary: Get domain info
+      tags:
+      - Domains
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: domain_id_or_hostname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Domain details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+    delete:
+      operationId: deleteDomain
+      summary: Delete a domain
+      tags:
+      - Domains
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: domain_id_or_hostname
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Domain deleted
+components:
+  schemas:
+    Domain:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        hostname:
+          type: string
+        kind:
+          type: string
+          enum:
+          - heroku
+          - custom
+        acm_status:
+          type: string
+          nullable: true
+        acm_status_reason:
+          type: string
+          nullable: true
+        cname:
+          type: string
+          nullable: true
+        sni_endpoint:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        status:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

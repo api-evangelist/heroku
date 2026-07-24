@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Collaborators API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Collaborators
+  description: App collaborator management
+paths:
+  /apps/{app_id_or_name}/collaborators:
+    get:
+      operationId: listCollaborators
+      summary: List collaborators
+      tags:
+      - Collaborators
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of collaborators
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collaborator'
+    post:
+      operationId: createCollaborator
+      summary: Create a collaborator
+      tags:
+      - Collaborators
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - user
+              properties:
+                user:
+                  type: string
+                  description: Email address or user ID
+                silent:
+                  type: boolean
+      responses:
+        '201':
+          description: Collaborator created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collaborator'
+  /apps/{app_id_or_name}/collaborators/{collaborator_email_or_id}:
+    delete:
+      operationId: deleteCollaborator
+      summary: Delete a collaborator
+      tags:
+      - Collaborators
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: collaborator_email_or_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Collaborator removed
+components:
+  schemas:
+    Collaborator:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        permissions:
+          type: array
+          items:
+            type: string
+        role:
+          type: string
+          enum:
+          - owner
+          - collaborator
+          - member
+          - admin
+          nullable: true
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

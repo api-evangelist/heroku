@@ -1,0 +1,80 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Log Sessions API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Log Sessions
+  description: Application logging
+paths:
+  /apps/{app_id_or_name}/log-sessions:
+    post:
+      operationId: createLogSession
+      summary: Create a log session
+      description: Creates a log session URL for streaming logs.
+      tags:
+      - Log Sessions
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dyno:
+                  type: string
+                lines:
+                  type: integer
+                source:
+                  type: string
+                  enum:
+                  - app
+                  - heroku
+                tail:
+                  type: boolean
+      responses:
+        '201':
+          description: Log session created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  logplex_url:
+                    type: string
+                    format: uri
+                  created_at:
+                    type: string
+                    format: date-time
+                  updated_at:
+                    type: string
+                    format: date-time
+components:
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

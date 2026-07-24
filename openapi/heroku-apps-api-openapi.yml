@@ -1,0 +1,247 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Apps API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Apps
+  description: Application management
+paths:
+  /apps:
+    get:
+      operationId: listApps
+      summary: List apps
+      description: List existing apps.
+      tags:
+      - Apps
+      parameters:
+      - $ref: '#/components/parameters/AcceptRange'
+      responses:
+        '200':
+          description: List of apps
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+          headers:
+            Next-Range:
+              schema:
+                type: string
+        '206':
+          description: Partial content (paginated)
+    post:
+      operationId: createApp
+      summary: Create an app
+      description: Create a new app.
+      tags:
+      - Apps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of app (pattern ^[a-z][a-z0-9-]{1,28}[a-z0-9]$)
+                region:
+                  type: string
+                  description: Region name or ID
+                stack:
+                  type: string
+                  description: Stack name or ID
+      responses:
+        '201':
+          description: App created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+        '422':
+          description: Validation error
+  /apps/{app_id_or_name}:
+    get:
+      operationId: getApp
+      summary: Get app info
+      description: Get info for an existing app.
+      tags:
+      - Apps
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: App details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+        '404':
+          description: App not found
+    patch:
+      operationId: updateApp
+      summary: Update an app
+      tags:
+      - Apps
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                maintenance:
+                  type: boolean
+                build_stack:
+                  type: string
+      responses:
+        '200':
+          description: App updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+    delete:
+      operationId: deleteApp
+      summary: Delete an app
+      tags:
+      - Apps
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: App deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+components:
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+    AcceptRange:
+      name: Range
+      in: header
+      schema:
+        type: string
+      description: Pagination range header (e.g., id ..; max=200)
+  schemas:
+    App:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        acm:
+          type: boolean
+        archived_at:
+          type: string
+          format: date-time
+          nullable: true
+        buildpack_provided_description:
+          type: string
+          nullable: true
+        build_stack:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        git_url:
+          type: string
+          format: uri
+        internal_routing:
+          type: boolean
+          nullable: true
+        maintenance:
+          type: boolean
+        owner:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        region:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        released_at:
+          type: string
+          format: date-time
+          nullable: true
+        repo_size:
+          type: integer
+          nullable: true
+        slug_size:
+          type: integer
+          nullable: true
+        space:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        stack:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        team:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        updated_at:
+          type: string
+          format: date-time
+        web_url:
+          type: string
+          format: uri
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

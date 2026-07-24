@@ -1,0 +1,194 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Add-ons API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Add-ons
+  description: Add-on service management
+paths:
+  /apps/{app_id_or_name}/addons:
+    get:
+      operationId: listAddons
+      summary: List add-ons for an app
+      tags:
+      - Add-ons
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of add-ons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Addon'
+    post:
+      operationId: createAddon
+      summary: Create an add-on
+      tags:
+      - Add-ons
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - plan
+              properties:
+                plan:
+                  type: string
+                  description: Plan name or ID
+                name:
+                  type: string
+                config:
+                  type: object
+                  additionalProperties:
+                    type: string
+                attachment:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                confirm:
+                  type: string
+      responses:
+        '201':
+          description: Add-on created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+  /apps/{app_id_or_name}/addons/{addon_id_or_name}:
+    get:
+      operationId: getAddon
+      summary: Get add-on info
+      tags:
+      - Add-ons
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: addon_id_or_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Add-on details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+    delete:
+      operationId: deleteAddon
+      summary: Delete an add-on
+      tags:
+      - Add-ons
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: addon_id_or_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Add-on deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+components:
+  schemas:
+    Addon:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        addon_service:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        plan:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        provider_id:
+          type: string
+        state:
+          type: string
+          enum:
+          - provisioning
+          - provisioned
+          - deprovisioned
+        config_vars:
+          type: array
+          items:
+            type: string
+        billed_price:
+          type: object
+          nullable: true
+          properties:
+            cents:
+              type: integer
+            contract:
+              type: boolean
+            unit:
+              type: string
+        web_url:
+          type: string
+          format: uri
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

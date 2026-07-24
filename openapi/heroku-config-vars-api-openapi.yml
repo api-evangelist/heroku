@@ -1,0 +1,78 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Config Vars API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Config Vars
+  description: Environment configuration variables
+paths:
+  /apps/{app_id_or_name}/config-vars:
+    get:
+      operationId: getConfigVars
+      summary: Get config vars
+      description: Get config vars for an app.
+      tags:
+      - Config Vars
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: Config vars
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+    patch:
+      operationId: updateConfigVars
+      summary: Update config vars
+      description: Update config vars for an app. Set a value to null to remove it.
+      tags:
+      - Config Vars
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+                nullable: true
+      responses:
+        '200':
+          description: Updated config vars
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+components:
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

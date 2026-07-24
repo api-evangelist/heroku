@@ -1,0 +1,185 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Builds API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Builds
+  description: Build management
+paths:
+  /apps/{app_id_or_name}/builds:
+    get:
+      operationId: listBuilds
+      summary: List builds
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of builds
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Build'
+    post:
+      operationId: createBuild
+      summary: Create a build
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - source_blob
+              properties:
+                buildpacks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                      name:
+                        type: string
+                source_blob:
+                  type: object
+                  required:
+                  - url
+                  properties:
+                    checksum:
+                      type: string
+                    url:
+                      type: string
+                    version:
+                      type: string
+      responses:
+        '201':
+          description: Build created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+  /apps/{app_id_or_name}/builds/{build_id}:
+    get:
+      operationId: getBuild
+      summary: Get build info
+      tags:
+      - Builds
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: build_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Build details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+components:
+  schemas:
+    Build:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+          - failed
+          - pending
+          - succeeded
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        buildpacks:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              name:
+                type: string
+        output_stream_url:
+          type: string
+          format: uri
+        release:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        slug:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        source_blob:
+          type: object
+          properties:
+            checksum:
+              type: string
+              nullable: true
+            url:
+              type: string
+            version:
+              type: string
+              nullable: true
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

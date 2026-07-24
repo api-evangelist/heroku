@@ -1,0 +1,159 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Releases API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Releases
+  description: Release management
+paths:
+  /apps/{app_id_or_name}/releases:
+    get:
+      operationId: listReleases
+      summary: List releases
+      tags:
+      - Releases
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - $ref: '#/components/parameters/AcceptRange'
+      responses:
+        '200':
+          description: List of releases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Release'
+    post:
+      operationId: createRelease
+      summary: Create a release (rollback)
+      description: Create a new release by rolling back to a previous release.
+      tags:
+      - Releases
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - slug
+              properties:
+                slug:
+                  type: string
+                  description: Slug ID to release
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Release created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+  /apps/{app_id_or_name}/releases/{release_id_or_version}:
+    get:
+      operationId: getRelease
+      summary: Get release info
+      tags:
+      - Releases
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: release_id_or_version
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Release details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+components:
+  parameters:
+    AcceptRange:
+      name: Range
+      in: header
+      schema:
+        type: string
+      description: Pagination range header (e.g., id ..; max=200)
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  schemas:
+    Release:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        version:
+          type: integer
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+          - failed
+          - pending
+          - succeeded
+        current:
+          type: boolean
+        addon_plan_names:
+          type: array
+          items:
+            type: string
+        slug:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

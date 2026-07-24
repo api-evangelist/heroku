@@ -1,0 +1,254 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Pipelines API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Pipelines
+  description: Deployment pipeline management
+paths:
+  /pipelines:
+    get:
+      operationId: listPipelines
+      summary: List pipelines
+      tags:
+      - Pipelines
+      responses:
+        '200':
+          description: List of pipelines
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pipeline'
+    post:
+      operationId: createPipeline
+      summary: Create a pipeline
+      tags:
+      - Pipelines
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                owner:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    type:
+                      type: string
+                      enum:
+                      - user
+                      - team
+      responses:
+        '201':
+          description: Pipeline created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+  /pipelines/{pipeline_id}:
+    get:
+      operationId: getPipeline
+      summary: Get pipeline info
+      tags:
+      - Pipelines
+      parameters:
+      - name: pipeline_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Pipeline details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    patch:
+      operationId: updatePipeline
+      summary: Update a pipeline
+      tags:
+      - Pipelines
+      parameters:
+      - name: pipeline_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Pipeline updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    delete:
+      operationId: deletePipeline
+      summary: Delete a pipeline
+      tags:
+      - Pipelines
+      parameters:
+      - name: pipeline_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Pipeline deleted
+  /pipelines/{pipeline_id}/pipeline-couplings:
+    get:
+      operationId: listPipelineCouplings
+      summary: List pipeline couplings
+      description: List apps coupled to a pipeline.
+      tags:
+      - Pipelines
+      parameters:
+      - name: pipeline_id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: Pipeline couplings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PipelineCoupling'
+  /pipeline-couplings:
+    post:
+      operationId: createPipelineCoupling
+      summary: Create a pipeline coupling
+      tags:
+      - Pipelines
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - app
+              - pipeline
+              - stage
+              properties:
+                app:
+                  type: string
+                pipeline:
+                  type: string
+                  format: uuid
+                stage:
+                  type: string
+                  enum:
+                  - review
+                  - development
+                  - staging
+                  - production
+      responses:
+        '201':
+          description: Pipeline coupling created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineCoupling'
+components:
+  schemas:
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        owner:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            type:
+              type: string
+              enum:
+              - user
+              - team
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    PipelineCoupling:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        pipeline:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        stage:
+          type: string
+          enum:
+          - review
+          - development
+          - staging
+          - production
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

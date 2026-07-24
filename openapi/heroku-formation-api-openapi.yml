@@ -1,0 +1,151 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Formation API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Formation
+  description: Process type scaling
+paths:
+  /apps/{app_id_or_name}/formation:
+    get:
+      operationId: listFormation
+      summary: List formation
+      description: List process type scaling info.
+      tags:
+      - Formation
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: Formation info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Formation'
+    patch:
+      operationId: batchUpdateFormation
+      summary: Batch update formation
+      description: Update scaling for multiple process types.
+      tags:
+      - Formation
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - updates
+              properties:
+                updates:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - type
+                    properties:
+                      type:
+                        type: string
+                      quantity:
+                        type: integer
+                      size:
+                        type: string
+      responses:
+        '200':
+          description: Formation updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Formation'
+  /apps/{app_id_or_name}/formation/{formation_id_or_type}:
+    patch:
+      operationId: updateFormation
+      summary: Update a process type
+      tags:
+      - Formation
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: formation_id_or_type
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                size:
+                  type: string
+      responses:
+        '200':
+          description: Process type updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Formation'
+components:
+  schemas:
+    Formation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          description: Process type name (web, worker, etc.)
+        command:
+          type: string
+        quantity:
+          type: integer
+        size:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token

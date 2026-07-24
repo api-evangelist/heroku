@@ -1,0 +1,192 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform Account Dynos API
+  description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+- url: https://api.heroku.com
+  description: Heroku Platform API
+security:
+- BearerAuth: []
+tags:
+- name: Dynos
+  description: Process (dyno) management
+paths:
+  /apps/{app_id_or_name}/dynos:
+    get:
+      operationId: listDynos
+      summary: List dynos
+      description: List existing dynos for an app.
+      tags:
+      - Dynos
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of dynos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dyno'
+    post:
+      operationId: createDyno
+      summary: Create a dyno
+      description: Create a new dyno (one-off or run command).
+      tags:
+      - Dynos
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - command
+              properties:
+                command:
+                  type: string
+                  description: Command to run
+                attach:
+                  type: boolean
+                env:
+                  type: object
+                  additionalProperties:
+                    type: string
+                force_no_tty:
+                  type: boolean
+                size:
+                  type: string
+                  description: Dyno size (eco, basic, standard-1x, etc.)
+                time_to_live:
+                  type: integer
+                type:
+                  type: string
+                  enum:
+                  - run
+                  - shield
+      responses:
+        '201':
+          description: Dyno created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dyno'
+  /apps/{app_id_or_name}/dynos/{dyno_id_or_name}:
+    get:
+      operationId: getDyno
+      summary: Get dyno info
+      tags:
+      - Dynos
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: dyno_id_or_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Dyno info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dyno'
+  /apps/{app_id_or_name}/dynos/{dyno_id_or_name}/actions/stop:
+    post:
+      operationId: stopDyno
+      summary: Stop a dyno
+      tags:
+      - Dynos
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      - name: dyno_id_or_name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '202':
+          description: Dyno stop initiated
+  /apps/{app_id_or_name}/dynos/actions/restart-all:
+    post:
+      operationId: restartAllDynos
+      summary: Restart all dynos
+      tags:
+      - Dynos
+      parameters:
+      - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '202':
+          description: Restart initiated
+components:
+  schemas:
+    Dyno:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        attach_url:
+          type: string
+          nullable: true
+        command:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            version:
+              type: integer
+        size:
+          type: string
+        state:
+          type: string
+          enum:
+          - crashed
+          - down
+          - idle
+          - starting
+          - up
+        type:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token
