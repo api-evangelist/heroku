@@ -5,7 +5,20 @@ description: Heroku is a cloud platform as a service (PaaS) that enables develop
   API enables programmatic access to Heroku's features for app deployment, scaling,
   and management.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/heroku.png
 tags:
 - Application Deployment
 - Cloud Platform
@@ -16,30 +29,303 @@ created: '2025-02-08'
 modified: '2026-05-30'
 specificationVersion: '0.19'
 apis:
-- aid: heroku:heroku-platform-api
-  name: Heroku Platform API
-  description: The Heroku Platform API enables programmatic access to Heroku's deployment
-    platform, including apps, dynos, add-ons, pipelines, and other platform resources.
+- aid: heroku:heroku-account-api
+  name: Heroku Account API
+  description: Account management
   humanURL: https://devcenter.heroku.com/articles/platform-api-reference
   baseURL: https://api.heroku.com
   tags:
-  - Deployment
-  - PaaS
-  - REST
+  - Account
   properties:
+  - type: OpenAPI
+    url: openapi/heroku-account-api-openapi.yml
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
-  - type: OpenAPI
-    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-platform-api.yml
   - type: AsyncAPI
-    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - url: graphql/heroku-graphql.md
-    type: GraphQL
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-add-ons-api
+  name: Heroku Add-ons API
+  description: Add-on service management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Add-ons
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-add-ons-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-apps-api
+  name: Heroku Apps API
+  description: Application management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Apps
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-apps-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-builds-api
+  name: Heroku Builds API
+  description: Build management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Builds
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-builds-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-collaborators-api
+  name: Heroku Collaborators API
+  description: App collaborator management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Collaborators
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-collaborators-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-config-vars-api
+  name: Heroku Config Vars API
+  description: Environment configuration variables
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Config Vars
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-config-vars-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-domains-api
+  name: Heroku Domains API
+  description: Custom domain management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-domains-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-dynos-api
+  name: Heroku Dynos API
+  description: Process (dyno) management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Dynos
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-dynos-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-formation-api
+  name: Heroku Formation API
+  description: Process type scaling
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Formation
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-formation-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-log-sessions-api
+  name: Heroku Log Sessions API
+  description: Application logging
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Log Sessions
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-log-sessions-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-pipelines-api
+  name: Heroku Pipelines API
+  description: Deployment pipeline management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Pipelines
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-pipelines-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-regions-api
+  name: Heroku Regions API
+  description: Available regions
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Regions
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-regions-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-releases-api
+  name: Heroku Releases API
+  description: Release management
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Releases
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-releases-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
+- aid: heroku:heroku-stacks-api
+  name: Heroku Stacks API
+  description: Available stacks
+  humanURL: https://devcenter.heroku.com/articles/platform-api-reference
+  baseURL: https://api.heroku.com
+  tags:
+  - Stacks
+  properties:
+  - type: OpenAPI
+    url: openapi/heroku-stacks-api-openapi.yml
+  - type: Documentation
+    url: https://devcenter.heroku.com/articles/platform-api-reference
+  - type: AsyncAPI
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+  - type: GettingStarted
+    url: https://devcenter.heroku.com/articles/platform-api-quickstart
+  - type: Authentication
+    url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
+  - type: GraphQL
+    url: graphql/heroku-graphql.md
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/heroku/overview
 - type: AgenticAccess
   url: agentic-access/heroku-agentic-access.yml
 - type: DomainSecurity
