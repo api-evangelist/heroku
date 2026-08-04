@@ -1,0 +1,1677 @@
+openapi: 3.1.0
+info:
+  title: Heroku Platform API
+  description: >-
+    The Heroku Platform API enables programmatic access to Heroku's deployment
+    platform. Manage apps, dynos, add-ons, config vars, domains, pipelines,
+    releases, and other platform resources.
+  version: '3'
+  contact:
+    name: Heroku
+    url: https://devcenter.heroku.com/
+  license:
+    name: Proprietary
+    url: https://www.heroku.com/policy/tos
+servers:
+  - url: https://api.heroku.com
+    description: Heroku Platform API
+security:
+  - BearerAuth: []
+paths:
+  /apps:
+    get:
+      operationId: listApps
+      summary: List apps
+      description: List existing apps.
+      tags:
+        - Apps
+      parameters:
+        - $ref: '#/components/parameters/AcceptRange'
+      responses:
+        '200':
+          description: List of apps
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/App'
+          headers:
+            Next-Range:
+              schema:
+                type: string
+        '206':
+          description: Partial content (paginated)
+    post:
+      operationId: createApp
+      summary: Create an app
+      description: Create a new app.
+      tags:
+        - Apps
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: Name of app (pattern ^[a-z][a-z0-9-]{1,28}[a-z0-9]$)
+                region:
+                  type: string
+                  description: Region name or ID
+                stack:
+                  type: string
+                  description: Stack name or ID
+      responses:
+        '201':
+          description: App created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+        '422':
+          description: Validation error
+  /apps/{app_id_or_name}:
+    get:
+      operationId: getApp
+      summary: Get app info
+      description: Get info for an existing app.
+      tags:
+        - Apps
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: App details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+        '404':
+          description: App not found
+    patch:
+      operationId: updateApp
+      summary: Update an app
+      tags:
+        - Apps
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                maintenance:
+                  type: boolean
+                build_stack:
+                  type: string
+      responses:
+        '200':
+          description: App updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+    delete:
+      operationId: deleteApp
+      summary: Delete an app
+      tags:
+        - Apps
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: App deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/App'
+  /apps/{app_id_or_name}/dynos:
+    get:
+      operationId: listDynos
+      summary: List dynos
+      description: List existing dynos for an app.
+      tags:
+        - Dynos
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of dynos
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dyno'
+    post:
+      operationId: createDyno
+      summary: Create a dyno
+      description: Create a new dyno (one-off or run command).
+      tags:
+        - Dynos
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - command
+              properties:
+                command:
+                  type: string
+                  description: Command to run
+                attach:
+                  type: boolean
+                env:
+                  type: object
+                  additionalProperties:
+                    type: string
+                force_no_tty:
+                  type: boolean
+                size:
+                  type: string
+                  description: Dyno size (eco, basic, standard-1x, etc.)
+                time_to_live:
+                  type: integer
+                type:
+                  type: string
+                  enum:
+                    - run
+                    - shield
+      responses:
+        '201':
+          description: Dyno created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dyno'
+  /apps/{app_id_or_name}/dynos/{dyno_id_or_name}:
+    get:
+      operationId: getDyno
+      summary: Get dyno info
+      tags:
+        - Dynos
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: dyno_id_or_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Dyno info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dyno'
+  /apps/{app_id_or_name}/dynos/{dyno_id_or_name}/actions/stop:
+    post:
+      operationId: stopDyno
+      summary: Stop a dyno
+      tags:
+        - Dynos
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: dyno_id_or_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '202':
+          description: Dyno stop initiated
+  /apps/{app_id_or_name}/dynos/actions/restart-all:
+    post:
+      operationId: restartAllDynos
+      summary: Restart all dynos
+      tags:
+        - Dynos
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '202':
+          description: Restart initiated
+  /apps/{app_id_or_name}/config-vars:
+    get:
+      operationId: getConfigVars
+      summary: Get config vars
+      description: Get config vars for an app.
+      tags:
+        - Config Vars
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: Config vars
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+    patch:
+      operationId: updateConfigVars
+      summary: Update config vars
+      description: Update config vars for an app. Set a value to null to remove it.
+      tags:
+        - Config Vars
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                type: string
+                nullable: true
+      responses:
+        '200':
+          description: Updated config vars
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: string
+  /apps/{app_id_or_name}/addons:
+    get:
+      operationId: listAddons
+      summary: List add-ons for an app
+      tags:
+        - Add-ons
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of add-ons
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Addon'
+    post:
+      operationId: createAddon
+      summary: Create an add-on
+      tags:
+        - Add-ons
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - plan
+              properties:
+                plan:
+                  type: string
+                  description: Plan name or ID
+                name:
+                  type: string
+                config:
+                  type: object
+                  additionalProperties:
+                    type: string
+                attachment:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                confirm:
+                  type: string
+      responses:
+        '201':
+          description: Add-on created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+  /apps/{app_id_or_name}/addons/{addon_id_or_name}:
+    get:
+      operationId: getAddon
+      summary: Get add-on info
+      tags:
+        - Add-ons
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: addon_id_or_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Add-on details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+    delete:
+      operationId: deleteAddon
+      summary: Delete an add-on
+      tags:
+        - Add-ons
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: addon_id_or_name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Add-on deleted
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Addon'
+  /apps/{app_id_or_name}/domains:
+    get:
+      operationId: listDomains
+      summary: List domains
+      tags:
+        - Domains
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of domains
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Domain'
+    post:
+      operationId: createDomain
+      summary: Create a domain
+      tags:
+        - Domains
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - hostname
+              properties:
+                hostname:
+                  type: string
+                sni_endpoint:
+                  type: string
+      responses:
+        '201':
+          description: Domain created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+  /apps/{app_id_or_name}/domains/{domain_id_or_hostname}:
+    get:
+      operationId: getDomain
+      summary: Get domain info
+      tags:
+        - Domains
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: domain_id_or_hostname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Domain details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Domain'
+    delete:
+      operationId: deleteDomain
+      summary: Delete a domain
+      tags:
+        - Domains
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: domain_id_or_hostname
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Domain deleted
+  /apps/{app_id_or_name}/formation:
+    get:
+      operationId: listFormation
+      summary: List formation
+      description: List process type scaling info.
+      tags:
+        - Formation
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: Formation info
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Formation'
+    patch:
+      operationId: batchUpdateFormation
+      summary: Batch update formation
+      description: Update scaling for multiple process types.
+      tags:
+        - Formation
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - updates
+              properties:
+                updates:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                      - type
+                    properties:
+                      type:
+                        type: string
+                      quantity:
+                        type: integer
+                      size:
+                        type: string
+      responses:
+        '200':
+          description: Formation updated
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Formation'
+  /apps/{app_id_or_name}/formation/{formation_id_or_type}:
+    patch:
+      operationId: updateFormation
+      summary: Update a process type
+      tags:
+        - Formation
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: formation_id_or_type
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                quantity:
+                  type: integer
+                size:
+                  type: string
+      responses:
+        '200':
+          description: Process type updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Formation'
+  /apps/{app_id_or_name}/releases:
+    get:
+      operationId: listReleases
+      summary: List releases
+      tags:
+        - Releases
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - $ref: '#/components/parameters/AcceptRange'
+      responses:
+        '200':
+          description: List of releases
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Release'
+    post:
+      operationId: createRelease
+      summary: Create a release (rollback)
+      description: Create a new release by rolling back to a previous release.
+      tags:
+        - Releases
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - slug
+              properties:
+                slug:
+                  type: string
+                  description: Slug ID to release
+                description:
+                  type: string
+      responses:
+        '201':
+          description: Release created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+  /apps/{app_id_or_name}/releases/{release_id_or_version}:
+    get:
+      operationId: getRelease
+      summary: Get release info
+      tags:
+        - Releases
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: release_id_or_version
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Release details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Release'
+  /apps/{app_id_or_name}/builds:
+    get:
+      operationId: listBuilds
+      summary: List builds
+      tags:
+        - Builds
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of builds
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Build'
+    post:
+      operationId: createBuild
+      summary: Create a build
+      tags:
+        - Builds
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - source_blob
+              properties:
+                buildpacks:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                      name:
+                        type: string
+                source_blob:
+                  type: object
+                  required:
+                    - url
+                  properties:
+                    checksum:
+                      type: string
+                    url:
+                      type: string
+                    version:
+                      type: string
+      responses:
+        '201':
+          description: Build created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+  /apps/{app_id_or_name}/builds/{build_id}:
+    get:
+      operationId: getBuild
+      summary: Get build info
+      tags:
+        - Builds
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: build_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Build details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Build'
+  /apps/{app_id_or_name}/log-sessions:
+    post:
+      operationId: createLogSession
+      summary: Create a log session
+      description: Creates a log session URL for streaming logs.
+      tags:
+        - Log Sessions
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dyno:
+                  type: string
+                lines:
+                  type: integer
+                source:
+                  type: string
+                  enum:
+                    - app
+                    - heroku
+                tail:
+                  type: boolean
+      responses:
+        '201':
+          description: Log session created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  logplex_url:
+                    type: string
+                    format: uri
+                  created_at:
+                    type: string
+                    format: date-time
+                  updated_at:
+                    type: string
+                    format: date-time
+  /pipelines:
+    get:
+      operationId: listPipelines
+      summary: List pipelines
+      tags:
+        - Pipelines
+      responses:
+        '200':
+          description: List of pipelines
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pipeline'
+    post:
+      operationId: createPipeline
+      summary: Create a pipeline
+      tags:
+        - Pipelines
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+              properties:
+                name:
+                  type: string
+                owner:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    type:
+                      type: string
+                      enum:
+                        - user
+                        - team
+      responses:
+        '201':
+          description: Pipeline created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+  /pipelines/{pipeline_id}:
+    get:
+      operationId: getPipeline
+      summary: Get pipeline info
+      tags:
+        - Pipelines
+      parameters:
+        - name: pipeline_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Pipeline details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    patch:
+      operationId: updatePipeline
+      summary: Update a pipeline
+      tags:
+        - Pipelines
+      parameters:
+        - name: pipeline_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '200':
+          description: Pipeline updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pipeline'
+    delete:
+      operationId: deletePipeline
+      summary: Delete a pipeline
+      tags:
+        - Pipelines
+      parameters:
+        - name: pipeline_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Pipeline deleted
+  /pipelines/{pipeline_id}/pipeline-couplings:
+    get:
+      operationId: listPipelineCouplings
+      summary: List pipeline couplings
+      description: List apps coupled to a pipeline.
+      tags:
+        - Pipelines
+      parameters:
+        - name: pipeline_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Pipeline couplings
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PipelineCoupling'
+  /pipeline-couplings:
+    post:
+      operationId: createPipelineCoupling
+      summary: Create a pipeline coupling
+      tags:
+        - Pipelines
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - app
+                - pipeline
+                - stage
+              properties:
+                app:
+                  type: string
+                pipeline:
+                  type: string
+                  format: uuid
+                stage:
+                  type: string
+                  enum:
+                    - review
+                    - development
+                    - staging
+                    - production
+      responses:
+        '201':
+          description: Pipeline coupling created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PipelineCoupling'
+  /account:
+    get:
+      operationId: getAccount
+      summary: Get account info
+      tags:
+        - Account
+      responses:
+        '200':
+          description: Account details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+    patch:
+      operationId: updateAccount
+      summary: Update account
+      tags:
+        - Account
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                allow_tracking:
+                  type: boolean
+      responses:
+        '200':
+          description: Account updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+  /regions:
+    get:
+      operationId: listRegions
+      summary: List regions
+      tags:
+        - Regions
+      responses:
+        '200':
+          description: Available regions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    description:
+                      type: string
+                    country:
+                      type: string
+                    locale:
+                      type: string
+                    private_capable:
+                      type: boolean
+                    provider:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        region:
+                          type: string
+  /stacks:
+    get:
+      operationId: listStacks
+      summary: List stacks
+      tags:
+        - Stacks
+      responses:
+        '200':
+          description: Available stacks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                      format: uuid
+                    name:
+                      type: string
+                    state:
+                      type: string
+                    default:
+                      type: boolean
+                    created_at:
+                      type: string
+                      format: date-time
+                    updated_at:
+                      type: string
+                      format: date-time
+  /apps/{app_id_or_name}/collaborators:
+    get:
+      operationId: listCollaborators
+      summary: List collaborators
+      tags:
+        - Collaborators
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      responses:
+        '200':
+          description: List of collaborators
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collaborator'
+    post:
+      operationId: createCollaborator
+      summary: Create a collaborator
+      tags:
+        - Collaborators
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - user
+              properties:
+                user:
+                  type: string
+                  description: Email address or user ID
+                silent:
+                  type: boolean
+      responses:
+        '201':
+          description: Collaborator created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collaborator'
+  /apps/{app_id_or_name}/collaborators/{collaborator_email_or_id}:
+    delete:
+      operationId: deleteCollaborator
+      summary: Delete a collaborator
+      tags:
+        - Collaborators
+      parameters:
+        - $ref: '#/components/parameters/appIdOrName'
+        - name: collaborator_email_or_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Collaborator removed
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: Heroku API key or OAuth token
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
+    AcceptRange:
+      name: Range
+      in: header
+      schema:
+        type: string
+      description: 'Pagination range header (e.g., id ..; max=200)'
+  schemas:
+    App:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        acm:
+          type: boolean
+        archived_at:
+          type: string
+          format: date-time
+          nullable: true
+        buildpack_provided_description:
+          type: string
+          nullable: true
+        build_stack:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        git_url:
+          type: string
+          format: uri
+        internal_routing:
+          type: boolean
+          nullable: true
+        maintenance:
+          type: boolean
+        owner:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        region:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        released_at:
+          type: string
+          format: date-time
+          nullable: true
+        repo_size:
+          type: integer
+          nullable: true
+        slug_size:
+          type: integer
+          nullable: true
+        space:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        stack:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        team:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        updated_at:
+          type: string
+          format: date-time
+        web_url:
+          type: string
+          format: uri
+    Dyno:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        attach_url:
+          type: string
+          nullable: true
+        command:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        release:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            version:
+              type: integer
+        size:
+          type: string
+        state:
+          type: string
+          enum:
+            - crashed
+            - down
+            - idle
+            - starting
+            - up
+        type:
+          type: string
+        updated_at:
+          type: string
+          format: date-time
+    Addon:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        addon_service:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        plan:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        provider_id:
+          type: string
+        state:
+          type: string
+          enum:
+            - provisioning
+            - provisioned
+            - deprovisioned
+        config_vars:
+          type: array
+          items:
+            type: string
+        billed_price:
+          type: object
+          nullable: true
+          properties:
+            cents:
+              type: integer
+            contract:
+              type: boolean
+            unit:
+              type: string
+        web_url:
+          type: string
+          format: uri
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Domain:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        hostname:
+          type: string
+        kind:
+          type: string
+          enum:
+            - heroku
+            - custom
+        acm_status:
+          type: string
+          nullable: true
+        acm_status_reason:
+          type: string
+          nullable: true
+        cname:
+          type: string
+          nullable: true
+        sni_endpoint:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        status:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Formation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        type:
+          type: string
+          description: Process type name (web, worker, etc.)
+        command:
+          type: string
+        quantity:
+          type: integer
+        size:
+          type: string
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Release:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        version:
+          type: integer
+        description:
+          type: string
+        status:
+          type: string
+          enum:
+            - failed
+            - pending
+            - succeeded
+        current:
+          type: boolean
+        addon_plan_names:
+          type: array
+          items:
+            type: string
+        slug:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Build:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        status:
+          type: string
+          enum:
+            - failed
+            - pending
+            - succeeded
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        buildpacks:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: string
+              name:
+                type: string
+        output_stream_url:
+          type: string
+          format: uri
+        release:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        slug:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+        source_blob:
+          type: object
+          properties:
+            checksum:
+              type: string
+              nullable: true
+            url:
+              type: string
+            version:
+              type: string
+              nullable: true
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        owner:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            type:
+              type: string
+              enum:
+                - user
+                - team
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    PipelineCoupling:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        pipeline:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+        stage:
+          type: string
+          enum:
+            - review
+            - development
+            - staging
+            - production
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Collaborator:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        user:
+          type: object
+          properties:
+            email:
+              type: string
+            id:
+              type: string
+              format: uuid
+        permissions:
+          type: array
+          items:
+            type: string
+        role:
+          type: string
+          enum:
+            - owner
+            - collaborator
+            - member
+            - admin
+          nullable: true
+        app:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        allow_tracking:
+          type: boolean
+        beta:
+          type: boolean
+        country_of_residence:
+          type: string
+          nullable: true
+        default_organization:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            name:
+              type: string
+        delinquent_at:
+          type: string
+          format: date-time
+          nullable: true
+        identity_provider:
+          type: object
+          nullable: true
+        last_login:
+          type: string
+          format: date-time
+          nullable: true
+        sms_number:
+          type: string
+          nullable: true
+        suspended_at:
+          type: string
+          format: date-time
+          nullable: true
+        two_factor_authentication:
+          type: boolean
+        verified:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+tags:
+  - name: Apps
+    description: Application management
+  - name: Dynos
+    description: Process (dyno) management
+  - name: Config Vars
+    description: Environment configuration variables
+  - name: Add-ons
+    description: Add-on service management
+  - name: Domains
+    description: Custom domain management
+  - name: Formation
+    description: Process type scaling
+  - name: Releases
+    description: Release management
+  - name: Builds
+    description: Build management
+  - name: Log Sessions
+    description: Application logging
+  - name: Pipelines
+    description: Deployment pipeline management
+  - name: Account
+    description: Account management
+  - name: Regions
+    description: Available regions
+  - name: Stacks
+    description: Available stacks
+  - name: Collaborators
+    description: App collaborator management

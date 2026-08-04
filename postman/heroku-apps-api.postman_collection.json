@@ -1,0 +1,655 @@
+{
+  "info": {
+    "_postman_id": "d6fb18ce-1caf-4fd3-ae3b-501f138ca042",
+    "name": "Heroku Platform Account Apps API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:39.000Z",
+    "updatedAt": "2026-07-28T01:55:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d6fb18ce-1caf-4fd3-ae3b-501f138ca042"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "Get app info",
+              "id": "18148db8-b02e-4e48-ab4f-6099d8dcdd6e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "2cc2e728-6240-4673-99d4-f261b5417dd1",
+                      "key": "app_id_or_name",
+                      "value": "<string>",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "description": "Get info for an existing app."
+              },
+              "response": [
+                {
+                  "id": "1e749c0b-299d-42a3-bad1-f93317c4904d",
+                  "name": "App details",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "app_id_or_name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"acm\": \"<boolean>\",\n  \"archived_at\": \"<dateTime>\",\n  \"buildpack_provided_description\": \"<string>\",\n  \"build_stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"git_url\": \"<uri>\",\n  \"internal_routing\": \"<boolean>\",\n  \"maintenance\": \"<boolean>\",\n  \"owner\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"region\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"released_at\": \"<dateTime>\",\n  \"repo_size\": \"<integer>\",\n  \"slug_size\": \"<integer>\",\n  \"space\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"team\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"updated_at\": \"<dateTime>\",\n  \"web_url\": \"<uri>\"\n}",
+                  "createdAt": "2026-07-28T01:55:40.000Z",
+                  "updatedAt": "2026-07-28T01:55:40.000Z",
+                  "uid": "35240-1e749c0b-299d-42a3-bad1-f93317c4904d"
+                },
+                {
+                  "id": "5ce1e5aa-fb8a-4cdb-94ab-98e81ecc46d9",
+                  "name": "App not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "app_id_or_name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:55:40.000Z",
+                  "updatedAt": "2026-07-28T01:55:40.000Z",
+                  "uid": "35240-5ce1e5aa-fb8a-4cdb-94ab-98e81ecc46d9"
+                }
+              ],
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-18148db8-b02e-4e48-ab4f-6099d8dcdd6e"
+            },
+            {
+              "name": "Update an app",
+              "id": "d74177c8-57cf-4e57-8b86-414a0acb46af",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"maintenance\": \"<boolean>\",\n  \"build_stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "b9542e32-f91e-4715-8b64-47be79d77111",
+                      "key": "app_id_or_name",
+                      "value": "<string>",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6d174d3b-06f3-4c52-9934-c8c110c7abab",
+                  "name": "App updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"maintenance\": \"<boolean>\",\n  \"build_stack\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "app_id_or_name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"acm\": \"<boolean>\",\n  \"archived_at\": \"<dateTime>\",\n  \"buildpack_provided_description\": \"<string>\",\n  \"build_stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"git_url\": \"<uri>\",\n  \"internal_routing\": \"<boolean>\",\n  \"maintenance\": \"<boolean>\",\n  \"owner\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"region\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"released_at\": \"<dateTime>\",\n  \"repo_size\": \"<integer>\",\n  \"slug_size\": \"<integer>\",\n  \"space\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"team\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"updated_at\": \"<dateTime>\",\n  \"web_url\": \"<uri>\"\n}",
+                  "createdAt": "2026-07-28T01:55:40.000Z",
+                  "updatedAt": "2026-07-28T01:55:40.000Z",
+                  "uid": "35240-6d174d3b-06f3-4c52-9934-c8c110c7abab"
+                }
+              ],
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-d74177c8-57cf-4e57-8b86-414a0acb46af"
+            },
+            {
+              "name": "Delete an app",
+              "id": "492eb3e0-6095-439e-bd8a-86e1f534b938",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4b7ad8f2-0417-42d6-bc1a-a89e4d9fea2d",
+                      "key": "app_id_or_name",
+                      "value": "<string>",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8193d42f-bb5c-43a7-8372-7ea311a7c9c0",
+                  "name": "App deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "app_id_or_name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"acm\": \"<boolean>\",\n  \"archived_at\": \"<dateTime>\",\n  \"buildpack_provided_description\": \"<string>\",\n  \"build_stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"git_url\": \"<uri>\",\n  \"internal_routing\": \"<boolean>\",\n  \"maintenance\": \"<boolean>\",\n  \"owner\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"region\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"released_at\": \"<dateTime>\",\n  \"repo_size\": \"<integer>\",\n  \"slug_size\": \"<integer>\",\n  \"space\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"team\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"updated_at\": \"<dateTime>\",\n  \"web_url\": \"<uri>\"\n}",
+                  "createdAt": "2026-07-28T01:55:40.000Z",
+                  "updatedAt": "2026-07-28T01:55:40.000Z",
+                  "uid": "35240-8193d42f-bb5c-43a7-8372-7ea311a7c9c0"
+                }
+              ],
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-492eb3e0-6095-439e-bd8a-86e1f534b938"
+            }
+          ],
+          "id": "084dc622-5366-4c24-8f6c-0cd80b9e4757",
+          "createdAt": "2026-07-28T01:55:40.000Z",
+          "updatedAt": "2026-07-28T01:55:40.000Z",
+          "uid": "35240-084dc622-5366-4c24-8f6c-0cd80b9e4757"
+        },
+        {
+          "name": "List apps",
+          "id": "d8dd6fcb-6e93-44c3-bf43-6ecd4fcb1c5f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "description": "Pagination range header (e.g., id ..; max=200)",
+                "key": "Range",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/apps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apps"
+              ]
+            },
+            "description": "List existing apps."
+          },
+          "response": [
+            {
+              "id": "a7fb2ecb-7379-4330-9a81-ebb8743c215c",
+              "name": "List of apps",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Pagination range header (e.g., id ..; max=200)",
+                    "key": "Range",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "disabled": false,
+                  "description": {
+                    "content": "",
+                    "type": "text/plain"
+                  },
+                  "key": "Next-Range",
+                  "value": "<string>"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"acm\": \"<boolean>\",\n    \"archived_at\": \"<dateTime>\",\n    \"buildpack_provided_description\": \"<string>\",\n    \"build_stack\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"git_url\": \"<uri>\",\n    \"internal_routing\": \"<boolean>\",\n    \"maintenance\": \"<boolean>\",\n    \"owner\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"region\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"released_at\": \"<dateTime>\",\n    \"repo_size\": \"<integer>\",\n    \"slug_size\": \"<integer>\",\n    \"space\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"stack\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"team\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"updated_at\": \"<dateTime>\",\n    \"web_url\": \"<uri>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"acm\": \"<boolean>\",\n    \"archived_at\": \"<dateTime>\",\n    \"buildpack_provided_description\": \"<string>\",\n    \"build_stack\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"git_url\": \"<uri>\",\n    \"internal_routing\": \"<boolean>\",\n    \"maintenance\": \"<boolean>\",\n    \"owner\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"region\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"released_at\": \"<dateTime>\",\n    \"repo_size\": \"<integer>\",\n    \"slug_size\": \"<integer>\",\n    \"space\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"stack\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"team\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"updated_at\": \"<dateTime>\",\n    \"web_url\": \"<uri>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-a7fb2ecb-7379-4330-9a81-ebb8743c215c"
+            },
+            {
+              "id": "c8d947fb-d970-410d-88a5-cbbe2c42ff19",
+              "name": "Partial content (paginated)",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Pagination range header (e.g., id ..; max=200)",
+                    "key": "Range",
+                    "value": "<string>"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
+              },
+              "status": "Partial Content",
+              "code": 206,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-c8d947fb-d970-410d-88a5-cbbe2c42ff19"
+            }
+          ],
+          "createdAt": "2026-07-28T01:55:40.000Z",
+          "updatedAt": "2026-07-28T01:55:40.000Z",
+          "uid": "35240-d8dd6fcb-6e93-44c3-bf43-6ecd4fcb1c5f"
+        },
+        {
+          "name": "Create an app",
+          "id": "d3c6f918-b237-4526-a9ac-b8fe603c7271",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/apps",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "apps"
+              ]
+            },
+            "description": "Create a new app."
+          },
+          "response": [
+            {
+              "id": "af89413b-aa98-4f00-b4f3-444586ccdfcd",
+              "name": "App created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"acm\": \"<boolean>\",\n  \"archived_at\": \"<dateTime>\",\n  \"buildpack_provided_description\": \"<string>\",\n  \"build_stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"git_url\": \"<uri>\",\n  \"internal_routing\": \"<boolean>\",\n  \"maintenance\": \"<boolean>\",\n  \"owner\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"region\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"released_at\": \"<dateTime>\",\n  \"repo_size\": \"<integer>\",\n  \"slug_size\": \"<integer>\",\n  \"space\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"stack\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"team\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"updated_at\": \"<dateTime>\",\n  \"web_url\": \"<uri>\"\n}",
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-af89413b-aa98-4f00-b4f3-444586ccdfcd"
+            },
+            {
+              "id": "774a95ff-2fa9-42b5-b206-e8087d3ca5a1",
+              "name": "Validation error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/apps",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "apps"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:55:40.000Z",
+              "updatedAt": "2026-07-28T01:55:40.000Z",
+              "uid": "35240-774a95ff-2fa9-42b5-b206-e8087d3ca5a1"
+            }
+          ],
+          "createdAt": "2026-07-28T01:55:40.000Z",
+          "updatedAt": "2026-07-28T01:55:40.000Z",
+          "uid": "35240-d3c6f918-b237-4526-a9ac-b8fe603c7271"
+        }
+      ],
+      "id": "baadcf1f-ee4a-49da-8746-2b660d340c7e",
+      "createdAt": "2026-07-28T01:55:40.000Z",
+      "updatedAt": "2026-07-28T01:55:40.000Z",
+      "uid": "35240-baadcf1f-ee4a-49da-8746-2b660d340c7e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

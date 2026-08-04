@@ -1,0 +1,111 @@
+{
+  "info": {
+    "_postman_id": "925f185b-ddf5-4673-ada7-1336847dc91c",
+    "name": "Heroku Platform Account Stacks API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:56:07.000Z",
+    "updatedAt": "2026-07-28T01:56:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-925f185b-ddf5-4673-ada7-1336847dc91c"
+  },
+  "item": [
+    {
+      "name": "stacks",
+      "item": [
+        {
+          "name": "List stacks",
+          "id": "570e73c1-4f8b-4580-9b5c-f8da5265d4f0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/stacks",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "stacks"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "74b8d077-f7af-44d2-9157-e07666da2144",
+              "name": "Available stacks",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/stacks",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "stacks"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"default\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"state\": \"<string>\",\n    \"default\": \"<boolean>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+              "createdAt": "2026-07-28T01:56:07.000Z",
+              "updatedAt": "2026-07-28T01:56:07.000Z",
+              "uid": "35240-74b8d077-f7af-44d2-9157-e07666da2144"
+            }
+          ],
+          "createdAt": "2026-07-28T01:56:07.000Z",
+          "updatedAt": "2026-07-28T01:56:07.000Z",
+          "uid": "35240-570e73c1-4f8b-4580-9b5c-f8da5265d4f0"
+        }
+      ],
+      "id": "4959e59b-9972-40bd-af38-626ed24cfcda",
+      "createdAt": "2026-07-28T01:56:07.000Z",
+      "updatedAt": "2026-07-28T01:56:07.000Z",
+      "uid": "35240-4959e59b-9972-40bd-af38-626ed24cfcda"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

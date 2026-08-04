@@ -1,0 +1,458 @@
+{
+  "info": {
+    "_postman_id": "7f332adb-c708-4411-b619-3d53fb05bcd0",
+    "name": "Heroku Platform Account Domains API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:43.000Z",
+    "updatedAt": "2026-07-28T01:55:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7f332adb-c708-4411-b619-3d53fb05bcd0"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "domains",
+              "item": [
+                {
+                  "name": "{domain_id_or_hostname}",
+                  "item": [
+                    {
+                      "name": "Get domain info",
+                      "id": "377b2dfa-b24a-48eb-8b76-e0bbe9ef8180",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/domains/:domain_id_or_hostname",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "domains",
+                            ":domain_id_or_hostname"
+                          ],
+                          "variable": [
+                            {
+                              "id": "01d46b85-548c-4024-b341-f6767dbe0eea",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "c3ca698b-dfe5-43c5-8d82-45531f2c6d58",
+                              "key": "domain_id_or_hostname",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "576a9ac4-8240-4ff5-97f4-cc718dabb3c3",
+                          "name": "Domain details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/domains/:domain_id_or_hostname",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "domains",
+                                ":domain_id_or_hostname"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "domain_id_or_hostname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"hostname\": \"<string>\",\n  \"kind\": \"custom\",\n  \"acm_status\": \"<string>\",\n  \"acm_status_reason\": \"<string>\",\n  \"cname\": \"<string>\",\n  \"sni_endpoint\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"status\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:55:43.000Z",
+                          "updatedAt": "2026-07-28T01:55:43.000Z",
+                          "uid": "35240-576a9ac4-8240-4ff5-97f4-cc718dabb3c3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:43.000Z",
+                      "updatedAt": "2026-07-28T01:55:43.000Z",
+                      "uid": "35240-377b2dfa-b24a-48eb-8b76-e0bbe9ef8180"
+                    },
+                    {
+                      "name": "Delete a domain",
+                      "id": "55a78923-e75f-43c5-aaad-0a1c9d7de9ec",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/domains/:domain_id_or_hostname",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "domains",
+                            ":domain_id_or_hostname"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6f994682-9742-4aaa-8860-fc0f7e316891",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "233ff368-c0cb-43db-b0ee-d0e825e7beab",
+                              "key": "domain_id_or_hostname",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c29070a0-f9c6-427d-a63e-4028ba63625d",
+                          "name": "Domain deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/domains/:domain_id_or_hostname",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "domains",
+                                ":domain_id_or_hostname"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "domain_id_or_hostname"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:55:43.000Z",
+                          "updatedAt": "2026-07-28T01:55:43.000Z",
+                          "uid": "35240-c29070a0-f9c6-427d-a63e-4028ba63625d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:43.000Z",
+                      "updatedAt": "2026-07-28T01:55:43.000Z",
+                      "uid": "35240-55a78923-e75f-43c5-aaad-0a1c9d7de9ec"
+                    }
+                  ],
+                  "id": "c8574204-94f9-488f-adcc-6e8a163ce15c",
+                  "createdAt": "2026-07-28T01:55:43.000Z",
+                  "updatedAt": "2026-07-28T01:55:43.000Z",
+                  "uid": "35240-c8574204-94f9-488f-adcc-6e8a163ce15c"
+                },
+                {
+                  "name": "List domains",
+                  "id": "6e7dd17c-a0dd-43d2-aa7b-47a7fe837f7f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/domains",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "domains"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2a56ca3b-daee-46ec-91a1-42331ad25483",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "f3532d03-361a-44bc-8c6a-bb69b4622f88",
+                      "name": "List of domains",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "domains"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"hostname\": \"<string>\",\n    \"kind\": \"heroku\",\n    \"acm_status\": \"<string>\",\n    \"acm_status_reason\": \"<string>\",\n    \"cname\": \"<string>\",\n    \"sni_endpoint\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"status\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"hostname\": \"<string>\",\n    \"kind\": \"custom\",\n    \"acm_status\": \"<string>\",\n    \"acm_status_reason\": \"<string>\",\n    \"cname\": \"<string>\",\n    \"sni_endpoint\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"status\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:55:43.000Z",
+                      "updatedAt": "2026-07-28T01:55:43.000Z",
+                      "uid": "35240-f3532d03-361a-44bc-8c6a-bb69b4622f88"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:43.000Z",
+                  "updatedAt": "2026-07-28T01:55:43.000Z",
+                  "uid": "35240-6e7dd17c-a0dd-43d2-aa7b-47a7fe837f7f"
+                },
+                {
+                  "name": "Create a domain",
+                  "id": "525bf068-2dd4-4327-96d0-51afbb6ce51b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"hostname\": \"<string>\",\n  \"sni_endpoint\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/domains",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "domains"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7e5d6d9c-aa79-48a3-9c47-76ec4270df16",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "bafef82a-8e3e-4704-9a1b-ce1887552f16",
+                      "name": "Domain created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"hostname\": \"<string>\",\n  \"sni_endpoint\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "domains"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"hostname\": \"<string>\",\n  \"kind\": \"custom\",\n  \"acm_status\": \"<string>\",\n  \"acm_status_reason\": \"<string>\",\n  \"cname\": \"<string>\",\n  \"sni_endpoint\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"status\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:55:43.000Z",
+                      "updatedAt": "2026-07-28T01:55:43.000Z",
+                      "uid": "35240-bafef82a-8e3e-4704-9a1b-ce1887552f16"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:43.000Z",
+                  "updatedAt": "2026-07-28T01:55:43.000Z",
+                  "uid": "35240-525bf068-2dd4-4327-96d0-51afbb6ce51b"
+                }
+              ],
+              "id": "c09ababf-fe75-41c0-90a3-76189a45937e",
+              "createdAt": "2026-07-28T01:55:43.000Z",
+              "updatedAt": "2026-07-28T01:55:43.000Z",
+              "uid": "35240-c09ababf-fe75-41c0-90a3-76189a45937e"
+            }
+          ],
+          "id": "795ad899-3a1f-4079-9139-22c3bac31c96",
+          "createdAt": "2026-07-28T01:55:43.000Z",
+          "updatedAt": "2026-07-28T01:55:43.000Z",
+          "uid": "35240-795ad899-3a1f-4079-9139-22c3bac31c96"
+        }
+      ],
+      "id": "367d8b9c-800f-4e34-b077-e4d9751fb1f2",
+      "createdAt": "2026-07-28T01:55:43.000Z",
+      "updatedAt": "2026-07-28T01:55:43.000Z",
+      "uid": "35240-367d8b9c-800f-4e34-b077-e4d9751fb1f2"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

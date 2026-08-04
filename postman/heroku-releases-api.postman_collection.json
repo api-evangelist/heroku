@@ -1,0 +1,383 @@
+{
+  "info": {
+    "_postman_id": "c0d3975a-23c6-4fc1-9bc8-cb4cf7bce46d",
+    "name": "Heroku Platform Account Releases API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:56:06.000Z",
+    "updatedAt": "2026-07-28T01:56:06.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c0d3975a-23c6-4fc1-9bc8-cb4cf7bce46d"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "releases",
+              "item": [
+                {
+                  "name": "{release_id_or_version}",
+                  "item": [
+                    {
+                      "name": "Get release info",
+                      "id": "f3b98b97-4f93-480a-9dce-ed52dee50e59",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/releases/:release_id_or_version",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "releases",
+                            ":release_id_or_version"
+                          ],
+                          "variable": [
+                            {
+                              "id": "35686a3b-82c7-4656-9655-5b44804d2f06",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "732ee320-62a1-489a-b7c8-9d261e011268",
+                              "key": "release_id_or_version",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9a293726-54ae-4e9e-952f-4051ba190199",
+                          "name": "Release details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/releases/:release_id_or_version",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "releases",
+                                ":release_id_or_version"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "release_id_or_version"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"version\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"status\": \"pending\",\n  \"current\": \"<boolean>\",\n  \"addon_plan_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": {\n    \"id\": \"<uuid>\"\n  },\n  \"user\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:56:06.000Z",
+                          "updatedAt": "2026-07-28T01:56:06.000Z",
+                          "uid": "35240-9a293726-54ae-4e9e-952f-4051ba190199"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:56:06.000Z",
+                      "updatedAt": "2026-07-28T01:56:06.000Z",
+                      "uid": "35240-f3b98b97-4f93-480a-9dce-ed52dee50e59"
+                    }
+                  ],
+                  "id": "f0467c35-0bb5-4ec3-9ba8-41796be851c7",
+                  "createdAt": "2026-07-28T01:56:06.000Z",
+                  "updatedAt": "2026-07-28T01:56:06.000Z",
+                  "uid": "35240-f0467c35-0bb5-4ec3-9ba8-41796be851c7"
+                },
+                {
+                  "name": "List releases",
+                  "id": "0929cc59-602b-45f4-9ecc-b7c233ecbb95",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Pagination range header (e.g., id ..; max=200)",
+                        "key": "Range",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/releases",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "releases"
+                      ],
+                      "variable": [
+                        {
+                          "id": "df361e6f-7352-487d-abb0-8360ef745974",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6f3cc74e-c3da-49c4-99eb-9b06bf5234b3",
+                      "name": "List of releases",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Pagination range header (e.g., id ..; max=200)",
+                            "key": "Range",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/releases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "releases"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"version\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"status\": \"pending\",\n    \"current\": \"<boolean>\",\n    \"addon_plan_names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slug\": {\n      \"id\": \"<uuid>\"\n    },\n    \"user\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"version\": \"<integer>\",\n    \"description\": \"<string>\",\n    \"status\": \"failed\",\n    \"current\": \"<boolean>\",\n    \"addon_plan_names\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"slug\": {\n      \"id\": \"<uuid>\"\n    },\n    \"user\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:56:06.000Z",
+                      "updatedAt": "2026-07-28T01:56:06.000Z",
+                      "uid": "35240-6f3cc74e-c3da-49c4-99eb-9b06bf5234b3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:56:06.000Z",
+                  "updatedAt": "2026-07-28T01:56:06.000Z",
+                  "uid": "35240-0929cc59-602b-45f4-9ecc-b7c233ecbb95"
+                },
+                {
+                  "name": "Create a release (rollback)",
+                  "id": "8e23ad5a-8ff2-4f28-b4cb-b1a2b2317c21",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"slug\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/releases",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "releases"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c268fe6d-31df-4ffa-9d87-b7587031f179",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "Create a new release by rolling back to a previous release."
+                  },
+                  "response": [
+                    {
+                      "id": "fad2679e-0d99-4ee0-8556-7f4580fc0a3b",
+                      "name": "Release created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"slug\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/releases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "releases"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"version\": \"<integer>\",\n  \"description\": \"<string>\",\n  \"status\": \"pending\",\n  \"current\": \"<boolean>\",\n  \"addon_plan_names\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"slug\": {\n    \"id\": \"<uuid>\"\n  },\n  \"user\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:56:06.000Z",
+                      "updatedAt": "2026-07-28T01:56:06.000Z",
+                      "uid": "35240-fad2679e-0d99-4ee0-8556-7f4580fc0a3b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:56:06.000Z",
+                  "updatedAt": "2026-07-28T01:56:06.000Z",
+                  "uid": "35240-8e23ad5a-8ff2-4f28-b4cb-b1a2b2317c21"
+                }
+              ],
+              "id": "1e66de59-f776-451c-9de7-4e6ac40ea526",
+              "createdAt": "2026-07-28T01:56:06.000Z",
+              "updatedAt": "2026-07-28T01:56:06.000Z",
+              "uid": "35240-1e66de59-f776-451c-9de7-4e6ac40ea526"
+            }
+          ],
+          "id": "95ca9afb-c2c8-427d-a8a7-1e48c9a4b025",
+          "createdAt": "2026-07-28T01:56:06.000Z",
+          "updatedAt": "2026-07-28T01:56:06.000Z",
+          "uid": "35240-95ca9afb-c2c8-427d-a8a7-1e48c9a4b025"
+        }
+      ],
+      "id": "ec4e5798-b771-4269-aae1-f2c7b4ed3573",
+      "createdAt": "2026-07-28T01:56:06.000Z",
+      "updatedAt": "2026-07-28T01:56:06.000Z",
+      "uid": "35240-ec4e5798-b771-4269-aae1-f2c7b4ed3573"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

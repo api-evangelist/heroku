@@ -1,0 +1,211 @@
+{
+  "info": {
+    "_postman_id": "631c1225-ae76-4fb1-811b-ff20fa2931c2",
+    "name": "Heroku Platform Account API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:37.000Z",
+    "updatedAt": "2026-07-28T01:55:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-631c1225-ae76-4fb1-811b-ff20fa2931c2"
+  },
+  "item": [
+    {
+      "name": "account",
+      "item": [
+        {
+          "name": "Get account info",
+          "id": "5067ce9a-3802-485d-a2b9-11361319999b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "2b2c2ddb-6363-4e94-a5ba-94b4f669de8f",
+              "name": "Account details",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"allow_tracking\": \"<boolean>\",\n  \"beta\": \"<boolean>\",\n  \"country_of_residence\": \"<string>\",\n  \"default_organization\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"delinquent_at\": \"<dateTime>\",\n  \"identity_provider\": {},\n  \"last_login\": \"<dateTime>\",\n  \"sms_number\": \"<string>\",\n  \"suspended_at\": \"<dateTime>\",\n  \"two_factor_authentication\": \"<boolean>\",\n  \"verified\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T01:55:38.000Z",
+              "updatedAt": "2026-07-28T01:55:38.000Z",
+              "uid": "35240-2b2c2ddb-6363-4e94-a5ba-94b4f669de8f"
+            }
+          ],
+          "createdAt": "2026-07-28T01:55:38.000Z",
+          "updatedAt": "2026-07-28T01:55:38.000Z",
+          "uid": "35240-5067ce9a-3802-485d-a2b9-11361319999b"
+        },
+        {
+          "name": "Update account",
+          "id": "eb74287f-fda7-4844-b63c-2f109b5e1cc9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"allow_tracking\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/account",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "account"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "4091ebba-c2a4-4547-b89d-07122e26c103",
+              "name": "Account updated",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"allow_tracking\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<uuid>\",\n  \"email\": \"<email>\",\n  \"name\": \"<string>\",\n  \"allow_tracking\": \"<boolean>\",\n  \"beta\": \"<boolean>\",\n  \"country_of_residence\": \"<string>\",\n  \"default_organization\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"delinquent_at\": \"<dateTime>\",\n  \"identity_provider\": {},\n  \"last_login\": \"<dateTime>\",\n  \"sms_number\": \"<string>\",\n  \"suspended_at\": \"<dateTime>\",\n  \"two_factor_authentication\": \"<boolean>\",\n  \"verified\": \"<boolean>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+              "createdAt": "2026-07-28T01:55:38.000Z",
+              "updatedAt": "2026-07-28T01:55:38.000Z",
+              "uid": "35240-4091ebba-c2a4-4547-b89d-07122e26c103"
+            }
+          ],
+          "createdAt": "2026-07-28T01:55:38.000Z",
+          "updatedAt": "2026-07-28T01:55:38.000Z",
+          "uid": "35240-eb74287f-fda7-4844-b63c-2f109b5e1cc9"
+        }
+      ],
+      "id": "dfe5cf21-0e29-446a-bb78-ecb7e1225df9",
+      "createdAt": "2026-07-28T01:55:38.000Z",
+      "updatedAt": "2026-07-28T01:55:38.000Z",
+      "uid": "35240-dfe5cf21-0e29-446a-bb78-ecb7e1225df9"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

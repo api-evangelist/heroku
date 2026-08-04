@@ -1,0 +1,111 @@
+{
+  "info": {
+    "_postman_id": "07444d01-2c7a-4043-a988-b38179000414",
+    "name": "Heroku Platform Account Regions API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:56:05.000Z",
+    "updatedAt": "2026-07-28T01:56:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-07444d01-2c7a-4043-a988-b38179000414"
+  },
+  "item": [
+    {
+      "name": "regions",
+      "item": [
+        {
+          "name": "List regions",
+          "id": "f7e5e39a-10d4-454f-8e9a-9b8cd89a4887",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/regions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "regions"
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "cdcc7d79-2f70-4587-b636-50af5ba0da0d",
+              "name": "Available regions",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/regions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "regions"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"country\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"private_capable\": \"<boolean>\",\n    \"provider\": {\n      \"name\": \"<string>\",\n      \"region\": \"<string>\"\n    }\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"description\": \"<string>\",\n    \"country\": \"<string>\",\n    \"locale\": \"<string>\",\n    \"private_capable\": \"<boolean>\",\n    \"provider\": {\n      \"name\": \"<string>\",\n      \"region\": \"<string>\"\n    }\n  }\n]",
+              "createdAt": "2026-07-28T01:56:06.000Z",
+              "updatedAt": "2026-07-28T01:56:06.000Z",
+              "uid": "35240-cdcc7d79-2f70-4587-b636-50af5ba0da0d"
+            }
+          ],
+          "createdAt": "2026-07-28T01:56:06.000Z",
+          "updatedAt": "2026-07-28T01:56:06.000Z",
+          "uid": "35240-f7e5e39a-10d4-454f-8e9a-9b8cd89a4887"
+        }
+      ],
+      "id": "6f3ab8dd-a5e9-405c-8b1e-14b0651654cd",
+      "createdAt": "2026-07-28T01:56:06.000Z",
+      "updatedAt": "2026-07-28T01:56:06.000Z",
+      "uid": "35240-6f3ab8dd-a5e9-405c-8b1e-14b0651654cd"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

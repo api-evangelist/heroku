@@ -1,0 +1,265 @@
+{
+  "info": {
+    "_postman_id": "00795c31-8926-4b49-ab3e-8ccb0748757f",
+    "name": "Heroku Platform Account Config Vars API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:42.000Z",
+    "updatedAt": "2026-07-28T01:55:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-00795c31-8926-4b49-ab3e-8ccb0748757f"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "config-vars",
+              "item": [
+                {
+                  "name": "Get config vars",
+                  "id": "42afd6ad-0c16-4123-b344-7602ed0a8dd6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/config-vars",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "config-vars"
+                      ],
+                      "variable": [
+                        {
+                          "id": "01dc4576-c007-47e5-934c-4c670f7d80ca",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "Get config vars for an app."
+                  },
+                  "response": [
+                    {
+                      "id": "63298bad-17b7-44bb-909d-b0a42c5819b7",
+                      "name": "Config vars",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/config-vars",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "config-vars"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ipsuma2d\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:55:42.000Z",
+                      "updatedAt": "2026-07-28T01:55:42.000Z",
+                      "uid": "35240-63298bad-17b7-44bb-909d-b0a42c5819b7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:42.000Z",
+                  "updatedAt": "2026-07-28T01:55:42.000Z",
+                  "uid": "35240-42afd6ad-0c16-4123-b344-7602ed0a8dd6"
+                },
+                {
+                  "name": "Update config vars",
+                  "id": "e440a8a7-b4dc-417c-a6c9-dc4aa9c301c7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fugiat44_\": \"<string>\",\n  \"id_7a\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/config-vars",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "config-vars"
+                      ],
+                      "variable": [
+                        {
+                          "id": "f24ce086-d2aa-436b-8d7a-cfddb9dbde3f",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "Update config vars for an app. Set a value to null to remove it."
+                  },
+                  "response": [
+                    {
+                      "id": "ed0ee74a-7ccd-4882-b570-8a3b9bc0e247",
+                      "name": "Updated config vars",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fugiat44_\": \"<string>\",\n  \"id_7a\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/config-vars",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "config-vars"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ipsuma2d\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:55:42.000Z",
+                      "updatedAt": "2026-07-28T01:55:42.000Z",
+                      "uid": "35240-ed0ee74a-7ccd-4882-b570-8a3b9bc0e247"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:42.000Z",
+                  "updatedAt": "2026-07-28T01:55:42.000Z",
+                  "uid": "35240-e440a8a7-b4dc-417c-a6c9-dc4aa9c301c7"
+                }
+              ],
+              "id": "2013b869-73d6-4261-af39-d33e7c508ae1",
+              "createdAt": "2026-07-28T01:55:42.000Z",
+              "updatedAt": "2026-07-28T01:55:42.000Z",
+              "uid": "35240-2013b869-73d6-4261-af39-d33e7c508ae1"
+            }
+          ],
+          "id": "eb490f6c-0d39-4b4f-941e-cd729afde4a2",
+          "createdAt": "2026-07-28T01:55:42.000Z",
+          "updatedAt": "2026-07-28T01:55:42.000Z",
+          "uid": "35240-eb490f6c-0d39-4b4f-941e-cd729afde4a2"
+        }
+      ],
+      "id": "69ef9d40-ba08-43fb-a394-c21a4a7eff90",
+      "createdAt": "2026-07-28T01:55:42.000Z",
+      "updatedAt": "2026-07-28T01:55:42.000Z",
+      "uid": "35240-69ef9d40-ba08-43fb-a394-c21a4a7eff90"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

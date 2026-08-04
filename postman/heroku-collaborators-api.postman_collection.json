@@ -1,0 +1,358 @@
+{
+  "info": {
+    "_postman_id": "2069ed19-4621-450a-b6a2-6c28deff2b4a",
+    "name": "Heroku Platform Account Collaborators API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:41.000Z",
+    "updatedAt": "2026-07-28T01:55:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2069ed19-4621-450a-b6a2-6c28deff2b4a"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "collaborators",
+              "item": [
+                {
+                  "name": "{collaborator_email_or_id}",
+                  "item": [
+                    {
+                      "name": "Delete a collaborator",
+                      "id": "ccf2806c-421b-419e-b086-093ede737783",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators/:collaborator_email_or_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "collaborators",
+                            ":collaborator_email_or_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "55d9206e-9b1c-432e-a58b-b9e9da21c39a",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "f8ba7ab4-c4d7-4528-aaf7-734595d0b220",
+                              "key": "collaborator_email_or_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9164d5c5-b3dd-4437-8908-de2e9976b4a8",
+                          "name": "Collaborator removed",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators/:collaborator_email_or_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "collaborators",
+                                ":collaborator_email_or_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "collaborator_email_or_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:55:41.000Z",
+                          "updatedAt": "2026-07-28T01:55:41.000Z",
+                          "uid": "35240-9164d5c5-b3dd-4437-8908-de2e9976b4a8"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:41.000Z",
+                      "updatedAt": "2026-07-28T01:55:41.000Z",
+                      "uid": "35240-ccf2806c-421b-419e-b086-093ede737783"
+                    }
+                  ],
+                  "id": "a6d73263-8277-42ec-a7fe-54ef79cdd093",
+                  "createdAt": "2026-07-28T01:55:41.000Z",
+                  "updatedAt": "2026-07-28T01:55:41.000Z",
+                  "uid": "35240-a6d73263-8277-42ec-a7fe-54ef79cdd093"
+                },
+                {
+                  "name": "List collaborators",
+                  "id": "3bd7044e-6c71-4b53-81fc-3bf74f016b88",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "collaborators"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5568bb01-2d78-44dc-8be0-61c6841b30d8",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2a01e9b8-7eba-4a93-877f-e6d044aa6f4e",
+                      "name": "List of collaborators",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"user\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"role\": \"admin\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"user\": {\n      \"email\": \"<string>\",\n      \"id\": \"<uuid>\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"role\": \"collaborator\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:55:41.000Z",
+                      "updatedAt": "2026-07-28T01:55:41.000Z",
+                      "uid": "35240-2a01e9b8-7eba-4a93-877f-e6d044aa6f4e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:41.000Z",
+                  "updatedAt": "2026-07-28T01:55:41.000Z",
+                  "uid": "35240-3bd7044e-6c71-4b53-81fc-3bf74f016b88"
+                },
+                {
+                  "name": "Create a collaborator",
+                  "id": "506ee869-43d4-4f83-8639-54b30347b385",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"user\": \"<string>\",\n  \"silent\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "collaborators"
+                      ],
+                      "variable": [
+                        {
+                          "id": "db4d8110-ec8c-4c03-8433-799010055874",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "e5f3c9b1-5b89-4a9b-a8ef-ffe7ee2bdd26",
+                      "name": "Collaborator created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"user\": \"<string>\",\n  \"silent\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/collaborators",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "collaborators"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"user\": {\n    \"email\": \"<string>\",\n    \"id\": \"<uuid>\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"role\": \"admin\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:55:41.000Z",
+                      "updatedAt": "2026-07-28T01:55:41.000Z",
+                      "uid": "35240-e5f3c9b1-5b89-4a9b-a8ef-ffe7ee2bdd26"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:41.000Z",
+                  "updatedAt": "2026-07-28T01:55:41.000Z",
+                  "uid": "35240-506ee869-43d4-4f83-8639-54b30347b385"
+                }
+              ],
+              "id": "467e283d-18ff-4111-b0eb-f54f69904b46",
+              "createdAt": "2026-07-28T01:55:41.000Z",
+              "updatedAt": "2026-07-28T01:55:41.000Z",
+              "uid": "35240-467e283d-18ff-4111-b0eb-f54f69904b46"
+            }
+          ],
+          "id": "035dad6f-3f2c-4426-8afd-94173645a062",
+          "createdAt": "2026-07-28T01:55:41.000Z",
+          "updatedAt": "2026-07-28T01:55:41.000Z",
+          "uid": "35240-035dad6f-3f2c-4426-8afd-94173645a062"
+        }
+      ],
+      "id": "07875f68-89a4-4016-ade8-6f3d4f1afd55",
+      "createdAt": "2026-07-28T01:55:41.000Z",
+      "updatedAt": "2026-07-28T01:55:41.000Z",
+      "uid": "35240-07875f68-89a4-4016-ade8-6f3d4f1afd55"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

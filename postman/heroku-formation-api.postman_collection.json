@@ -1,0 +1,402 @@
+{
+  "info": {
+    "_postman_id": "1115498d-4ab0-4a6c-bdcf-9f32d4cb072d",
+    "name": "Heroku Platform Account Formation API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:44.000Z",
+    "updatedAt": "2026-07-28T01:55:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1115498d-4ab0-4a6c-bdcf-9f32d4cb072d"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "formation",
+              "item": [
+                {
+                  "name": "{formation_id_or_type}",
+                  "item": [
+                    {
+                      "name": "Update a process type",
+                      "id": "f189c308-33d8-40d9-8012-629852478aa2",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"quantity\": \"<integer>\",\n  \"size\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/formation/:formation_id_or_type",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "formation",
+                            ":formation_id_or_type"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8c94b76c-a482-4b26-aea3-596ae929528a",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "229e4a6f-be48-4c54-8c77-8d63f417de2b",
+                              "key": "formation_id_or_type",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "efffc0cc-9bff-4b72-a9f5-5290d928caac",
+                          "name": "Process type updated",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"quantity\": \"<integer>\",\n  \"size\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/formation/:formation_id_or_type",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "formation",
+                                ":formation_id_or_type"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "formation_id_or_type"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"type\": \"<string>\",\n  \"command\": \"<string>\",\n  \"quantity\": \"<integer>\",\n  \"size\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:55:45.000Z",
+                          "updatedAt": "2026-07-28T01:55:45.000Z",
+                          "uid": "35240-efffc0cc-9bff-4b72-a9f5-5290d928caac"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:45.000Z",
+                      "updatedAt": "2026-07-28T01:55:45.000Z",
+                      "uid": "35240-f189c308-33d8-40d9-8012-629852478aa2"
+                    }
+                  ],
+                  "id": "e320434c-a3e5-4f4e-8e2f-8bb5e64dc065",
+                  "createdAt": "2026-07-28T01:55:45.000Z",
+                  "updatedAt": "2026-07-28T01:55:45.000Z",
+                  "uid": "35240-e320434c-a3e5-4f4e-8e2f-8bb5e64dc065"
+                },
+                {
+                  "name": "List formation",
+                  "id": "fd237b80-9c8b-4511-b1b7-42fda165b545",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/formation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "formation"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e50ce05e-e9dd-4534-9ea1-d796ae43dbb0",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "List process type scaling info."
+                  },
+                  "response": [
+                    {
+                      "id": "7cf276f6-4b2b-4963-85d9-102ffe1a9382",
+                      "name": "Formation info",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/formation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "formation"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\",\n    \"command\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"size\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\",\n    \"command\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"size\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:55:45.000Z",
+                      "updatedAt": "2026-07-28T01:55:45.000Z",
+                      "uid": "35240-7cf276f6-4b2b-4963-85d9-102ffe1a9382"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:45.000Z",
+                  "updatedAt": "2026-07-28T01:55:45.000Z",
+                  "uid": "35240-fd237b80-9c8b-4511-b1b7-42fda165b545"
+                },
+                {
+                  "name": "Batch update formation",
+                  "id": "67b05ee8-dc2a-4310-a252-cb6ef7387218",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"updates\": [\n    {\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"size\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"size\": \"<string>\"\n    }\n  ]\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/formation",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "formation"
+                      ],
+                      "variable": [
+                        {
+                          "id": "b531bce3-fd90-4368-a36b-69cdf34db255",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "Update scaling for multiple process types."
+                  },
+                  "response": [
+                    {
+                      "id": "4b6fc8ec-2bdf-430c-8410-2e442fb93b59",
+                      "name": "Formation updated",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"updates\": [\n    {\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"size\": \"<string>\"\n    },\n    {\n      \"type\": \"<string>\",\n      \"quantity\": \"<integer>\",\n      \"size\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/formation",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "formation"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\",\n    \"command\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"size\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\",\n    \"command\": \"<string>\",\n    \"quantity\": \"<integer>\",\n    \"size\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:55:45.000Z",
+                      "updatedAt": "2026-07-28T01:55:45.000Z",
+                      "uid": "35240-4b6fc8ec-2bdf-430c-8410-2e442fb93b59"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:45.000Z",
+                  "updatedAt": "2026-07-28T01:55:45.000Z",
+                  "uid": "35240-67b05ee8-dc2a-4310-a252-cb6ef7387218"
+                }
+              ],
+              "id": "6e871eca-1d3d-4eae-88e4-4c978dd43d2d",
+              "createdAt": "2026-07-28T01:55:45.000Z",
+              "updatedAt": "2026-07-28T01:55:45.000Z",
+              "uid": "35240-6e871eca-1d3d-4eae-88e4-4c978dd43d2d"
+            }
+          ],
+          "id": "d1bd6ee1-0bbd-4b47-819e-ee757a6ab973",
+          "createdAt": "2026-07-28T01:55:45.000Z",
+          "updatedAt": "2026-07-28T01:55:45.000Z",
+          "uid": "35240-d1bd6ee1-0bbd-4b47-819e-ee757a6ab973"
+        }
+      ],
+      "id": "18af253e-7ffe-40b5-a322-a54410953640",
+      "createdAt": "2026-07-28T01:55:45.000Z",
+      "updatedAt": "2026-07-28T01:55:45.000Z",
+      "uid": "35240-18af253e-7ffe-40b5-a322-a54410953640"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

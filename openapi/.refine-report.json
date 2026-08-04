@@ -1,0 +1,40 @@
+{
+  "provider": "heroku",
+  "sources": [
+    "heroku-account-api-openapi.yml",
+    "heroku-add-ons-api-openapi.yml",
+    "heroku-apps-api-openapi.yml",
+    "heroku-builds-api-openapi.yml",
+    "heroku-collaborators-api-openapi.yml",
+    "heroku-config-vars-api-openapi.yml",
+    "heroku-domains-api-openapi.yml",
+    "heroku-dynos-api-openapi.yml",
+    "heroku-formation-api-openapi.yml",
+    "heroku-log-sessions-api-openapi.yml",
+    "heroku-pipelines-api-openapi.yml",
+    "heroku-regions-api-openapi.yml",
+    "heroku-releases-api-openapi.yml",
+    "heroku-stacks-api-openapi.yml"
+  ],
+  "outputs": [
+    "heroku-account-api-openapi.yml",
+    "heroku-add-ons-api-openapi.yml",
+    "heroku-apps-api-openapi.yml",
+    "heroku-builds-api-openapi.yml",
+    "heroku-collaborators-api-openapi.yml",
+    "heroku-config-vars-api-openapi.yml",
+    "heroku-domains-api-openapi.yml",
+    "heroku-dynos-api-openapi.yml",
+    "heroku-formation-api-openapi.yml",
+    "heroku-log-sessions-api-openapi.yml",
+    "heroku-pipelines-api-openapi.yml",
+    "heroku-regions-api-openapi.yml",
+    "heroku-releases-api-openapi.yml",
+    "heroku-stacks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

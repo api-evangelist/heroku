@@ -1,0 +1,175 @@
+{
+  "info": {
+    "_postman_id": "fa864d50-7ef1-4927-bde8-ec87fd9b7c37",
+    "name": "Heroku Platform Account Log Sessions API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:45.000Z",
+    "updatedAt": "2026-07-28T01:55:45.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fa864d50-7ef1-4927-bde8-ec87fd9b7c37"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "log-sessions",
+              "item": [
+                {
+                  "name": "Create a log session",
+                  "id": "300dd5b6-7888-483c-b50b-54d8ce7cf1f4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"dyno\": \"<string>\",\n  \"lines\": \"<integer>\",\n  \"source\": \"app\",\n  \"tail\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/log-sessions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "log-sessions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "94c472cc-f079-4f62-b57e-ec2e0e767088",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    },
+                    "description": "Creates a log session URL for streaming logs."
+                  },
+                  "response": [
+                    {
+                      "id": "3a69c19f-ba67-466d-b065-45a2b0654f6a",
+                      "name": "Log session created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"dyno\": \"<string>\",\n  \"lines\": \"<integer>\",\n  \"source\": \"app\",\n  \"tail\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/log-sessions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "log-sessions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"logplex_url\": \"<uri>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:55:46.000Z",
+                      "updatedAt": "2026-07-28T01:55:46.000Z",
+                      "uid": "35240-3a69c19f-ba67-466d-b065-45a2b0654f6a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:46.000Z",
+                  "updatedAt": "2026-07-28T01:55:46.000Z",
+                  "uid": "35240-300dd5b6-7888-483c-b50b-54d8ce7cf1f4"
+                }
+              ],
+              "id": "d4102059-8ea5-4e3f-aa42-93d5502abc90",
+              "createdAt": "2026-07-28T01:55:46.000Z",
+              "updatedAt": "2026-07-28T01:55:46.000Z",
+              "uid": "35240-d4102059-8ea5-4e3f-aa42-93d5502abc90"
+            }
+          ],
+          "id": "b398a3ed-c655-4d19-92ab-746f4c523413",
+          "createdAt": "2026-07-28T01:55:46.000Z",
+          "updatedAt": "2026-07-28T01:55:46.000Z",
+          "uid": "35240-b398a3ed-c655-4d19-92ab-746f4c523413"
+        }
+      ],
+      "id": "f62790cf-262b-4459-bafc-623e205276f5",
+      "createdAt": "2026-07-28T01:55:46.000Z",
+      "updatedAt": "2026-07-28T01:55:46.000Z",
+      "uid": "35240-f62790cf-262b-4459-bafc-623e205276f5"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}

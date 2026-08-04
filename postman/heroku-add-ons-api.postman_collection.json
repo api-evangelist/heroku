@@ -1,0 +1,472 @@
+{
+  "info": {
+    "_postman_id": "ff7c5168-42ef-47ae-81c4-43d57e34d806",
+    "name": "Heroku Platform Account Add-ons API",
+    "description": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:55:38.000Z",
+    "updatedAt": "2026-07-28T01:55:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ff7c5168-42ef-47ae-81c4-43d57e34d806"
+  },
+  "item": [
+    {
+      "name": "apps",
+      "item": [
+        {
+          "name": "{app_id_or_name}",
+          "item": [
+            {
+              "name": "addons",
+              "item": [
+                {
+                  "name": "{addon_id_or_name}",
+                  "item": [
+                    {
+                      "name": "Get add-on info",
+                      "id": "d80ffdc3-e7e5-481e-9507-febfc838c97f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/addons/:addon_id_or_name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "addons",
+                            ":addon_id_or_name"
+                          ],
+                          "variable": [
+                            {
+                              "id": "1179af4d-e320-402c-b4cc-45099ff3addf",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "89c8fa68-fadb-44cc-a912-0c8b72284bd6",
+                              "key": "addon_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5c1812ee-5115-4e4c-9415-5bb8d658782e",
+                          "name": "Add-on details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/addons/:addon_id_or_name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "addons",
+                                ":addon_id_or_name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "addon_id_or_name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"addon_service\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"plan\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"provider_id\": \"<string>\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"billed_price\": {\n    \"cents\": \"<integer>\",\n    \"contract\": \"<boolean>\",\n    \"unit\": \"<string>\"\n  },\n  \"web_url\": \"<uri>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:55:39.000Z",
+                          "updatedAt": "2026-07-28T01:55:39.000Z",
+                          "uid": "35240-5c1812ee-5115-4e4c-9415-5bb8d658782e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:39.000Z",
+                      "updatedAt": "2026-07-28T01:55:39.000Z",
+                      "uid": "35240-d80ffdc3-e7e5-481e-9507-febfc838c97f"
+                    },
+                    {
+                      "name": "Delete an add-on",
+                      "id": "28dcf4b3-104f-4494-9b3f-d1e36b7f420f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/addons/:addon_id_or_name",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "addons",
+                            ":addon_id_or_name"
+                          ],
+                          "variable": [
+                            {
+                              "id": "958231d2-f5cd-470d-8127-97c6f242ab29",
+                              "key": "app_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) App ID (UUID) or app name"
+                            },
+                            {
+                              "id": "6b1262bb-6676-41dc-a37d-af05b7f2dff0",
+                              "key": "addon_id_or_name",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7bcb8cdb-b1bb-426a-b1a6-7be4a81bcdcd",
+                          "name": "Add-on deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/apps/:app_id_or_name/addons/:addon_id_or_name",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "apps",
+                                ":app_id_or_name",
+                                "addons",
+                                ":addon_id_or_name"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "app_id_or_name"
+                                },
+                                {
+                                  "key": "addon_id_or_name"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"addon_service\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"plan\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"provider_id\": \"<string>\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"billed_price\": {\n    \"cents\": \"<integer>\",\n    \"contract\": \"<boolean>\",\n    \"unit\": \"<string>\"\n  },\n  \"web_url\": \"<uri>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:55:39.000Z",
+                          "updatedAt": "2026-07-28T01:55:39.000Z",
+                          "uid": "35240-7bcb8cdb-b1bb-426a-b1a6-7be4a81bcdcd"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:55:39.000Z",
+                      "updatedAt": "2026-07-28T01:55:39.000Z",
+                      "uid": "35240-28dcf4b3-104f-4494-9b3f-d1e36b7f420f"
+                    }
+                  ],
+                  "id": "19c892de-b85a-4924-964a-ea921ff7150f",
+                  "createdAt": "2026-07-28T01:55:39.000Z",
+                  "updatedAt": "2026-07-28T01:55:39.000Z",
+                  "uid": "35240-19c892de-b85a-4924-964a-ea921ff7150f"
+                },
+                {
+                  "name": "List add-ons for an app",
+                  "id": "96224ac0-3406-4294-a104-5f1b3d2ac088",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/addons",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "addons"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1166c5d5-b835-45c4-a9fc-effc946bc453",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "7fd24718-49ea-4854-abc3-1cc1a0d0eaf1",
+                      "name": "List of add-ons",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/addons",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "addons"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"addon_service\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"plan\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"provider_id\": \"<string>\",\n    \"state\": \"provisioning\",\n    \"config_vars\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"billed_price\": {\n      \"cents\": \"<integer>\",\n      \"contract\": \"<boolean>\",\n      \"unit\": \"<string>\"\n    },\n    \"web_url\": \"<uri>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"app\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"addon_service\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"plan\": {\n      \"id\": \"<uuid>\",\n      \"name\": \"<string>\"\n    },\n    \"provider_id\": \"<string>\",\n    \"state\": \"deprovisioned\",\n    \"config_vars\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"billed_price\": {\n      \"cents\": \"<integer>\",\n      \"contract\": \"<boolean>\",\n      \"unit\": \"<string>\"\n    },\n    \"web_url\": \"<uri>\",\n    \"created_at\": \"<dateTime>\",\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:55:39.000Z",
+                      "updatedAt": "2026-07-28T01:55:39.000Z",
+                      "uid": "35240-7fd24718-49ea-4854-abc3-1cc1a0d0eaf1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:39.000Z",
+                  "updatedAt": "2026-07-28T01:55:39.000Z",
+                  "uid": "35240-96224ac0-3406-4294-a104-5f1b3d2ac088"
+                },
+                {
+                  "name": "Create an add-on",
+                  "id": "d7783206-f700-4593-8320-ace6e3748129",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"config\": {\n    \"eu16_\": \"<string>\",\n    \"sit4\": \"<string>\",\n    \"ea_98\": \"<string>\",\n    \"commodo138\": \"<string>\"\n  },\n  \"attachment\": {\n    \"name\": \"<string>\"\n  },\n  \"confirm\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/apps/:app_id_or_name/addons",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "apps",
+                        ":app_id_or_name",
+                        "addons"
+                      ],
+                      "variable": [
+                        {
+                          "id": "bb96ea60-84f7-41b4-8668-cc144c3a29ea",
+                          "key": "app_id_or_name",
+                          "value": "<string>",
+                          "description": "(Required) App ID (UUID) or app name"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "20e8a6b7-23ad-484b-b163-2cb4a83d7efc",
+                      "name": "Add-on created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"config\": {\n    \"eu16_\": \"<string>\",\n    \"sit4\": \"<string>\",\n    \"ea_98\": \"<string>\",\n    \"commodo138\": \"<string>\"\n  },\n  \"attachment\": {\n    \"name\": \"<string>\"\n  },\n  \"confirm\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/apps/:app_id_or_name/addons",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "apps",
+                            ":app_id_or_name",
+                            "addons"
+                          ],
+                          "variable": [
+                            {
+                              "key": "app_id_or_name"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"app\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"addon_service\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"plan\": {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\"\n  },\n  \"provider_id\": \"<string>\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"billed_price\": {\n    \"cents\": \"<integer>\",\n    \"contract\": \"<boolean>\",\n    \"unit\": \"<string>\"\n  },\n  \"web_url\": \"<uri>\",\n  \"created_at\": \"<dateTime>\",\n  \"updated_at\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:55:39.000Z",
+                      "updatedAt": "2026-07-28T01:55:39.000Z",
+                      "uid": "35240-20e8a6b7-23ad-484b-b163-2cb4a83d7efc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:55:39.000Z",
+                  "updatedAt": "2026-07-28T01:55:39.000Z",
+                  "uid": "35240-d7783206-f700-4593-8320-ace6e3748129"
+                }
+              ],
+              "id": "5da9eab4-e49c-4174-9909-807744513141",
+              "createdAt": "2026-07-28T01:55:39.000Z",
+              "updatedAt": "2026-07-28T01:55:39.000Z",
+              "uid": "35240-5da9eab4-e49c-4174-9909-807744513141"
+            }
+          ],
+          "id": "077d3ba2-c87c-42c1-bb15-2b3faa7b346c",
+          "createdAt": "2026-07-28T01:55:39.000Z",
+          "updatedAt": "2026-07-28T01:55:39.000Z",
+          "uid": "35240-077d3ba2-c87c-42c1-bb15-2b3faa7b346c"
+        }
+      ],
+      "id": "c7d25365-2964-480e-8c83-6aade3fe581f",
+      "createdAt": "2026-07-28T01:55:39.000Z",
+      "updatedAt": "2026-07-28T01:55:39.000Z",
+      "uid": "35240-c7d25365-2964-480e-8c83-6aade3fe581f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.heroku.com"
+    }
+  ]
+}
