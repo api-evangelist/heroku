@@ -1,0 +1,117 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Apps API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Apps",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List apps",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps",
+            "headers": [
+              {
+                "name": "Range",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "List existing apps."
+        },
+        {
+          "info": {
+            "name": "Create an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.heroku.com/apps",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new app."
+        },
+        {
+          "info": {
+            "name": "Get app info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "Get info for an existing app."
+        },
+        {
+          "info": {
+            "name": "Update an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.heroku.com/apps/:app_id_or_name",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an app"
+        },
+        {
+          "info": {
+            "name": "Delete an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.heroku.com/apps/:app_id_or_name",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "Delete an app"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

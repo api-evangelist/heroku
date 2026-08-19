@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Stacks API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Stacks",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List stacks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/stacks"
+          },
+          "docs": "List stacks"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

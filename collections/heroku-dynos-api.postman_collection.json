@@ -1,0 +1,563 @@
+{
+  "item": [
+    {
+      "id": "81ebb038-8869-4cc5-8b09-3123dfbe15c4",
+      "name": "Dynos",
+      "description": {
+        "content": "Process (dyno) management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "aba8efba-71b9-4453-9542-37ba3c5851a0",
+          "name": "List dynos",
+          "request": {
+            "name": "List dynos",
+            "description": {
+              "content": "List existing dynos for an app.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "dynos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db2e6cb7-f57c-47fc-b33d-2b36999a93ae",
+              "name": "List of dynos",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "dynos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"fc109ced-f788-a91c-086a-aee308786525\",\n    \"name\": \"string\",\n    \"app\": {\n      \"id\": \"b9b20452-e9b1-98e9-5786-b4aacb599a2b\",\n      \"name\": \"string\"\n    },\n    \"attach_url\": \"string\",\n    \"command\": \"string\",\n    \"created_at\": \"1947-06-28T20:07:59.026Z\",\n    \"release\": {\n      \"id\": \"220e4898-f692-095c-3d2f-422f4b428231\",\n      \"version\": 6549\n    },\n    \"size\": \"string\",\n    \"state\": \"crashed\",\n    \"type\": \"string\",\n    \"updated_at\": \"2018-06-11T08:30:13.871Z\"\n  },\n  {\n    \"id\": \"32af5bf6-f318-bb17-44ae-0b06609aca84\",\n    \"name\": \"string\",\n    \"app\": {\n      \"id\": \"869b0d66-2b1b-34f0-a40b-89a18eee6e47\",\n      \"name\": \"string\"\n    },\n    \"attach_url\": \"string\",\n    \"command\": \"string\",\n    \"created_at\": \"1954-05-07T02:17:33.452Z\",\n    \"release\": {\n      \"id\": \"142a9b87-7ef4-e18e-3827-18961a050c58\",\n      \"version\": 2810\n    },\n    \"size\": \"string\",\n    \"state\": \"starting\",\n    \"type\": \"string\",\n    \"updated_at\": \"2021-01-12T10:51:07.854Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1493e90d-1955-4ba0-a41d-df5970a7fb64",
+          "name": "Create a dyno",
+          "request": {
+            "name": "Create a dyno",
+            "description": {
+              "content": "Create a new dyno (one-off or run command).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "dynos"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"command\": \"<string>\",\n  \"attach\": \"<boolean>\",\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"force_no_tty\": \"<boolean>\",\n  \"size\": \"<string>\",\n  \"time_to_live\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "91d4e95e-1f7b-40b0-861f-27bdcc42e8e8",
+              "name": "Dyno created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "dynos"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"command\": \"<string>\",\n  \"attach\": \"<boolean>\",\n  \"env\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\"\n  },\n  \"force_no_tty\": \"<boolean>\",\n  \"size\": \"<string>\",\n  \"time_to_live\": \"<integer>\",\n  \"type\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"05dac134-333e-65c2-0acd-8297ea8cda14\",\n  \"name\": \"string\",\n  \"app\": {\n    \"id\": \"f0cecd3f-220f-8453-7a0d-986c59c3ed5f\",\n    \"name\": \"string\"\n  },\n  \"attach_url\": \"string\",\n  \"command\": \"string\",\n  \"created_at\": \"1964-12-17T07:04:29.905Z\",\n  \"release\": {\n    \"id\": \"4fa7327f-2a97-8a2b-c11f-e2bbeb505a30\",\n    \"version\": 6020\n  },\n  \"size\": \"string\",\n  \"state\": \"up\",\n  \"type\": \"string\",\n  \"updated_at\": \"1951-08-26T19:49:23.250Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c843a3cf-e88b-44b6-b69b-cc5973ca7102",
+          "name": "Get dyno info",
+          "request": {
+            "name": "Get dyno info",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "dynos",
+                ":dyno_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dyno_id_or_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3e1b0fc0-57c0-4d94-a0f7-b6cf168a81cc",
+              "name": "Dyno info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "dynos",
+                    ":dyno_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dyno_id_or_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"05dac134-333e-65c2-0acd-8297ea8cda14\",\n  \"name\": \"string\",\n  \"app\": {\n    \"id\": \"f0cecd3f-220f-8453-7a0d-986c59c3ed5f\",\n    \"name\": \"string\"\n  },\n  \"attach_url\": \"string\",\n  \"command\": \"string\",\n  \"created_at\": \"1964-12-17T07:04:29.905Z\",\n  \"release\": {\n    \"id\": \"4fa7327f-2a97-8a2b-c11f-e2bbeb505a30\",\n    \"version\": 6020\n  },\n  \"size\": \"string\",\n  \"state\": \"up\",\n  \"type\": \"string\",\n  \"updated_at\": \"1951-08-26T19:49:23.250Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f79cb168-7be1-4499-a0a7-ede1cbcee89d",
+          "name": "Stop a dyno",
+          "request": {
+            "name": "Stop a dyno",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "dynos",
+                ":dyno_id_or_name",
+                "actions",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dyno_id_or_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dc55b983-c77c-4420-93d9-5afdbeff7293",
+              "name": "Dyno stop initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "dynos",
+                    ":dyno_id_or_name",
+                    "actions",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dyno_id_or_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8cba0806-a379-465c-b769-b2b48ba911ad",
+          "name": "Restart all dynos",
+          "request": {
+            "name": "Restart all dynos",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "dynos",
+                "actions",
+                "restart-all"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bcdaabc8-9848-41fe-91f2-c189adb3fedd",
+              "name": "Restart initiated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "dynos",
+                    "actions",
+                    "restart-all"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Accepted",
+              "code": 202,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "967c2389-c66b-453a-9c82-c5c3755b538d",
+    "name": "Heroku Platform Account Dynos API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

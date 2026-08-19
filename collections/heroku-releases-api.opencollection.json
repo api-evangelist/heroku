@@ -1,0 +1,96 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Releases API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Releases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List releases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/releases",
+            "headers": [
+              {
+                "name": "Range",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "List releases"
+        },
+        {
+          "info": {
+            "name": "Create a release (rollback)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/releases",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new release by rolling back to a previous release."
+        },
+        {
+          "info": {
+            "name": "Get release info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/releases/:release_id_or_version",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "release_id_or_version",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get release info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

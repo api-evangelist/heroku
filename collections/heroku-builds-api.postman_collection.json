@@ -1,0 +1,363 @@
+{
+  "item": [
+    {
+      "id": "baf57b5e-e421-408f-803f-f644d7fe42ba",
+      "name": "Builds",
+      "description": {
+        "content": "Build management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "14a436f9-1cf6-401b-8340-742ba5d52475",
+          "name": "List builds",
+          "request": {
+            "name": "List builds",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6062c6cc-d29b-4f04-bb36-a0c76e4f7d6f",
+              "name": "List of builds",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"5c6e376a-8789-b082-4ce5-033922c91c83\",\n    \"status\": \"succeeded\",\n    \"app\": {\n      \"id\": \"4a52aa8a-178a-17ce-251a-747aa53110b9\"\n    },\n    \"buildpacks\": [\n      {\n        \"url\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"output_stream_url\": \"http://faKDRFeArbJBjtTiTyjE.tuaNAteTkk55Oqq6ITHoPdMULOgXjIpUiSCitJ,1dIHnyr4HG2CV5S\",\n    \"release\": {\n      \"id\": \"08c5c163-3ceb-82b0-f776-9ecfeb6e008c\"\n    },\n    \"slug\": {\n      \"id\": \"f26b74e8-923f-b588-9d8e-96129d0c291f\"\n    },\n    \"source_blob\": {\n      \"checksum\": \"string\",\n      \"url\": \"string\",\n      \"version\": \"string\"\n    },\n    \"user\": {\n      \"email\": \"string\",\n      \"id\": \"ccc27e47-b8f5-39f4-1d24-fa8c2108a6d8\"\n    },\n    \"created_at\": \"1959-08-03T22:15:30.054Z\",\n    \"updated_at\": \"1983-06-14T18:46:05.819Z\"\n  },\n  {\n    \"id\": \"711d54e8-fa3b-ca8c-49f2-05fbab147eb7\",\n    \"status\": \"pending\",\n    \"app\": {\n      \"id\": \"da1c6c7f-e16a-e158-3440-326ceca3396c\"\n    },\n    \"buildpacks\": [\n      {\n        \"url\": \"string\",\n        \"name\": \"string\"\n      },\n      {\n        \"url\": \"string\",\n        \"name\": \"string\"\n      }\n    ],\n    \"output_stream_url\": \"http://mpAUzSmvVnInbpMSgRCNH.trpmncK5W-CrQ,RAcv4qFtgjEZ6r-+bC\",\n    \"release\": {\n      \"id\": \"d848f2fb-ee77-e338-1ca8-e79e6bf086de\"\n    },\n    \"slug\": {\n      \"id\": \"0e455976-d497-b86b-c3a5-f7b3f171ac31\"\n    },\n    \"source_blob\": {\n      \"checksum\": \"string\",\n      \"url\": \"string\",\n      \"version\": \"string\"\n    },\n    \"user\": {\n      \"email\": \"string\",\n      \"id\": \"e3ed7a28-00b8-2fba-390d-0fd0e5f23644\"\n    },\n    \"created_at\": \"1990-08-12T16:05:40.567Z\",\n    \"updated_at\": \"1954-08-11T11:49:19.811Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c94978cc-ecbf-498f-ac61-cdf2f8f5fa6d",
+          "name": "Create a build",
+          "request": {
+            "name": "Create a build",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "builds"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"source_blob\": {\n    \"url\": \"<string>\",\n    \"checksum\": \"<string>\",\n    \"version\": \"<string>\"\n  },\n  \"buildpacks\": [\n    {\n      \"url\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dd1e6374-decc-4d66-b0a8-8b947a954398",
+              "name": "Build created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "builds"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"source_blob\": {\n    \"url\": \"<string>\",\n    \"checksum\": \"<string>\",\n    \"version\": \"<string>\"\n  },\n  \"buildpacks\": [\n    {\n      \"url\": \"<string>\",\n      \"name\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"name\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1add863d-988d-9eea-1575-9ef03f79de42\",\n  \"status\": \"succeeded\",\n  \"app\": {\n    \"id\": \"36ea0c56-053e-33da-3245-a01eb3e63641\"\n  },\n  \"buildpacks\": [\n    {\n      \"url\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"url\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"output_stream_url\": \"https://JSsSwCBoRHNMxTKwLwpHgbNT.szyqX+Jz2d304YL95eg1YNj10.06VkI+ZOc2ITYRwmWprbPBj8If0NTvBtS.fgEi\",\n  \"release\": {\n    \"id\": \"da6694cc-098a-a3de-6cde-f981207d5b8a\"\n  },\n  \"slug\": {\n    \"id\": \"4c094469-f7e5-2895-35c6-b55c7b5df4d5\"\n  },\n  \"source_blob\": {\n    \"checksum\": \"string\",\n    \"url\": \"string\",\n    \"version\": \"string\"\n  },\n  \"user\": {\n    \"email\": \"string\",\n    \"id\": \"8b270e47-09e8-d0d5-1686-5069f4d5df1b\"\n  },\n  \"created_at\": \"2024-02-26T01:30:32.480Z\",\n  \"updated_at\": \"1983-03-02T17:36:01.111Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "970746dd-b53b-4fbc-8cde-b74d326922c9",
+          "name": "Get build info",
+          "request": {
+            "name": "Get build info",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "builds",
+                ":build_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "build_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13918798-6b0e-4344-8667-d69b8fa14354",
+              "name": "Build details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "builds",
+                    ":build_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "build_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"1add863d-988d-9eea-1575-9ef03f79de42\",\n  \"status\": \"succeeded\",\n  \"app\": {\n    \"id\": \"36ea0c56-053e-33da-3245-a01eb3e63641\"\n  },\n  \"buildpacks\": [\n    {\n      \"url\": \"string\",\n      \"name\": \"string\"\n    },\n    {\n      \"url\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"output_stream_url\": \"https://JSsSwCBoRHNMxTKwLwpHgbNT.szyqX+Jz2d304YL95eg1YNj10.06VkI+ZOc2ITYRwmWprbPBj8If0NTvBtS.fgEi\",\n  \"release\": {\n    \"id\": \"da6694cc-098a-a3de-6cde-f981207d5b8a\"\n  },\n  \"slug\": {\n    \"id\": \"4c094469-f7e5-2895-35c6-b55c7b5df4d5\"\n  },\n  \"source_blob\": {\n    \"checksum\": \"string\",\n    \"url\": \"string\",\n    \"version\": \"string\"\n  },\n  \"user\": {\n    \"email\": \"string\",\n    \"id\": \"8b270e47-09e8-d0d5-1686-5069f4d5df1b\"\n  },\n  \"created_at\": \"2024-02-26T01:30:32.480Z\",\n  \"updated_at\": \"1983-03-02T17:36:01.111Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "792705ec-2a41-410b-9fa7-f71274d0dd85",
+    "name": "Heroku Platform Account Builds API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

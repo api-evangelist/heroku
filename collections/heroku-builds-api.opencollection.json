@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Builds API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Builds",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List builds",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/builds",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "List builds"
+        },
+        {
+          "info": {
+            "name": "Create a build",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/builds",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a build"
+        },
+        {
+          "info": {
+            "name": "Get build info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/builds/:build_id",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "build_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get build info"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

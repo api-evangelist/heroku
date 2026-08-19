@@ -1,0 +1,66 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Config Vars API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Config Vars",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get config vars",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/config-vars",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "Get config vars for an app."
+        },
+        {
+          "info": {
+            "name": "Update config vars",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/config-vars",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update config vars for an app. Set a value to null to remove it."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

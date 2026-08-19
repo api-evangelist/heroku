@@ -1,0 +1,696 @@
+{
+  "item": [
+    {
+      "id": "28ff6a35-6a65-44e8-9b1e-4a82f5832026",
+      "name": "Pipelines",
+      "description": {
+        "content": "Deployment pipeline management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4fb39d51-7f64-4f9e-bfd1-7e3ae20a9c83",
+          "name": "List pipelines",
+          "request": {
+            "name": "List pipelines",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e6e40a37-9df6-4bcc-b96c-2e65ed777bb9",
+              "name": "List of pipelines",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"e12b0322-3114-7413-7347-b886ebbbe1ed\",\n    \"name\": \"string\",\n    \"owner\": {\n      \"id\": \"86cb8a9a-2fb6-c325-9c9b-4d433b9739a0\",\n      \"type\": \"user\"\n    },\n    \"created_at\": \"1950-06-28T20:52:51.187Z\",\n    \"updated_at\": \"1992-09-05T05:32:01.552Z\"\n  },\n  {\n    \"id\": \"fa481c6c-185e-f5c9-7595-f9a7dfe20c33\",\n    \"name\": \"string\",\n    \"owner\": {\n      \"id\": \"56f922c7-ec0c-0d0f-6c54-7a5a8c649766\",\n      \"type\": \"team\"\n    },\n    \"created_at\": \"1983-05-15T08:44:57.219Z\",\n    \"updated_at\": \"1976-01-22T20:11:52.195Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c80aee9-769b-4b0c-a6f1-7b1f02ff4c1b",
+          "name": "Create a pipeline",
+          "request": {
+            "name": "Create a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"owner\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "40efb044-51bb-4cf9-a044-0e1f7cd3f546",
+              "name": "Pipeline created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"owner\": {\n    \"id\": \"<uuid>\",\n    \"type\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2c852e9c-555f-12ad-807f-27e8fdc0d7e8\",\n  \"name\": \"string\",\n  \"owner\": {\n    \"id\": \"8d8f2155-d320-f632-0459-7c0a166008b9\",\n    \"type\": \"user\"\n  },\n  \"created_at\": \"1989-08-22T04:21:54.070Z\",\n  \"updated_at\": \"1961-04-23T09:23:28.186Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4bd24b7e-ccf4-431e-819b-61492c25d42b",
+          "name": "Get pipeline info",
+          "request": {
+            "name": "Get pipeline info",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "04b08f0a-824c-4a7e-a0e5-8d1b2df208d3",
+              "name": "Pipeline details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2c852e9c-555f-12ad-807f-27e8fdc0d7e8\",\n  \"name\": \"string\",\n  \"owner\": {\n    \"id\": \"8d8f2155-d320-f632-0459-7c0a166008b9\",\n    \"type\": \"user\"\n  },\n  \"created_at\": \"1989-08-22T04:21:54.070Z\",\n  \"updated_at\": \"1961-04-23T09:23:28.186Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c7023acf-c8ee-423f-b665-b56e5e05b6b2",
+          "name": "Update a pipeline",
+          "request": {
+            "name": "Update a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "683fcc07-2230-4d38-bffc-77b89d61569e",
+              "name": "Pipeline updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"2c852e9c-555f-12ad-807f-27e8fdc0d7e8\",\n  \"name\": \"string\",\n  \"owner\": {\n    \"id\": \"8d8f2155-d320-f632-0459-7c0a166008b9\",\n    \"type\": \"user\"\n  },\n  \"created_at\": \"1989-08-22T04:21:54.070Z\",\n  \"updated_at\": \"1961-04-23T09:23:28.186Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9402cf47-1e0b-4832-9bae-0581d306e7b6",
+          "name": "Delete a pipeline",
+          "request": {
+            "name": "Delete a pipeline",
+            "description": {},
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipeline_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33a408b0-648a-42ad-817d-a54c77eef3f4",
+              "name": "Pipeline deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipeline_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fae227d5-9183-43e4-ac39-5fc178d72d93",
+          "name": "List pipeline couplings",
+          "request": {
+            "name": "List pipeline couplings",
+            "description": {
+              "content": "List apps coupled to a pipeline.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "pipelines",
+                ":pipeline_id",
+                "pipeline-couplings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<uuid>",
+                  "key": "pipeline_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "351331a8-799a-49da-92b8-5dd92f46c3fb",
+              "name": "Pipeline couplings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipelines",
+                    ":pipeline_id",
+                    "pipeline-couplings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<uuid>",
+                      "key": "pipeline_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"f7ac8de5-2491-afd4-7831-3bccb35c6d71\",\n    \"app\": {\n      \"id\": \"d8917c9a-6dc8-1652-8bc9-d675018a61b4\"\n    },\n    \"pipeline\": {\n      \"id\": \"694e5cf8-0989-ce83-2a79-be9fe2fd867d\"\n    },\n    \"stage\": \"production\",\n    \"created_at\": \"1952-12-23T14:56:47.168Z\",\n    \"updated_at\": \"1989-05-30T00:13:06.317Z\"\n  },\n  {\n    \"id\": \"933be445-c7a5-962b-3233-303f3a8c6e98\",\n    \"app\": {\n      \"id\": \"75ffab31-8b2a-6d09-d46c-5849634d2b6a\"\n    },\n    \"pipeline\": {\n      \"id\": \"38f31d1d-e657-324b-953f-45007e93ae6e\"\n    },\n    \"stage\": \"development\",\n    \"created_at\": \"1996-11-19T16:27:22.410Z\",\n    \"updated_at\": \"1950-10-06T21:04:46.573Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1bc99aec-eefe-4bde-8170-82ec110b3844",
+          "name": "Create a pipeline coupling",
+          "request": {
+            "name": "Create a pipeline coupling",
+            "description": {},
+            "url": {
+              "path": [
+                "pipeline-couplings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"app\": \"<string>\",\n  \"pipeline\": \"<uuid>\",\n  \"stage\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e9961b07-dda4-426f-948c-ddac8bc47144",
+              "name": "Pipeline coupling created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "pipeline-couplings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"app\": \"<string>\",\n  \"pipeline\": \"<uuid>\",\n  \"stage\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"abe4f739-7d83-56c5-dcc8-b83f5b6ac587\",\n  \"app\": {\n    \"id\": \"857dd341-3457-4bda-a0ae-b9881e6181c4\"\n  },\n  \"pipeline\": {\n    \"id\": \"6d4b396b-f102-f4b0-3e96-1610b2db90b1\"\n  },\n  \"stage\": \"production\",\n  \"created_at\": \"1973-06-16T00:44:18.962Z\",\n  \"updated_at\": \"1964-05-02T14:15:44.777Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5621c6f4-2482-4728-9c39-fbc06f3e74bd",
+    "name": "Heroku Platform Account Pipelines API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

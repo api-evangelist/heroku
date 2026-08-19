@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Formation API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Formation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List formation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/formation",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "List process type scaling info."
+        },
+        {
+          "info": {
+            "name": "Batch update formation",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/formation",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update scaling for multiple process types."
+        },
+        {
+          "info": {
+            "name": "Update a process type",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/formation/:formation_id_or_type",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "formation_id_or_type",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a process type"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

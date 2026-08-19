@@ -1,0 +1,378 @@
+{
+  "item": [
+    {
+      "id": "11a004aa-3bfa-446a-8e0b-6c1266188cdc",
+      "name": "Releases",
+      "description": {
+        "content": "Release management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d3ec73a3-97b4-4a6a-8312-0810d3130b51",
+          "name": "List releases",
+          "request": {
+            "name": "List releases",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Pagination range header (e.g., id ..; max=200)",
+                "key": "Range",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2657963e-0949-482c-bf55-d13a58425251",
+              "name": "List of releases",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Pagination range header (e.g., id ..; max=200)",
+                    "key": "Range",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"54bff060-82aa-b4d7-6750-eae73b34e5f5\",\n    \"version\": 9851,\n    \"description\": \"string\",\n    \"status\": \"pending\",\n    \"current\": true,\n    \"addon_plan_names\": [\n      \"string\",\n      \"string\"\n    ],\n    \"slug\": {\n      \"id\": \"36887c35-a0e9-d1c8-6407-9ef6a2cdd8d9\"\n    },\n    \"user\": {\n      \"email\": \"string\",\n      \"id\": \"9b3619f9-387d-c7b8-5c9b-7696853c3313\"\n    },\n    \"app\": {\n      \"id\": \"769f5feb-7129-adc5-5290-24c294120b71\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1996-09-01T06:22:57.232Z\",\n    \"updated_at\": \"1998-01-02T14:16:05.283Z\"\n  },\n  {\n    \"id\": \"193ff46b-7c2f-691d-c183-bbaba0b1a48f\",\n    \"version\": 387,\n    \"description\": \"string\",\n    \"status\": \"succeeded\",\n    \"current\": false,\n    \"addon_plan_names\": [\n      \"string\",\n      \"string\"\n    ],\n    \"slug\": {\n      \"id\": \"e5ad8989-b036-f662-c615-dd22869c1e9d\"\n    },\n    \"user\": {\n      \"email\": \"string\",\n      \"id\": \"e240f6be-3c53-3d6b-dd5b-fef386698c04\"\n    },\n    \"app\": {\n      \"id\": \"3761b028-6b68-fe28-038a-726a78ce225f\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1994-12-25T21:58:14.658Z\",\n    \"updated_at\": \"1973-01-18T19:11:06.750Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c65b1cfd-8167-4d28-9cba-a2681d80bf59",
+          "name": "Create a release (rollback)",
+          "request": {
+            "name": "Create a release (rollback)",
+            "description": {
+              "content": "Create a new release by rolling back to a previous release.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "releases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"slug\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "943cf147-af57-43ca-bf41-f9a7f63749e3",
+              "name": "Release created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "releases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"slug\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"893b095d-3ca7-e91d-c98f-8f8325311196\",\n  \"version\": 9230,\n  \"description\": \"string\",\n  \"status\": \"succeeded\",\n  \"current\": true,\n  \"addon_plan_names\": [\n    \"string\",\n    \"string\"\n  ],\n  \"slug\": {\n    \"id\": \"cce6aa35-6d79-ec9b-60ef-2479305a3b5c\"\n  },\n  \"user\": {\n    \"email\": \"string\",\n    \"id\": \"6e2a3951-a8a3-f965-7ee6-7066d46678ad\"\n  },\n  \"app\": {\n    \"id\": \"87cf595f-7f5e-d56f-a604-51e587a1d61f\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"2023-11-13T18:10:09.113Z\",\n  \"updated_at\": \"2009-07-18T10:57:49.929Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6930a24c-c93c-4a12-8fd9-c771ef976336",
+          "name": "Get release info",
+          "request": {
+            "name": "Get release info",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "releases",
+                ":release_id_or_version"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "release_id_or_version",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96ac911e-9896-4f1c-98bc-bc74bdb9424f",
+              "name": "Release details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "releases",
+                    ":release_id_or_version"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "release_id_or_version",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"893b095d-3ca7-e91d-c98f-8f8325311196\",\n  \"version\": 9230,\n  \"description\": \"string\",\n  \"status\": \"succeeded\",\n  \"current\": true,\n  \"addon_plan_names\": [\n    \"string\",\n    \"string\"\n  ],\n  \"slug\": {\n    \"id\": \"cce6aa35-6d79-ec9b-60ef-2479305a3b5c\"\n  },\n  \"user\": {\n    \"email\": \"string\",\n    \"id\": \"6e2a3951-a8a3-f965-7ee6-7066d46678ad\"\n  },\n  \"app\": {\n    \"id\": \"87cf595f-7f5e-d56f-a604-51e587a1d61f\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"2023-11-13T18:10:09.113Z\",\n  \"updated_at\": \"2009-07-18T10:57:49.929Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e1f37d95-40a4-4f54-972d-792e3593b2d1",
+    "name": "Heroku Platform Account Releases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

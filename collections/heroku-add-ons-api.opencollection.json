@@ -1,0 +1,114 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Add-ons API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Add-ons",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List add-ons for an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/addons",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "List add-ons for an app"
+        },
+        {
+          "info": {
+            "name": "Create an add-on",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/addons",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an add-on"
+        },
+        {
+          "info": {
+            "name": "Get add-on info",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/addons/:addon_id_or_name",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "addon_id_or_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get add-on info"
+        },
+        {
+          "info": {
+            "name": "Delete an add-on",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/addons/:addon_id_or_name",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "addon_id_or_name",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an add-on"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

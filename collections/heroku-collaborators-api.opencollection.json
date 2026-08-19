@@ -1,0 +1,90 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Heroku Platform Account Collaborators API",
+    "version": "3"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Collaborators",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List collaborators",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/collaborators",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ]
+          },
+          "docs": "List collaborators"
+        },
+        {
+          "info": {
+            "name": "Create a collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/collaborators",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a collaborator"
+        },
+        {
+          "info": {
+            "name": "Delete a collaborator",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.heroku.com/apps/:app_id_or_name/collaborators/:collaborator_email_or_id",
+            "params": [
+              {
+                "name": "app_id_or_name",
+                "value": "",
+                "type": "path",
+                "description": "App ID (UUID) or app name"
+              },
+              {
+                "name": "collaborator_email_or_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a collaborator"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

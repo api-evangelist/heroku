@@ -1,0 +1,116 @@
+{
+  "item": [
+    {
+      "id": "7a51ea87-aca8-4b24-adce-cc8dfc526709",
+      "name": "Regions",
+      "description": {
+        "content": "Available regions",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "9797e021-dadb-4c31-8f93-34c415b3e16b",
+          "name": "List regions",
+          "request": {
+            "name": "List regions",
+            "description": {},
+            "url": {
+              "path": [
+                "regions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0b10f845-0a01-4339-9d37-c6902aa0c914",
+              "name": "Available regions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "regions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"100e609b-33ff-f673-636c-8f122a54c8e8\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"country\": \"string\",\n    \"locale\": \"string\",\n    \"private_capable\": false,\n    \"provider\": {\n      \"name\": \"string\",\n      \"region\": \"string\"\n    }\n  },\n  {\n    \"id\": \"5fbf6652-4429-b1aa-fa72-57548f23a71a\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"country\": \"string\",\n    \"locale\": \"string\",\n    \"private_capable\": false,\n    \"provider\": {\n      \"name\": \"string\",\n      \"region\": \"string\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "16c72706-5645-41cc-862a-3393e3ef993e",
+    "name": "Heroku Platform Account Regions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

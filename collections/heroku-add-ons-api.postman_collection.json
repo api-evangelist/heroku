@@ -1,0 +1,474 @@
+{
+  "item": [
+    {
+      "id": "6a003a2f-40de-4012-b3f9-c075ff6ad41d",
+      "name": "Add-ons",
+      "description": {
+        "content": "Add-on service management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a55d3d36-a398-4bda-89c0-d0b5c9664dd0",
+          "name": "List add-ons for an app",
+          "request": {
+            "name": "List add-ons for an app",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "addons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c36cb4eb-e87f-42a9-9c6a-19d31c96f35c",
+              "name": "List of add-ons",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "addons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"123d7902-cb90-7872-4289-80df5f65eda6\",\n    \"name\": \"string\",\n    \"app\": {\n      \"id\": \"9cec11f7-ed24-b31d-e13f-61379487ee26\",\n      \"name\": \"string\"\n    },\n    \"addon_service\": {\n      \"id\": \"08541ff4-3037-e678-1ab1-63194e1f4ff4\",\n      \"name\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"e7fb98c2-ffcf-12d8-5d7b-3d78f4267dd1\",\n      \"name\": \"string\"\n    },\n    \"provider_id\": \"string\",\n    \"state\": \"provisioning\",\n    \"config_vars\": [\n      \"string\",\n      \"string\"\n    ],\n    \"billed_price\": {\n      \"cents\": 5425,\n      \"contract\": false,\n      \"unit\": \"string\"\n    },\n    \"web_url\": \"https://BEZHjAz.bftQSnkv-ABiMNbV1K+9Iwh+6hdr2lSz8-FwgQMmOIsbDrvkfPiDsdVt8x\",\n    \"created_at\": \"2007-04-05T17:28:57.832Z\",\n    \"updated_at\": \"1974-11-25T06:09:44.626Z\"\n  },\n  {\n    \"id\": \"3c6e2f69-aa0b-95d6-5b63-896ab0728c1c\",\n    \"name\": \"string\",\n    \"app\": {\n      \"id\": \"dae7a287-aa2d-827f-a6e8-d6a69f2bce7c\",\n      \"name\": \"string\"\n    },\n    \"addon_service\": {\n      \"id\": \"6f2b1775-117c-922c-1996-6afe1895f29c\",\n      \"name\": \"string\"\n    },\n    \"plan\": {\n      \"id\": \"253cc92b-03d3-be47-e9db-1936a2a452a8\",\n      \"name\": \"string\"\n    },\n    \"provider_id\": \"string\",\n    \"state\": \"provisioned\",\n    \"config_vars\": [\n      \"string\",\n      \"string\"\n    ],\n    \"billed_price\": {\n      \"cents\": 845,\n      \"contract\": false,\n      \"unit\": \"string\"\n    },\n    \"web_url\": \"https://FSKVtncJsLMQHCsx.xkvutxhx-UcyNXElFhinCkOaUV8CNIoeCUWqtJcjsqqMESUaxECFlGMCcWszT4UFHixN0BkZrm4nzi.,SZ4\",\n    \"created_at\": \"2009-11-21T05:58:57.941Z\",\n    \"updated_at\": \"1949-09-26T05:28:40.104Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "666f1d94-821c-4f22-b733-e0e14bc9a8f3",
+          "name": "Create an add-on",
+          "request": {
+            "name": "Create an add-on",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "addons"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"config\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\",\n    \"key_3\": \"<string>\"\n  },\n  \"attachment\": {\n    \"name\": \"<string>\"\n  },\n  \"confirm\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ebfadff3-ece2-48e2-877b-6754d7c4d20a",
+              "name": "Add-on created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "addons"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"plan\": \"<string>\",\n  \"name\": \"<string>\",\n  \"config\": {\n    \"key_0\": \"<string>\",\n    \"key_1\": \"<string>\",\n    \"key_2\": \"<string>\"\n  },\n  \"attachment\": {\n    \"name\": \"<string>\"\n  },\n  \"confirm\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"371e12aa-6b70-4f51-4db4-7d0d1f65ef52\",\n  \"name\": \"string\",\n  \"app\": {\n    \"id\": \"e9483aa0-1e11-9511-2aa1-ba983c37dd62\",\n    \"name\": \"string\"\n  },\n  \"addon_service\": {\n    \"id\": \"1defbfdb-692c-eacc-9915-fec1c3c743ac\",\n    \"name\": \"string\"\n  },\n  \"plan\": {\n    \"id\": \"43c4e0e8-2474-0095-8389-a53d486bd5be\",\n    \"name\": \"string\"\n  },\n  \"provider_id\": \"string\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"string\",\n    \"string\"\n  ],\n  \"billed_price\": {\n    \"cents\": 4888,\n    \"contract\": true,\n    \"unit\": \"string\"\n  },\n  \"web_url\": \"https://pcVOgrnSRaiJQirzuQHlnTVN.wadGNdGwn.Klpy\",\n  \"created_at\": \"1996-04-05T22:29:13.383Z\",\n  \"updated_at\": \"2018-06-07T00:18:32.734Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3891699c-d2b3-4184-8f12-d825e94e24d9",
+          "name": "Get add-on info",
+          "request": {
+            "name": "Get add-on info",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "addons",
+                ":addon_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "addon_id_or_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "12829d29-0eca-4581-8fff-f7a761036110",
+              "name": "Add-on details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "addons",
+                    ":addon_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "addon_id_or_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"371e12aa-6b70-4f51-4db4-7d0d1f65ef52\",\n  \"name\": \"string\",\n  \"app\": {\n    \"id\": \"e9483aa0-1e11-9511-2aa1-ba983c37dd62\",\n    \"name\": \"string\"\n  },\n  \"addon_service\": {\n    \"id\": \"1defbfdb-692c-eacc-9915-fec1c3c743ac\",\n    \"name\": \"string\"\n  },\n  \"plan\": {\n    \"id\": \"43c4e0e8-2474-0095-8389-a53d486bd5be\",\n    \"name\": \"string\"\n  },\n  \"provider_id\": \"string\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"string\",\n    \"string\"\n  ],\n  \"billed_price\": {\n    \"cents\": 4888,\n    \"contract\": true,\n    \"unit\": \"string\"\n  },\n  \"web_url\": \"https://pcVOgrnSRaiJQirzuQHlnTVN.wadGNdGwn.Klpy\",\n  \"created_at\": \"1996-04-05T22:29:13.383Z\",\n  \"updated_at\": \"2018-06-07T00:18:32.734Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "105bd16a-c14c-406f-9f96-844772bc9736",
+          "name": "Delete an add-on",
+          "request": {
+            "name": "Delete an add-on",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "addons",
+                ":addon_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "addon_id_or_name",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f2acc21-649b-4fbd-b9f7-c9cc81ec3064",
+              "name": "Add-on deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "addons",
+                    ":addon_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "addon_id_or_name",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"371e12aa-6b70-4f51-4db4-7d0d1f65ef52\",\n  \"name\": \"string\",\n  \"app\": {\n    \"id\": \"e9483aa0-1e11-9511-2aa1-ba983c37dd62\",\n    \"name\": \"string\"\n  },\n  \"addon_service\": {\n    \"id\": \"1defbfdb-692c-eacc-9915-fec1c3c743ac\",\n    \"name\": \"string\"\n  },\n  \"plan\": {\n    \"id\": \"43c4e0e8-2474-0095-8389-a53d486bd5be\",\n    \"name\": \"string\"\n  },\n  \"provider_id\": \"string\",\n  \"state\": \"deprovisioned\",\n  \"config_vars\": [\n    \"string\",\n    \"string\"\n  ],\n  \"billed_price\": {\n    \"cents\": 4888,\n    \"contract\": true,\n    \"unit\": \"string\"\n  },\n  \"web_url\": \"https://pcVOgrnSRaiJQirzuQHlnTVN.wadGNdGwn.Klpy\",\n  \"created_at\": \"1996-04-05T22:29:13.383Z\",\n  \"updated_at\": \"2018-06-07T00:18:32.734Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "140186d2-f11a-459d-837a-89cb39417cfd",
+    "name": "Heroku Platform Account Add-ons API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

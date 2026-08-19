@@ -1,0 +1,679 @@
+{
+  "item": [
+    {
+      "id": "c042606f-ca42-4e61-973c-cec3ab7e971c",
+      "name": "Apps",
+      "description": {
+        "content": "Application management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b5c774f1-53c8-460c-90e5-9f0e2990ae91",
+          "name": "List apps",
+          "request": {
+            "name": "List apps",
+            "description": {
+              "content": "List existing apps.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Pagination range header (e.g., id ..; max=200)",
+                "key": "Range",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "dffa9c7d-84ce-4760-ba0f-fd60c65b9c54",
+              "name": "List of apps",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Pagination range header (e.g., id ..; max=200)",
+                    "key": "Range",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "key": "Next-Range",
+                  "value": "string",
+                  "description": ""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"f20461b3-e3c8-2e62-1947-cfa2aa653493\",\n    \"name\": \"string\",\n    \"acm\": true,\n    \"archived_at\": \"1994-03-28T13:27:08.139Z\",\n    \"buildpack_provided_description\": \"string\",\n    \"build_stack\": {\n      \"id\": \"812fe19f-c473-347b-2db7-2a8b351c5a4c\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1980-09-23T23:29:18.880Z\",\n    \"git_url\": \"http://lmyXkqpjgSSLROPHdCLARUcpCmMG.cuqV0E,YzMyTRq\",\n    \"internal_routing\": true,\n    \"maintenance\": false,\n    \"owner\": {\n      \"email\": \"string\",\n      \"id\": \"e680b4b8-4187-3b7d-7879-bb124be3d185\"\n    },\n    \"region\": {\n      \"id\": \"5e7f1b1a-416f-aeb4-1b29-4e9d66f02f10\",\n      \"name\": \"string\"\n    },\n    \"released_at\": \"1995-02-19T00:26:59.366Z\",\n    \"repo_size\": 6586,\n    \"slug_size\": 9530,\n    \"space\": {\n      \"id\": \"6e6bb317-06e0-3d20-f8bc-e65e6cea869e\",\n      \"name\": \"string\"\n    },\n    \"stack\": {\n      \"id\": \"b40dedb1-79ca-946d-75fe-c723c430ca47\",\n      \"name\": \"string\"\n    },\n    \"team\": {\n      \"id\": \"2e09f0ab-08ba-bd6e-505d-e3eeddb4658d\",\n      \"name\": \"string\"\n    },\n    \"updated_at\": \"1975-03-16T15:02:28.605Z\",\n    \"web_url\": \"http://zpWFOtDMQ.oykjM.MpipBuqhYWTzT0Yud\"\n  },\n  {\n    \"id\": \"17fb3ea2-74fb-8356-7264-9291f8b88e9a\",\n    \"name\": \"string\",\n    \"acm\": false,\n    \"archived_at\": \"1960-06-19T10:23:58.467Z\",\n    \"buildpack_provided_description\": \"string\",\n    \"build_stack\": {\n      \"id\": \"a0740edb-3ffc-e060-3286-6c7429686e55\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"2012-05-24T18:16:37.041Z\",\n    \"git_url\": \"http://oIio.vejqM6HY6,0+wNFJGF\",\n    \"internal_routing\": true,\n    \"maintenance\": true,\n    \"owner\": {\n      \"email\": \"string\",\n      \"id\": \"931c3092-be3e-3e7f-a238-5c957f83a7a4\"\n    },\n    \"region\": {\n      \"id\": \"fa6fef6b-f078-5782-939a-e4f8a0419ad5\",\n      \"name\": \"string\"\n    },\n    \"released_at\": \"1969-05-06T19:57:08.676Z\",\n    \"repo_size\": 4502,\n    \"slug_size\": 9015,\n    \"space\": {\n      \"id\": \"5e52939c-9aa4-db9f-1642-8d49eb7802d2\",\n      \"name\": \"string\"\n    },\n    \"stack\": {\n      \"id\": \"c82c1ce9-9131-e83e-be03-31be3a8713a0\",\n      \"name\": \"string\"\n    },\n    \"team\": {\n      \"id\": \"3c343058-1809-4e68-2baa-9f04a8a39341\",\n      \"name\": \"string\"\n    },\n    \"updated_at\": \"1963-08-10T22:21:23.310Z\",\n    \"web_url\": \"http://BrrqDbzPWTqwuqujGtQCeyqjjoRIX.bpkpkonR+NC5xhQrwdV25hoM\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "783c8976-e57e-4c5d-aa4c-4d4018158d10",
+              "name": "Partial content (paginated)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "Pagination range header (e.g., id ..; max=200)",
+                    "key": "Range",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Partial Content",
+              "code": 206,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01f0cf87-a554-481e-970a-a2f90a92b858",
+          "name": "Create an app",
+          "request": {
+            "name": "Create an app",
+            "description": {
+              "content": "Create a new app.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "46b3c72d-09e3-44a1-917a-6e153a3e0e64",
+              "name": "App created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3fe52836-a22a-90e9-5086-abad3906540d\",\n  \"name\": \"string\",\n  \"acm\": false,\n  \"archived_at\": \"1987-02-01T14:18:11.316Z\",\n  \"buildpack_provided_description\": \"string\",\n  \"build_stack\": {\n    \"id\": \"25a546cd-60be-5504-2daf-32435231b579\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"1994-08-19T11:50:22.558Z\",\n  \"git_url\": \"http://PSeJHFbdgUlfFIDKzkxYuvNKYyg.hrtmMxfU8dZgApadgVcls5cJXJXX3U6NxohSZ-tDYKjuH1UQxiY56\",\n  \"internal_routing\": true,\n  \"maintenance\": true,\n  \"owner\": {\n    \"email\": \"string\",\n    \"id\": \"6a8f3bd5-0e8e-640d-c6b4-4d2c8df2a60f\"\n  },\n  \"region\": {\n    \"id\": \"cd8b1526-e20c-63cd-94d9-63cbe85f05ef\",\n    \"name\": \"string\"\n  },\n  \"released_at\": \"1953-03-05T10:16:24.338Z\",\n  \"repo_size\": 1618,\n  \"slug_size\": 5601,\n  \"space\": {\n    \"id\": \"1ee3783b-db50-42d0-ea1c-13b9a5b9eb98\",\n    \"name\": \"string\"\n  },\n  \"stack\": {\n    \"id\": \"6932a756-5bdd-10b4-287a-97095f46b7fb\",\n    \"name\": \"string\"\n  },\n  \"team\": {\n    \"id\": \"b15e402d-30a8-b2dd-2be5-d5ad0b3c0b10\",\n    \"name\": \"string\"\n  },\n  \"updated_at\": \"2002-05-20T07:09:55.528Z\",\n  \"web_url\": \"https://OntkNcxpRSIiVEuYwRgLn.wibvCDb3GXr-Ek4H\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d77fb21f-0f1b-47a6-93ec-d5b9d0e2aef7",
+              "name": "Validation error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"region\": \"<string>\",\n  \"stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c6b1e59-4e03-4829-9ad4-2cf8888c74ea",
+          "name": "Get app info",
+          "request": {
+            "name": "Get app info",
+            "description": {
+              "content": "Get info for an existing app.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "18f41cbe-c1ae-48ab-bd7c-6c66f26acb0d",
+              "name": "App details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3fe52836-a22a-90e9-5086-abad3906540d\",\n  \"name\": \"string\",\n  \"acm\": false,\n  \"archived_at\": \"1987-02-01T14:18:11.316Z\",\n  \"buildpack_provided_description\": \"string\",\n  \"build_stack\": {\n    \"id\": \"25a546cd-60be-5504-2daf-32435231b579\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"1994-08-19T11:50:22.558Z\",\n  \"git_url\": \"http://PSeJHFbdgUlfFIDKzkxYuvNKYyg.hrtmMxfU8dZgApadgVcls5cJXJXX3U6NxohSZ-tDYKjuH1UQxiY56\",\n  \"internal_routing\": true,\n  \"maintenance\": true,\n  \"owner\": {\n    \"email\": \"string\",\n    \"id\": \"6a8f3bd5-0e8e-640d-c6b4-4d2c8df2a60f\"\n  },\n  \"region\": {\n    \"id\": \"cd8b1526-e20c-63cd-94d9-63cbe85f05ef\",\n    \"name\": \"string\"\n  },\n  \"released_at\": \"1953-03-05T10:16:24.338Z\",\n  \"repo_size\": 1618,\n  \"slug_size\": 5601,\n  \"space\": {\n    \"id\": \"1ee3783b-db50-42d0-ea1c-13b9a5b9eb98\",\n    \"name\": \"string\"\n  },\n  \"stack\": {\n    \"id\": \"6932a756-5bdd-10b4-287a-97095f46b7fb\",\n    \"name\": \"string\"\n  },\n  \"team\": {\n    \"id\": \"b15e402d-30a8-b2dd-2be5-d5ad0b3c0b10\",\n    \"name\": \"string\"\n  },\n  \"updated_at\": \"2002-05-20T07:09:55.528Z\",\n  \"web_url\": \"https://OntkNcxpRSIiVEuYwRgLn.wibvCDb3GXr-Ek4H\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f47f175c-2c51-4330-94fd-7d15982e1a1c",
+              "name": "App not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84a167aa-18f3-445c-80ad-b91a81c21010",
+          "name": "Update an app",
+          "request": {
+            "name": "Update an app",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"maintenance\": \"<boolean>\",\n  \"build_stack\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ab7c7c7e-1267-4cd3-a0c5-c9f3ae137106",
+              "name": "App updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"maintenance\": \"<boolean>\",\n  \"build_stack\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3fe52836-a22a-90e9-5086-abad3906540d\",\n  \"name\": \"string\",\n  \"acm\": false,\n  \"archived_at\": \"1987-02-01T14:18:11.316Z\",\n  \"buildpack_provided_description\": \"string\",\n  \"build_stack\": {\n    \"id\": \"25a546cd-60be-5504-2daf-32435231b579\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"1994-08-19T11:50:22.558Z\",\n  \"git_url\": \"http://PSeJHFbdgUlfFIDKzkxYuvNKYyg.hrtmMxfU8dZgApadgVcls5cJXJXX3U6NxohSZ-tDYKjuH1UQxiY56\",\n  \"internal_routing\": true,\n  \"maintenance\": true,\n  \"owner\": {\n    \"email\": \"string\",\n    \"id\": \"6a8f3bd5-0e8e-640d-c6b4-4d2c8df2a60f\"\n  },\n  \"region\": {\n    \"id\": \"cd8b1526-e20c-63cd-94d9-63cbe85f05ef\",\n    \"name\": \"string\"\n  },\n  \"released_at\": \"1953-03-05T10:16:24.338Z\",\n  \"repo_size\": 1618,\n  \"slug_size\": 5601,\n  \"space\": {\n    \"id\": \"1ee3783b-db50-42d0-ea1c-13b9a5b9eb98\",\n    \"name\": \"string\"\n  },\n  \"stack\": {\n    \"id\": \"6932a756-5bdd-10b4-287a-97095f46b7fb\",\n    \"name\": \"string\"\n  },\n  \"team\": {\n    \"id\": \"b15e402d-30a8-b2dd-2be5-d5ad0b3c0b10\",\n    \"name\": \"string\"\n  },\n  \"updated_at\": \"2002-05-20T07:09:55.528Z\",\n  \"web_url\": \"https://OntkNcxpRSIiVEuYwRgLn.wibvCDb3GXr-Ek4H\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9bf9180-74cb-45c9-827f-94234da7ba65",
+          "name": "Delete an app",
+          "request": {
+            "name": "Delete an app",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "46abbf48-7bf5-477b-a3ce-0c8cf7d78981",
+              "name": "App deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"3fe52836-a22a-90e9-5086-abad3906540d\",\n  \"name\": \"string\",\n  \"acm\": false,\n  \"archived_at\": \"1987-02-01T14:18:11.316Z\",\n  \"buildpack_provided_description\": \"string\",\n  \"build_stack\": {\n    \"id\": \"25a546cd-60be-5504-2daf-32435231b579\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"1994-08-19T11:50:22.558Z\",\n  \"git_url\": \"http://PSeJHFbdgUlfFIDKzkxYuvNKYyg.hrtmMxfU8dZgApadgVcls5cJXJXX3U6NxohSZ-tDYKjuH1UQxiY56\",\n  \"internal_routing\": true,\n  \"maintenance\": true,\n  \"owner\": {\n    \"email\": \"string\",\n    \"id\": \"6a8f3bd5-0e8e-640d-c6b4-4d2c8df2a60f\"\n  },\n  \"region\": {\n    \"id\": \"cd8b1526-e20c-63cd-94d9-63cbe85f05ef\",\n    \"name\": \"string\"\n  },\n  \"released_at\": \"1953-03-05T10:16:24.338Z\",\n  \"repo_size\": 1618,\n  \"slug_size\": 5601,\n  \"space\": {\n    \"id\": \"1ee3783b-db50-42d0-ea1c-13b9a5b9eb98\",\n    \"name\": \"string\"\n  },\n  \"stack\": {\n    \"id\": \"6932a756-5bdd-10b4-287a-97095f46b7fb\",\n    \"name\": \"string\"\n  },\n  \"team\": {\n    \"id\": \"b15e402d-30a8-b2dd-2be5-d5ad0b3c0b10\",\n    \"name\": \"string\"\n  },\n  \"updated_at\": \"2002-05-20T07:09:55.528Z\",\n  \"web_url\": \"https://OntkNcxpRSIiVEuYwRgLn.wibvCDb3GXr-Ek4H\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "846459e5-cb60-496d-8e99-92d42599292e",
+    "name": "Heroku Platform Account Apps API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}

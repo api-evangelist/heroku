@@ -1,0 +1,464 @@
+{
+  "item": [
+    {
+      "id": "7a15295f-02ce-4237-af9f-a85e9b8b29b2",
+      "name": "Domains",
+      "description": {
+        "content": "Custom domain management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1f397cc0-4629-4405-bffb-914c502323a3",
+          "name": "List domains",
+          "request": {
+            "name": "List domains",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "domains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0a53db55-56ec-40b3-9943-5704a885b06d",
+              "name": "List of domains",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"4bd2df9c-f818-fcbd-2ccd-4907523de301\",\n    \"hostname\": \"string\",\n    \"kind\": \"heroku\",\n    \"acm_status\": \"string\",\n    \"acm_status_reason\": \"string\",\n    \"cname\": \"string\",\n    \"sni_endpoint\": {\n      \"id\": \"82ead841-9bd1-ae58-c47f-e60f66ad46be\",\n      \"name\": \"string\"\n    },\n    \"status\": \"string\",\n    \"app\": {\n      \"id\": \"8debea4d-6d0b-109e-8649-575f2cbe9393\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1961-08-29T22:23:37.368Z\",\n    \"updated_at\": \"1954-05-23T03:18:56.027Z\"\n  },\n  {\n    \"id\": \"cc2d0918-fc17-cf1b-7cea-f8d8cfe76904\",\n    \"hostname\": \"string\",\n    \"kind\": \"custom\",\n    \"acm_status\": \"string\",\n    \"acm_status_reason\": \"string\",\n    \"cname\": \"string\",\n    \"sni_endpoint\": {\n      \"id\": \"cadad228-83d3-ce92-defe-ed1a15462bf0\",\n      \"name\": \"string\"\n    },\n    \"status\": \"string\",\n    \"app\": {\n      \"id\": \"0804f5ce-78ea-b97c-50ef-edfe2b35b3f4\",\n      \"name\": \"string\"\n    },\n    \"created_at\": \"1979-03-15T09:06:02.003Z\",\n    \"updated_at\": \"1988-04-09T04:31:53.713Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba3669b7-ce21-46ee-9b30-33ef7a27de8f",
+          "name": "Create a domain",
+          "request": {
+            "name": "Create a domain",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "domains"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"hostname\": \"<string>\",\n  \"sni_endpoint\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "4559957b-9bbb-4ac5-a985-6717189004d1",
+              "name": "Domain created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "domains"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"hostname\": \"<string>\",\n  \"sni_endpoint\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"304a5206-7995-ea9f-39d4-8b8a64674b9d\",\n  \"hostname\": \"string\",\n  \"kind\": \"custom\",\n  \"acm_status\": \"string\",\n  \"acm_status_reason\": \"string\",\n  \"cname\": \"string\",\n  \"sni_endpoint\": {\n    \"id\": \"ae7fac18-ee1f-b5dc-f217-7c31e2f21266\",\n    \"name\": \"string\"\n  },\n  \"status\": \"string\",\n  \"app\": {\n    \"id\": \"de741caf-c641-6d59-ac11-95186a97c382\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"2018-05-22T17:56:30.804Z\",\n  \"updated_at\": \"2026-03-14T04:58:54.755Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1507d1b5-5aab-4d8f-a6eb-87928ee238cc",
+          "name": "Get domain info",
+          "request": {
+            "name": "Get domain info",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "domains",
+                ":domain_id_or_hostname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain_id_or_hostname",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5f938ab1-e529-4582-bca3-71da0c5db18c",
+              "name": "Domain details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "domains",
+                    ":domain_id_or_hostname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_id_or_hostname",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"304a5206-7995-ea9f-39d4-8b8a64674b9d\",\n  \"hostname\": \"string\",\n  \"kind\": \"custom\",\n  \"acm_status\": \"string\",\n  \"acm_status_reason\": \"string\",\n  \"cname\": \"string\",\n  \"sni_endpoint\": {\n    \"id\": \"ae7fac18-ee1f-b5dc-f217-7c31e2f21266\",\n    \"name\": \"string\"\n  },\n  \"status\": \"string\",\n  \"app\": {\n    \"id\": \"de741caf-c641-6d59-ac11-95186a97c382\",\n    \"name\": \"string\"\n  },\n  \"created_at\": \"2018-05-22T17:56:30.804Z\",\n  \"updated_at\": \"2026-03-14T04:58:54.755Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "477355e4-05a0-49cb-9b6d-87e771475c8c",
+          "name": "Delete a domain",
+          "request": {
+            "name": "Delete a domain",
+            "description": {},
+            "url": {
+              "path": [
+                "apps",
+                ":app_id_or_name",
+                "domains",
+                ":domain_id_or_hostname"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "app_id_or_name",
+                  "description": "(Required) App ID (UUID) or app name"
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "domain_id_or_hostname",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "25fcb8a8-f72a-4740-b4d2-9d9fa607607b",
+              "name": "Domain deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "apps",
+                    ":app_id_or_name",
+                    "domains",
+                    ":domain_id_or_hostname"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "app_id_or_name",
+                      "description": "(Required) App ID (UUID) or app name"
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "domain_id_or_hostname",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.heroku.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e6137ec2-8ebc-453f-a85b-39cc4120fd82",
+    "name": "Heroku Platform Account Domains API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.\n\nContact Support:\n Name: Heroku",
+      "type": "text/plain"
+    }
+  }
+}
