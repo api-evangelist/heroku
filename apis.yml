@@ -27,7 +27,7 @@ tags:
 url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml
 created: '2025-02-08'
 modified: '2026-05-30'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: heroku:heroku-account-api
   name: Heroku Account API
