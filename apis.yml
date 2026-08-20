@@ -23,6 +23,11 @@ tags:
 - Application Deployment
 - Cloud Platform
 - DevOps
+- Platform-as-a-Service
+tags_raw:
+- Application Deployment
+- Cloud Platform
+- DevOps
 - PaaS
 url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml
 created: '2025-02-08'
@@ -56,6 +61,8 @@ apis:
   humanURL: https://devcenter.heroku.com/articles/platform-api-reference
   baseURL: https://api.heroku.com
   tags:
+  - Addons
+  tags_raw:
   - Add-ons
   properties:
   - type: OpenAPI
@@ -77,6 +84,8 @@ apis:
   humanURL: https://devcenter.heroku.com/articles/platform-api-reference
   baseURL: https://api.heroku.com
   tags:
+  - Application
+  tags_raw:
   - Apps
   properties:
   - type: OpenAPI
