@@ -5,6 +5,18 @@ description: Heroku is a cloud platform as a service (PaaS) that enables develop
   API enables programmatic access to Heroku's features for app deployment, scaling,
   and management.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
