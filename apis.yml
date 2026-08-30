@@ -1,9 +1,8 @@
 aid: heroku
 name: Heroku
-description: Heroku is a cloud platform as a service (PaaS) that enables developers
-  to build, run, and operate applications entirely in the cloud. The Heroku Platform
-  API enables programmatic access to Heroku's features for app deployment, scaling,
-  and management.
+description: Heroku is a cloud platform as a service (PaaS) that enables developers to build, run, and operate applications
+  entirely in the cloud. The Heroku Platform API enables programmatic access to Heroku's features for app deployment,
+  scaling, and management.
 type: Index
 deliveryModel:
   model: saas
@@ -35,7 +34,7 @@ tags:
 - Application Deployment
 - Cloud Platform
 - DevOps
-- Platform-as-a-Service
+- PaaS
 tags_raw:
 - Application Deployment
 - Cloud Platform
@@ -43,7 +42,7 @@ tags_raw:
 - PaaS
 url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml
 created: '2025-02-08'
-modified: '2026-05-30'
+modified: '2026-08-30'
 specificationVersion: '0.23'
 apis:
 - aid: heroku:heroku-account-api
@@ -59,8 +58,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -82,8 +80,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -105,8 +102,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -126,8 +122,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -147,8 +142,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -168,8 +162,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -189,8 +182,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -210,8 +202,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -231,8 +222,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -252,8 +242,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -273,8 +262,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -294,8 +282,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -315,8 +302,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -336,8 +322,7 @@ apis:
   - type: Documentation
     url: https://devcenter.heroku.com/articles/platform-api-reference
   - type: AsyncAPI
-    url: >-
-      https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
+    url: https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml
   - type: GettingStarted
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
@@ -345,6 +330,12 @@ apis:
   - type: GraphQL
     url: graphql/heroku-graphql.md
 common:
+- type: ParentCompany
+  url: https://apis.io/providers/salesforce/
+  name: Salesforce
+  x-relationship: acquisition
+  x-generated-by: salesforce-family:2026-08-30
+  x-acquired: 2010
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/heroku/overview
 - type: AgenticAccess
@@ -407,3 +398,6 @@ common:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-parent: salesforce
+x-relationship: acquisition
+x-acquired: 2010
