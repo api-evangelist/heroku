@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Heroku Platform Account Add-ons API
+  title: Heroku Platform Add Ons API
   description: The Heroku Platform API enables programmatic access to Heroku's deployment platform. Manage apps, dynos, add-ons, config vars, domains, pipelines, releases, and other platform resources.
   version: '3'
   contact:
@@ -15,7 +15,7 @@ servers:
 security:
 - BearerAuth: []
 tags:
-- name: Add-ons
+- name: Add Ons
   description: Add-on service management
 paths:
   /apps/{app_id_or_name}/addons:
@@ -23,7 +23,7 @@ paths:
       operationId: listAddons
       summary: List add-ons for an app
       tags:
-      - Add-ons
+      - Add Ons
       parameters:
       - $ref: '#/components/parameters/appIdOrName'
       responses:
@@ -39,7 +39,7 @@ paths:
       operationId: createAddon
       summary: Create an add-on
       tags:
-      - Add-ons
+      - Add Ons
       parameters:
       - $ref: '#/components/parameters/appIdOrName'
       requestBody:
@@ -79,7 +79,7 @@ paths:
       operationId: getAddon
       summary: Get add-on info
       tags:
-      - Add-ons
+      - Add Ons
       parameters:
       - $ref: '#/components/parameters/appIdOrName'
       - name: addon_id_or_name
@@ -98,7 +98,7 @@ paths:
       operationId: deleteAddon
       summary: Delete an add-on
       tags:
-      - Add-ons
+      - Add Ons
       parameters:
       - $ref: '#/components/parameters/appIdOrName'
       - name: addon_id_or_name
@@ -114,6 +114,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/Addon'
 components:
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
   schemas:
     Addon:
       type: object
@@ -179,14 +187,6 @@ components:
         updated_at:
           type: string
           format: date-time
-  parameters:
-    appIdOrName:
-      name: app_id_or_name
-      in: path
-      required: true
-      schema:
-        type: string
-      description: App ID (UUID) or app name
   securitySchemes:
     BearerAuth:
       type: http

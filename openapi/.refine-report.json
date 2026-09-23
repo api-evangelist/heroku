@@ -1,20 +1,7 @@
 {
   "provider": "heroku",
   "sources": [
-    "heroku-account-api-openapi.yml",
-    "heroku-add-ons-api-openapi.yml",
-    "heroku-apps-api-openapi.yml",
-    "heroku-builds-api-openapi.yml",
-    "heroku-collaborators-api-openapi.yml",
-    "heroku-config-vars-api-openapi.yml",
-    "heroku-domains-api-openapi.yml",
-    "heroku-dynos-api-openapi.yml",
-    "heroku-formation-api-openapi.yml",
-    "heroku-log-sessions-api-openapi.yml",
-    "heroku-pipelines-api-openapi.yml",
-    "heroku-regions-api-openapi.yml",
-    "heroku-releases-api-openapi.yml",
-    "heroku-stacks-api-openapi.yml"
+    "_original/heroku-platform-api.yml"
   ],
   "outputs": [
     "heroku-account-api-openapi.yml",
@@ -35,6 +22,25 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "heroku-platform-api.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "heroku-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-add-ons-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-apps-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-builds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-collaborators-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-config-vars-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-dynos-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-formation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-log-sessions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-pipelines-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-regions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-releases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "heroku-stacks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
