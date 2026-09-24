@@ -64,8 +64,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-add-ons-api
   name: Heroku Add-ons API
   description: Add-on service management
@@ -86,8 +84,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-apps-api
   name: Heroku Apps API
   description: Application management
@@ -108,8 +104,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-builds-api
   name: Heroku Builds API
   description: Build management
@@ -128,8 +122,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-collaborators-api
   name: Heroku Collaborators API
   description: App collaborator management
@@ -148,8 +140,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-config-vars-api
   name: Heroku Config Vars API
   description: Environment configuration variables
@@ -168,8 +158,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-domains-api
   name: Heroku Domains API
   description: Custom domain management
@@ -188,8 +176,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-dynos-api
   name: Heroku Dynos API
   description: Process (dyno) management
@@ -208,8 +194,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-formation-api
   name: Heroku Formation API
   description: Process type scaling
@@ -228,8 +212,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-log-sessions-api
   name: Heroku Log Sessions API
   description: Application logging
@@ -248,8 +230,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-pipelines-api
   name: Heroku Pipelines API
   description: Deployment pipeline management
@@ -268,8 +248,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-regions-api
   name: Heroku Regions API
   description: Available regions
@@ -288,8 +266,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-releases-api
   name: Heroku Releases API
   description: Release management
@@ -308,8 +284,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 - aid: heroku:heroku-stacks-api
   name: Heroku Stacks API
   description: Available stacks
@@ -328,8 +302,6 @@ apis:
     url: https://devcenter.heroku.com/articles/platform-api-quickstart
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
-  - type: GraphQL
-    url: graphql/heroku-graphql.md
 common:
 - type: ParentCompany
   url: https://apis.io/providers/salesforce/
