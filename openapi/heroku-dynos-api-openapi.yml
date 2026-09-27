@@ -129,14 +129,6 @@ paths:
         '202':
           description: Restart initiated
 components:
-  parameters:
-    appIdOrName:
-      name: app_id_or_name
-      in: path
-      required: true
-      schema:
-        type: string
-      description: App ID (UUID) or app name
   schemas:
     Dyno:
       type: object
@@ -185,6 +177,14 @@ components:
         updated_at:
           type: string
           format: date-time
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
   securitySchemes:
     BearerAuth:
       type: http
