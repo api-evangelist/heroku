@@ -86,20 +86,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Release'
 components:
-  parameters:
-    AcceptRange:
-      name: Range
-      in: header
-      schema:
-        type: string
-      description: Pagination range header (e.g., id ..; max=200)
-    appIdOrName:
-      name: app_id_or_name
-      in: path
-      required: true
-      schema:
-        type: string
-      description: App ID (UUID) or app name
   schemas:
     Release:
       type: object
@@ -152,6 +138,20 @@ components:
         updated_at:
           type: string
           format: date-time
+  parameters:
+    AcceptRange:
+      name: Range
+      in: header
+      schema:
+        type: string
+      description: Pagination range header (e.g., id ..; max=200)
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
   securitySchemes:
     BearerAuth:
       type: http
