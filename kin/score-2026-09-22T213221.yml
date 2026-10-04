@@ -1,29 +1,27 @@
-# Kin Score artifact — heroku — 2026-08-28T221322
+# Kin Score artifact — heroku — 2026-09-22T213221
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: heroku
-  schema_version: 0.15.1
-  scored_at: '2026-08-28'
-  run_ts: 2026-08-28T221322
-  composite: 46.4
+  schema_version: 0.22.0
+  scored_at: '2026-09-22'
+  run_ts: 2026-09-22T213221
+  composite: 45.6
   band: developing
   facets:
-    discoverability: 72.2
-    contract_quality: 59.4
-    governance: 9.8
-    operational_transparency: 10.5
-    developer_ergonomics: 54.8
-    commercial_clarity: 53.9
+    discoverability: 66.7
+    contract_quality: 60.0
     contract_governance: 9.8
+    operational_transparency: 18.4
+    developer_ergonomics: 51.2
     access_clarity: 53.9
   agent_readiness:
-    score: 19.8
+    score: 21.5
     band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: derived
-      reversibility_documented: false
+      reversibility_documented: documented
       mcp_server: false
       auth_clarity: bearer
       idempotency: false
@@ -46,4 +44,4 @@ kin_score:
       total: 15
       derived: 0
       coverage: 0.0
-      callable: 93.3
+      callable: 100.0
