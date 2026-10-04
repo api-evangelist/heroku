@@ -303,6 +303,9 @@ apis:
   - type: Authentication
     url: https://devcenter.heroku.com/articles/platform-api-reference#authentication
 common:
+- type: CapabilityMap
+  url: capabilities/heroku-capability-edges.yml
+  name: Heroku Business Capability Map
 - type: ParentCompany
   url: https://apis.io/providers/salesforce/
   name: Salesforce

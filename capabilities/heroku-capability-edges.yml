@@ -1,0 +1,55 @@
+slug: heroku
+provider: Heroku
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 4
+edges:
+- tag: Builds
+  spec_file: heroku-builds-api-openapi.yml
+  capability_id: BC-4210.10
+  capability_id_l1: BC-4210
+  capability_name: Continuous Integration Management
+  confidence: 0.8
+  evidence: POST /apps/{app_id_or_name}/builds createBuild — Create a build; schema Build
+  reason: Triggering and inspecting builds that produce deployable artefacts from source is squarely Continuous
+    Integration Management ('build pipelines, artefact production').
+- tag: Config Vars
+  spec_file: heroku-config-vars-api-openapi.yml
+  capability_id: BC-4210.60
+  capability_id_l1: BC-4210
+  capability_name: Configuration & Secrets Management
+  confidence: 0.8
+  evidence: GET /apps/{app_id_or_name}/config-vars getConfigVars; PATCH ... updateConfigVars
+  reason: Config vars are the runtime configuration and secret values consumed by a deployed service —
+    exactly Configuration & Secrets Management.
+- tag: Releases
+  spec_file: heroku-releases-api-openapi.yml
+  capability_id: BC-4210
+  capability_id_l1: BC-4210
+  capability_name: Software Release & Deployment Management
+  confidence: 0.78
+  evidence: POST /apps/{app_id_or_name}/releases  createRelease  Create a release (rollback)
+  reason: Operations list, inspect and create (rollback) releases of an application on the platform —
+    release versioning and controlled rollback to production. Clearly Software Release & Deployment Management;
+    left at L1 since the surface straddles release engineering (versioned releases) and deployment orchestration
+    (rollback).
+- tag: Pipelines
+  spec_file: heroku-pipelines-api-openapi.yml
+  capability_id: BC-4210
+  capability_id_l1: BC-4210
+  capability_name: Software Release & Deployment Management
+  confidence: 0.7
+  evidence: POST /pipelines  createPipeline  Create a pipeline; GET /pipelines/{pipeline_id}/pipeline-couplings  listPipelineCouplings
+  reason: Heroku pipelines group apps into staged delivery flows (review/staging/production) with couplings
+    binding apps to stages — this is release and deployment plumbing for software delivery. Kept at L1
+    because the operations do not disambiguate between continuous integration, release engineering, or
+    deployment orchestration.
