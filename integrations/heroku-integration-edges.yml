@@ -1,6 +1,7 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
 marketplace_apps: []
@@ -30,6 +31,26 @@ edges:
     detected: '2026-10-13'
   detected_by: sweep-observability.py
   detected: '2026-10-13'
+- partner_name: LiteLLM
+  partner: litellm
+  partner_match: router
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: system-coverage
+  evidence: https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+  coverage_role:
+  - provider
+  router_signals:
+    provider:
+      models: 4
+      router_ids:
+      - heroku
+      tools_share: 1.0
+      structured_output_share: 0.0
+  matched_by: verified-token-table
+  detected_by: sweep-model-routing.py
+  first_seen: '2026-10-13'
 source:
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
