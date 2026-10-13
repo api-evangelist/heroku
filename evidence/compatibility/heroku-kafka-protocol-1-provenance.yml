@@ -1,0 +1,12 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://devcenter.heroku.com/articles/kafka-on-heroku
+page: https://devcenter.heroku.com/articles/kafka-on-heroku
+file: heroku-kafka-protocol-1.md
+bytes: 12689
+sha256: 03c607091334f88e4991361e38ed22bec34835f9e0aedcfa84065bbdc0434177
+anchor: apache-kafka
+shape: kafka-protocol
+classification: no-compatibility-statement
+quote: null
+note: text extracted from the provider's own page (tags stripped), saved for evidence

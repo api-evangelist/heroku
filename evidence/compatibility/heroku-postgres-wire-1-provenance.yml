@@ -1,0 +1,12 @@
+fetched: '2026-10-13'
+method: fetched
+source: https://devcenter.heroku.com/articles/heroku-postgresql
+page: https://devcenter.heroku.com/articles/heroku-postgresql
+file: heroku-postgres-wire-1.md
+bytes: 10607
+sha256: d41bd91b0126cbd92e669e327374a5c21b09ac6a3fc1e38671d490fc3f22d0ce
+anchor: postgresql
+shape: postgres-wire
+classification: no-compatibility-statement
+quote: null
+note: text extracted from the provider's own page (tags stripped), saved for evidence

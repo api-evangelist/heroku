@@ -51,6 +51,22 @@ edges:
   matched_by: verified-token-table
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
+- partner_name: Apache Kafka
+  partner: apache-kafka
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: kafka-protocol
+  type: docs
+  degree: full
+  evidence: https://devcenter.heroku.com/articles/kafka-on-heroku
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/heroku/blob/main/evidence/compatibility/heroku-kafka-protocol-1.md
+  quote: Apache Kafka on Heroku is an add-on that provides Kafka as a service with full integration into the Heroku
+    platform.
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
 source:
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
