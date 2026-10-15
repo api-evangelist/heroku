@@ -1,7 +1,10 @@
 generated: '2026-10-13'
 method: searched
 checked:
+- https://focus.finops.org/data-generators/
 - https://github.com/BerriAI/litellm/blob/main/model_prices_and_context_window.json
+- https://github.com/cncf/k8s-conformance
+- https://github.com/cncf/landscape
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/registry/
 - https://github.com/run-llama/llama_index/tree/main/llama-index-integrations
@@ -32,6 +35,22 @@ edges:
     detected: '2026-10-13'
   detected_by: sweep-observability.py
   detected: '2026-10-13'
+- partner_name: Apache Kafka
+  partner: apache-kafka
+  partner_match: shape-anchor
+  channel: provider-built
+  relationship: compatible
+  direction: provider-built
+  shape: kafka-protocol
+  type: docs
+  degree: full
+  evidence: https://devcenter.heroku.com/articles/kafka-on-heroku
+  evidence_kind: own-docs
+  evidence_file: https://github.com/api-evangelist/heroku/blob/main/evidence/compatibility/heroku-kafka-protocol-1.md
+  quote: Apache Kafka on Heroku is an add-on that provides Kafka as a service with full integration into the Heroku
+    platform.
+  detected_by: sweep-shape-compat.py
+  first_seen: '2026-10-13'
 - partner_name: LiteLLM
   partner: litellm
   partner_match: router
@@ -52,22 +71,6 @@ edges:
   matched_by: verified-token-table
   detected_by: sweep-model-routing.py
   first_seen: '2026-10-13'
-- partner_name: Apache Kafka
-  partner: apache-kafka
-  partner_match: shape-anchor
-  channel: provider-built
-  relationship: compatible
-  direction: provider-built
-  shape: kafka-protocol
-  type: docs
-  degree: full
-  evidence: https://devcenter.heroku.com/articles/kafka-on-heroku
-  evidence_kind: own-docs
-  evidence_file: https://github.com/api-evangelist/heroku/blob/main/evidence/compatibility/heroku-kafka-protocol-1.md
-  quote: Apache Kafka on Heroku is an add-on that provides Kafka as a service with full integration into the Heroku
-    platform.
-  detected_by: sweep-shape-compat.py
-  first_seen: '2026-10-13'
 - partner_name: LlamaIndex
   partner: llamaindex
   partner_match: framework
@@ -86,6 +89,39 @@ edges:
     vendor_domain: heroku.com
   matched_by: verified-domain-table
   detected_by: sweep-rag-vector.py
+  first_seen: '2026-10-15'
+- partner_name: CNCF (Cloud Native Landscape)
+  partner: cncf
+  partner_match: register
+  type: register
+  direction: partner-built
+  category: Cloud native landscape
+  evidence: https://github.com/cncf/landscape/blob/3a7d378b1824b82e729a453bb03fa6f1e37557e1/landscape.yml
+  channel: standard-directory
+  relationship: standard-participant
+  contract_reference:
+    register: CNCF Cloud Native Landscape (github.com/cncf/landscape landscape.yml @3a7d378b18)
+    spec_file: null
+    standard: Cloud Native (CNCF)
+    role: cncf-member (Platinum)
+    registered_name: Heroku
+    registered_names:
+    - Heroku
+    website: https://www.heroku.com
+    matched_domain: heroku.com
+    matched_by: domain
+    member_tier: Platinum
+    joined: '2024-06-01'
+    end_user: false
+    cncf_projects: []
+    landscape_categories:
+    - Platform / PaaS/Container Service
+    landscape_entries: 1
+    signal_note: 'participation only: a landscape listing is standard-participant evidence, not depth. Entries,
+      categories, tier and projects are CONTEXT, never read (breadth is not credit)'
+    detected_by: sweep-cloud-native.py
+    detected: '2026-10-15'
+  detected_by: sweep-cloud-native.py
   first_seen: '2026-10-15'
 source:
 - https://github.com/open-telemetry/opentelemetry.io/blob/main/data/ecosystem/vendors.yaml
