@@ -98,6 +98,14 @@ paths:
         '200':
           description: Domain deleted
 components:
+  parameters:
+    appIdOrName:
+      name: app_id_or_name
+      in: path
+      required: true
+      schema:
+        type: string
+      description: App ID (UUID) or app name
   schemas:
     Domain:
       type: object
@@ -146,14 +154,6 @@ components:
         updated_at:
           type: string
           format: date-time
-  parameters:
-    appIdOrName:
-      name: app_id_or_name
-      in: path
-      required: true
-      schema:
-        type: string
-      description: App ID (UUID) or app name
   securitySchemes:
     BearerAuth:
       type: http

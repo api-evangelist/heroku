@@ -190,6 +190,32 @@ paths:
                 $ref: '#/components/schemas/PipelineCoupling'
 components:
   schemas:
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        owner:
+          type: object
+          nullable: true
+          properties:
+            id:
+              type: string
+              format: uuid
+            type:
+              type: string
+              enum:
+              - user
+              - team
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
     PipelineCoupling:
       type: object
       properties:
@@ -215,32 +241,6 @@ components:
           - development
           - staging
           - production
-        created_at:
-          type: string
-          format: date-time
-        updated_at:
-          type: string
-          format: date-time
-    Pipeline:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-        name:
-          type: string
-        owner:
-          type: object
-          nullable: true
-          properties:
-            id:
-              type: string
-              format: uuid
-            type:
-              type: string
-              enum:
-              - user
-              - team
         created_at:
           type: string
           format: date-time
