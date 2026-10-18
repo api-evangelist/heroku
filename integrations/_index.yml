@@ -146,5 +146,5 @@
     - connectors/events/heroku-kafka
     vendor_link: https://www.heroku.com/kafka
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
