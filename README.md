@@ -1,4 +1,4 @@
-# Heroku (heroku)
+# Heroku
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,69 +66,201 @@
 
 Heroku is a cloud platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. The Heroku Platform API enables programmatic access to Heroku's features for app deployment, scaling, and management.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/apis.yml)
+**Areas:** Application Deployment · Cloud Platform · DevOps · Platform-as-a-Service
 
-## Scope
+## Heroku on APIs.io
 
-- **Type:** Index
+Everything profiled for Heroku is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/heroku/](https://apis.io/providers/heroku/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (14)
 
-- Application Deployment
-- Cloud Platform
-- DevOps
-- PaaS
+- [Heroku Account API](https://apis.io/apis/heroku/heroku-account-api/) — Account management
+- [Heroku Add-ons API](https://apis.io/apis/heroku/heroku-add-ons-api/) — Add-on service management
+- [Heroku Apps API](https://apis.io/apis/heroku/heroku-apps-api/) — Application management
+- [Heroku Builds API](https://apis.io/apis/heroku/heroku-builds-api/) — Build management
+- [Heroku Collaborators API](https://apis.io/apis/heroku/heroku-collaborators-api/) — App collaborator management
+- [Heroku Config Vars API](https://apis.io/apis/heroku/heroku-config-vars-api/) — Environment configuration variables
+- [Heroku Domains API](https://apis.io/apis/heroku/heroku-domains-api/) — Custom domain management
+- [Heroku Dynos API](https://apis.io/apis/heroku/heroku-dynos-api/) — Process (dyno) management
+- [Heroku Formation API](https://apis.io/apis/heroku/heroku-formation-api/) — Process type scaling
+- [Heroku Log Sessions API](https://apis.io/apis/heroku/heroku-log-sessions-api/) — Application logging
+- [Heroku Pipelines API](https://apis.io/apis/heroku/heroku-pipelines-api/) — Deployment pipeline management
+- [Heroku Regions API](https://apis.io/apis/heroku/heroku-regions-api/) — Available regions
+- [Heroku Releases API](https://apis.io/apis/heroku/heroku-releases-api/) — Release management
+- [Heroku Stacks API](https://apis.io/apis/heroku/heroku-stacks-api/) — Available stacks
 
-## Timestamps
+### Published properties
 
-- **Created:** 2025-02-08
-- **Modified:** 2026-05-30
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Heroku Platform API
+GraphQL schemas.
 
-The Heroku Platform API enables programmatic access to Heroku's deployment platform, including apps, dynos, add-ons, pipelines, and other platform resources.
+- [Moved to /providers/heroku/](https://apis.io/graphqls/heroku/heroku-graphql/)
 
-- **Human URL:** [https://devcenter.heroku.com/articles/platform-api-reference](https://devcenter.heroku.com/articles/platform-api-reference)
-- **Base URL:** `https://api.heroku.com`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Deployment
-- PaaS
-- REST
+- [Heroku Agentic Access](https://apis.io/agentic-access/heroku/heroku-agentic-access/)
 
-#### Properties
+#### JSON Schema (11)
 
-- [Documentation](https://devcenter.heroku.com/articles/platform-api-reference)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-platform-api.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [AsyncAPI](https://raw.githubusercontent.com/api-evangelist/heroku/refs/heads/main/openapi/heroku-app-webhooks-asyncapi.yml) — [AsyncAPI Specification](https://www.asyncapi.com/docs/reference/specification/latest)
-- [Getting Started](https://devcenter.heroku.com/articles/platform-api-quickstart)
-- [Authentication](https://devcenter.heroku.com/articles/platform-api-reference#authentication)
-- [Postman Collection](collections/heroku-platform-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/heroku-platform-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The data models the API reads and writes.
 
-## Common Properties
+- [Account](https://apis.io/schemas/heroku/heroku-account/)
+- [Addon](https://apis.io/schemas/heroku/heroku-addon/)
+- [App](https://apis.io/schemas/heroku/heroku-app/)
+- [Build](https://apis.io/schemas/heroku/heroku-build/)
+- [Collaborator](https://apis.io/schemas/heroku/heroku-collaborator/)
+- [Domain](https://apis.io/schemas/heroku/heroku-domain/)
+- [Dyno](https://apis.io/schemas/heroku/heroku-dyno/)
+- [Formation](https://apis.io/schemas/heroku/heroku-formation/)
+- [Pipeline](https://apis.io/schemas/heroku/heroku-pipeline/)
+- [PipelineCoupling](https://apis.io/schemas/heroku/heroku-pipelinecoupling/)
+- [Release](https://apis.io/schemas/heroku/heroku-release/)
 
-- [LinkedIn](https://www.linkedin.com/company/heroku)
-- [Portal](https://devcenter.heroku.com/)
+#### JSON Structure (1)
+
+Data models expressed in JSON Structure.
+
+- [Heroku Structure](https://apis.io/json-structure/heroku/heroku-structure/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Heroku Domain Vocabulary](https://apis.io/vocabularies/heroku/heroku-vocabulary/)
+
+#### Collections (30)
+
+Postman and Open Collection request collections.
+
+- [Heroku Platform Account API](https://apis.io/collections/heroku/open-heroku-account-api/)
+- [Heroku Platform Account Add-ons API](https://apis.io/collections/heroku/open-heroku-add-ons-api/)
+- [Heroku App Webhooks](https://apis.io/collections/heroku/open-heroku-app-webhooks-asyncapi/)
+- [Heroku Platform Account Apps API](https://apis.io/collections/heroku/open-heroku-apps-api/)
+- [Heroku Platform Account Builds API](https://apis.io/collections/heroku/open-heroku-builds-api/)
+- [Heroku Platform Account Collaborators API](https://apis.io/collections/heroku/open-heroku-collaborators-api/)
+- [Heroku Platform Account Config Vars API](https://apis.io/collections/heroku/open-heroku-config-vars-api/)
+- [Heroku Platform Account Domains API](https://apis.io/collections/heroku/open-heroku-domains-api/)
+- [Heroku Platform Account Dynos API](https://apis.io/collections/heroku/open-heroku-dynos-api/)
+- [Heroku Platform Account Formation API](https://apis.io/collections/heroku/open-heroku-formation-api/)
+- [Heroku Platform Account Log Sessions API](https://apis.io/collections/heroku/open-heroku-log-sessions-api/)
+- [Heroku Platform Account Pipelines API](https://apis.io/collections/heroku/open-heroku-pipelines-api/)
+- [Heroku Platform API](https://apis.io/collections/heroku/open-heroku-platform-api/)
+- [Heroku Platform Account Regions API](https://apis.io/collections/heroku/open-heroku-regions-api/)
+- [Heroku Platform Account Releases API](https://apis.io/collections/heroku/open-heroku-releases-api/)
+- [Heroku Platform Account Stacks API](https://apis.io/collections/heroku/open-heroku-stacks-api/)
+- [Heroku Platform Account API](https://apis.io/collections/heroku/postman-heroku-account-api/)
+- [Heroku Platform Account Add-ons API](https://apis.io/collections/heroku/postman-heroku-add-ons-api/)
+- [Heroku Platform Account Apps API](https://apis.io/collections/heroku/postman-heroku-apps-api/)
+- [Heroku Platform Account Builds API](https://apis.io/collections/heroku/postman-heroku-builds-api/)
+- [Heroku Platform Account Collaborators API](https://apis.io/collections/heroku/postman-heroku-collaborators-api/)
+- [Heroku Platform Account Config Vars API](https://apis.io/collections/heroku/postman-heroku-config-vars-api/)
+- [Heroku Platform Account Domains API](https://apis.io/collections/heroku/postman-heroku-domains-api/)
+- [Heroku Platform Account Dynos API](https://apis.io/collections/heroku/postman-heroku-dynos-api/)
+- [Heroku Platform Account Formation API](https://apis.io/collections/heroku/postman-heroku-formation-api/)
+- …and 5 more published on APIs.io
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Heroku — jsonschema rules](https://apis.io/rules/heroku/heroku-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Heroku Authentication](https://apis.io/security/heroku/heroku-authentication/)
+- [Heroku Domain Security](https://apis.io/security/heroku/heroku-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Heroku Plans Pricing](https://apis.io/plans/heroku/heroku-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Heroku Rate Limits](https://apis.io/rate-limits/heroku/heroku-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Heroku Finops](https://apis.io/finops/heroku/heroku-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://www.heroku.com/)
-- [Getting Started](https://devcenter.heroku.com/start)
 - [Documentation](https://devcenter.heroku.com/)
-- [Sign Up](https://signup.heroku.com/)
-- [Login](https://id.heroku.com/login)
-- [Status Page](https://status.heroku.com/)
-- [Blog](https://blog.heroku.com/)
-- [Support](https://help.heroku.com/)
+- [Getting started](https://devcenter.heroku.com/start)
 - [Pricing](https://www.heroku.com/pricing)
-- [GitHub Organization](https://github.com/heroku)
-- [Terms of Service](https://www.heroku.com/policy/tos)
-- [Privacy Policy](https://www.heroku.com/policy/privacy)
-- [Features](undefined)
-- [L L Ms Txt](https://heroku.com/llms.txt)
+- [Support](https://help.heroku.com/)
+- [Blog](https://blog.heroku.com/)
+- [Terms of service](https://www.heroku.com/policy/tos)
+- [Privacy policy](https://www.heroku.com/policy/privacy)
+- [GitHub](https://github.com/heroku)
+- [Status](https://status.heroku.com/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 41.9** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 49.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 51.2 |
+| Access clarity | 46.1 |
+
+**Agent readiness 20.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 19.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/heroku/](https://apis.io/providers/heroku/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Heroku: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/heroku/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
